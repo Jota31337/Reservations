@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Reservations</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="perfil">Mi Perfil</string>
+    <string name="informacion">Informacion</string>
+    <string name="editar_perfil">Editar Perfil</string>
+    <string name="ayuda">Ayuda</string>
+    <string name="configuracion">Configuracion</string>
+    <string name="cerrar_session">Cerrar Sesion</string>
+    <string name="opciones">Mas Opciones</string>
+</resources>
