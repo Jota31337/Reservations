@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondo"
+    android:background="@drawable/header"
     android:orientation="vertical"
     tools:context="com.example.damian.reservations.Login"
     tools:layout_editor_absoluteX="8dp"
@@ -14,13 +14,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:weightSum="1">
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/people" />
+            android:layout_width="395dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1.35"
+            app:srcCompat="@drawable/logoy" />
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
@@ -32,7 +35,7 @@
                 android:fontFamily="serif"
                 android:hint="@string/email"
                 android:textColor="@color/colorPrimaryText"
-                android:textSize="16sp" />
+                android:textSize="18sp" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -44,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="serif"
                 android:hint="@string/contrasena"
-                android:textSize="16sp" />
+                android:textSize="18sp" />
 
         </android.support.design.widget.TextInputLayout>
 
@@ -63,15 +66,6 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="90dp"
-                android:background="@drawable/fab_add"
-                android:text="@string/registrar"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="14sp" />
         </LinearLayout>
 
     </LinearLayout>
