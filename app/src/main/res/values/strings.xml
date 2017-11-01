@@ -12,4 +12,8 @@
     <string name="configuracion">Configuracion</string>
     <string name="cerrar_session">Cerrar Sesion</string>
     <string name="opciones">Mas Opciones</string>
+    <string name="email">Email</string>
+    <string name="contrasena">Password</string>
+    <string name="iniciar_sesion">Iniciar Sesión</string>
+    <string name="registrar">Registrar</string>
 </resources>
