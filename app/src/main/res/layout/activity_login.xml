@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fondo"
     android:orientation="vertical"
     tools:context="com.example.damian.reservations.Login"
     tools:layout_editor_absoluteX="8dp"
@@ -30,6 +31,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="serif"
                 android:hint="@string/email"
+                android:textColor="@color/colorPrimaryText"
                 android:textSize="16sp" />
         </android.support.design.widget.TextInputLayout>
 
@@ -56,22 +58,21 @@
             android:textSize="14sp"
             android:textStyle="bold" />
 
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
-            android:layout_marginTop="50dp"
-            app:srcCompat="@drawable/milky_48" />
-
-        <Button
-            android:id="@+id/button2"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/fab_add"
-            android:text="@string/registrar"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="16sp" />
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="90dp"
+                android:background="@drawable/fab_add"
+                android:text="@string/registrar"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="14sp" />
+        </LinearLayout>
 
     </LinearLayout>
 
