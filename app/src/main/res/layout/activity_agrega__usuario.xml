@@ -102,7 +102,7 @@
             android:background="@color/colorPrimaryDark"
             android:fontFamily="serif"
             android:onClick="Continuar_Registro"
-            android:text="@string/continuar"
+            android:text="@string/registrar"
             android:textColor="@color/icons"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -196,7 +196,7 @@
         <Spinner
             android:id="@+id/cbxsexo"
             android:layout_width="match_parent"
-            android:layout_height="35dp" />
+            android:layout_height="40dp" />
 
         <Button
             android:id="@+id/btnregistrar"
@@ -205,8 +205,8 @@
             android:layout_weight="1"
             android:background="@color/colorPrimaryDark"
             android:fontFamily="serif"
-            android:onClick="Ocultar_Liner"
-            android:text="@string/registrar"
+            android:onClick="RegistrarPersona"
+            android:text="@string/continuar"
             android:textColor="@color/icons"
             android:textSize="16sp"
             android:textStyle="bold" />

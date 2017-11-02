@@ -1,5 +1,6 @@
 package com.example.damian.reservations;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -10,8 +11,10 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.LayoutAnimationController;
 import android.view.animation.TranslateAnimation;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -27,7 +30,12 @@ public class Agrega_Usuario extends AppCompatActivity {
     private EditText usuario,contrasena,rcontrasena;
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener authStateListener;
-
+    private Spinner sexo;
+    private ArrayAdapter<String> adapter;
+    private String[] opc;
+    private EditText txtCelular;
+    private EditText txtNombre;
+    private EditText txtApellido,txtnacimiento,txtcorreo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +46,16 @@ public class Agrega_Usuario extends AppCompatActivity {
         usuario = (EditText) findViewById(R.id.txtusuario);
         contrasena = (EditText) findViewById(R.id.txtcontrasena);
         rcontrasena = (EditText) findViewById(R.id.txtrecontrasena);
-        Ocultar_Liner();
+        txtCelular = (EditText)findViewById(R.id.txtcelular);
+        txtNombre = (EditText)findViewById(R.id.txtnombre);
+        txtApellido=(EditText)findViewById(R.id.txtapellidos);
+        txtcorreo=(EditText)findViewById(R.id.txtcorreo);
+        txtnacimiento=(EditText)findViewById(R.id.txtnacimiento);
+        sexo = (Spinner)findViewById(R.id.cbxsexo);
+        opc = res.getStringArray(R.array.sexo);
+        adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,opc);
+        sexo.setAdapter(adapter);
+        Mostrar_Liner();
         firebaseAuth = FirebaseAuth.getInstance();
         authStateListener = new FirebaseAuth.AuthStateListener(){
 
@@ -103,7 +120,9 @@ public void Ocultar_Liner(){
 
                 if(task.isSuccessful()) {
                     Toast.makeText(Agrega_Usuario.this, R.string.cuenta_creada, Toast.LENGTH_LONG).show();
-
+                    Intent i = new Intent(Agrega_Usuario.this,Principal.class);
+                    startActivity(i);
+                
                 }else{
                     String m =task.getException().getMessage();
                    // Toast.makeText(Agrega_Usuario.this, task.getException().getMessage(),Toast.LENGTH_LONG).show();
@@ -125,12 +144,26 @@ public void Ocultar_Liner(){
     }else if (!contrasena.getText().toString().equals(rcontrasena.getText().toString())){
         Mensaje(R.string.contrasena_diferentes);
     }else{
-       RegistrarUsuario(usuario.getText().toString(),contrasena.getText().toString());
-        //Mostrar_Liner();
+        RegistrarUsuario(usuario.getText().toString(),contrasena.getText().toString());
 
     }
 }
+  public void RegistrarPersona(View v) {
+      if (ValidarCampo(txtNombre)) {
+          Mensaje(R.string.errado_nombre);
+      } else if (ValidarCampo(txtApellido)) {
+          Mensaje(R.string.errado_apellidos);
+      }else if (ValidarCampo(txtCelular)) {
+          Mensaje(R.string.errado_celular);
+      }else if (ValidarCampo(txtcorreo)) {
+          Mensaje(R.string.errado_correo);
+      }else if (ValidarCampo(txtnacimiento)) {
+          Mensaje(R.string.errado_nacimiento);
+      }else{
+          Ocultar_Liner();
+      }
 
+  }
 public boolean ValidarCampo(EditText campo){
     if (campo.getText().toString().length()==0){
         campo.requestFocus();
