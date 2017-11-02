@@ -28,7 +28,7 @@ public class Principal extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Principal.this,Login.class);startActivity(i);
+
             }
         });
 
