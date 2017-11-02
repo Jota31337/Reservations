@@ -19,9 +19,10 @@
         android:fontFamily="serif"
         android:text="@string/registra_usuario"
         android:textAlignment="center"
+        android:textAllCaps="false"
         android:textColor="@color/colorPrimary"
         android:textSize="24sp"
-        android:textStyle="bold" />
+        android:textStyle="bold|italic" />
 
     <LinearLayout
         android:id="@+id/laydatospersona"
@@ -29,18 +30,20 @@
         android:layout_height="wrap_content"
         android:background="@drawable/header"
         android:orientation="vertical"
-        android:visibility="visible"
+        android:visibility="gone"
         android:weightSum="1">
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="15dp"
             android:fontFamily="serif"
             android:text="@string/datos_persona"
             android:textColor="@color/colorPrimaryText"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="italic" />
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
@@ -117,7 +120,7 @@
             android:layout_weight="1"
             android:background="@color/colorPrimaryDark"
             android:fontFamily="serif"
-            android:onClick="ocultar_liner"
+            android:onClick="Ocultar_Liner"
             android:text="@string/continuar"
             android:textColor="@color/icons"
             android:textSize="16sp"
@@ -129,6 +132,7 @@
         android:id="@+id/laydatosusuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/header"
         android:orientation="vertical"
         android:visibility="gone">
 
@@ -140,7 +144,7 @@
             android:text="@string/datos_usuario"
             android:textColor="@color/cardview_dark_background"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="italic" />
 
         <ImageView
             android:id="@+id/imageView4"
@@ -200,7 +204,7 @@
             android:layout_weight="1"
             android:background="@color/colorPrimaryDark"
             android:fontFamily="serif"
-            android:onClick="mostrar_liner"
+            android:onClick="Mostrar_Liner"
             android:text="@string/registrar"
             android:textColor="@color/icons"
             android:textSize="16sp"

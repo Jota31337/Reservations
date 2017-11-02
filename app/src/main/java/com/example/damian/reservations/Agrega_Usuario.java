@@ -22,63 +22,45 @@ public class Agrega_Usuario extends AppCompatActivity {
         res=this.getResources();
         LinerPersonas = (LinearLayout)findViewById(R.id.laydatospersona);
         LinerUsuarios = (LinearLayout)findViewById(R.id.laydatosusuario);
+        Mostrar_Liner();
     }
 
-
-    public void mostrar_liner(View button)
+public void Mostrar_Liner(){
+    if (LinerUsuarios.getVisibility() == View.VISIBLE)
     {
-        if (LinerUsuarios.getVisibility() == View.VISIBLE)
-        {
-            animar(false,LinerUsuarios);
+        Metodos.animar(false,LinerUsuarios);
 
-        }
-        if (LinerPersonas.getVisibility() == View.GONE)
-        {
-            animar(true,LinerPersonas);
-
-        }
     }
-
-    public void ocultar_liner(View button)
+    if (LinerPersonas.getVisibility() == View.GONE)
     {
-        if (LinerPersonas.getVisibility() == View.VISIBLE)
-        {
-            animar(false,LinerPersonas);
-
-        }
-        if (LinerUsuarios.getVisibility() == View.GONE)
-        {
-            animar(true,LinerUsuarios);
-
-        }
+        Metodos.animar(true,LinerPersonas);
 
     }
-
-
-    private void animar(boolean mostrar,LinearLayout layoutAnimado)
+}
+public void Ocultar_Liner(){
+    if (LinerPersonas.getVisibility() == View.VISIBLE)
     {
-        AnimationSet set = new AnimationSet(true);
-        Animation animation = null;
-        if (mostrar)
-        {
-            //desde la esquina inferior derecha a la superior izquierda
-            animation = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 1.0f, Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF, 1.0f, Animation.RELATIVE_TO_SELF, 0.0f);
-        }
-        else
-        {    //desde la esquina superior izquierda a la esquina inferior derecha
-            animation = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF, 1.0f, Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF, 1.0f);
-        }
-        //duración en milisegundos
-        animation.setDuration(500);
-        set.addAnimation(animation);
-        LayoutAnimationController controller = new LayoutAnimationController(set, 0.25f);
+        Metodos.animar(false,LinerPersonas);
 
-        layoutAnimado.setLayoutAnimation(controller);
-        layoutAnimado.startAnimation(animation);
-        if (mostrar){
-            layoutAnimado.setVisibility(View.VISIBLE);
-        }else{
-            layoutAnimado.setVisibility(View.GONE);
-        }
     }
+    if (LinerUsuarios.getVisibility() == View.GONE)
+    {
+        Metodos.animar(true,LinerUsuarios);
+
+    }
+}
+
+    public void Mostrar_Liner(View button)
+    {
+        Mostrar_Liner();
+    }
+
+    public void Ocultar_Liner(View button)
+    {
+        Ocultar_Liner();
+
+    }
+
+
+
 }

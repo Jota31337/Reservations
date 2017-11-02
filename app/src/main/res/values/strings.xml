@@ -25,6 +25,6 @@
     <string name="usuario">Usuario</string>
     <string name="re_contrasena">Repetir Contraseña</string>
     <string name="continuar">Continuar</string>
-    <string name="datos_persona">Datos Persona</string>
+    <string name="datos_persona">Datos de la Persona</string>
     <string name="datos_usuario">Datos Usuario</string>
 </resources>
