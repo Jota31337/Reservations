@@ -25,8 +25,19 @@
     <string name="usuario">Usuario</string>
     <string name="re_contrasena">Repetir Contraseña</string>
     <string name="continuar">Continuar</string>
+    <string name="email_errado">Formato de email errado, formato valido reservation@gmail.com</string>
+    <string name="contrasena_errado">la Contraseña  es muy corta, debe ser mayor a 6 caracteres</string>
     <string name="datos_persona">Datos de la Persona</string>
+    <string name="cuenta_exite">El Email ya esta registrado en el sistema</string>
     <string name="datos_usuario">Datos Usuario</string>
     <string name="favoritos">Favoritos</string>
     <string name="reservas">Reservas</string>
+    <string name="registro_exito">Cuenta Registrada Con exito</string>
+    <string name="contrasena_diferentes">Las Contraseñas No Cainciden</string>
+    <string name="ingrese_usuario">Ingrese Usuario</string>
+    <string name="terminar">Terminar</string>
+    <string name="ingrese_contrasena">Ingrese Contraseña</string>
+    <string name="cuenta_creada">Cuenta Creada Con Exito</string>
+    <string name="ingrese_re_contrasena">El campo Repetir Contraseña No puede estar vacio</string>
+    <string name="email_">Email</string>
 </resources>

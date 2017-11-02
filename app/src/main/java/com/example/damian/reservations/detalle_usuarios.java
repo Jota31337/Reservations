@@ -7,6 +7,7 @@ package com.example.damian.reservations;
 public class detalle_usuarios {
     private  String id;
     private String id_usuarios;
+    private int tipo;
     private String nombres;
     private String apellidos;
     private String celular;
@@ -14,7 +15,7 @@ public class detalle_usuarios {
     private String fecha_nacimiento;
     private int sexo;
 
-    public detalle_usuarios(String id, String id_usuarios, String nombres, String apellidos, String celular, String correo, String fecha_nacimiento, int sexo) {
+    public detalle_usuarios(String id, String id_usuarios, String nombres, String apellidos, String celular, String correo, String fecha_nacimiento, int sexo,int tipo) {
         this.id = id;
         this.id_usuarios = id_usuarios;
         this.nombres = nombres;
@@ -23,10 +24,19 @@ public class detalle_usuarios {
         this.correo = correo;
         this.fecha_nacimiento = fecha_nacimiento;
         this.sexo = sexo;
+        this.tipo=tipo;
     }
 
     public String getId() {
         return id;
+    }
+
+    public int getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(int tipo) {
+        this.tipo = tipo;
     }
 
     public void setId(String id) {
