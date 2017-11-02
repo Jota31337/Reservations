@@ -27,4 +27,6 @@
     <string name="continuar">Continuar</string>
     <string name="datos_persona">Datos de la Persona</string>
     <string name="datos_usuario">Datos Usuario</string>
+    <string name="favoritos">Favoritos</string>
+    <string name="reservas">Reservas</string>
 </resources>
