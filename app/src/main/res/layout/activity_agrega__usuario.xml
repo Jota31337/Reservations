@@ -163,7 +163,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="serif"
-                android:hint="@string/celular" />
+                android:hint="@string/celular"
+                android:inputType="number" />
 
         </android.support.design.widget.TextInputLayout>
 

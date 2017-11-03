@@ -12,7 +12,7 @@
             android:title="@string/ayuda" />
         <item
             android:id="@+id/nav_slideshow"
-            android:icon="@drawable/_info"
+            android:icon="@drawable/ic_error_outline_black_48dp"
             android:title="@string/informacion" />
         <item
             android:id="@+id/nav_manage"

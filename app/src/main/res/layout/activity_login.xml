@@ -32,6 +32,7 @@
             android:layout_height="match_parent">
 
             <EditText
+                android:id="@+id/txtemaillogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="serif"
@@ -46,6 +47,7 @@
             android:layout_height="match_parent">
 
             <EditText
+                android:id="@+id/txtcontrasenalogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="serif"

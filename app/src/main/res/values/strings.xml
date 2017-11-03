@@ -15,13 +15,16 @@
     <string name="email">Email</string>
     <string name="contrasena">Password</string>
     <string name="iniciar_sesion">Iniciar Sesión</string>
+    <string name="bienvenido">Bienvenido a Reservations</string>
     <string name="registrar">Registrar</string>
     <string name="registra_usuario">Registro de Usuarios</string>
     <string name="nombres">Nombres</string>
     <string name="apellidos">Apellidos</string>
+    <string name="error_logear1">No hay Ningun Registro del Usuario Ingresado</string>
+    <string name="error_logear2">La contraseña no es válida o el usuario no tiene una contraseña.</string>
     <string name="correo">Correo</string>
     <string name="celular">Celular</string>
-    <string name="fecha_nacimiento">Fecha Nacimiento</string>
+    <string name="fecha_nacimiento">Fecha Nacimiento (Dia/Mes/Año)</string>
     <string name="usuario">Usuario</string>
     <string name="m">Maculino</string>
     <string name="f">Femenino</string>

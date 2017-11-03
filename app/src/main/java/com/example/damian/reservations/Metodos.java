@@ -5,7 +5,9 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.LayoutAnimationController;
 import android.view.animation.TranslateAnimation;
+import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 /**
  * Created by DAMIAN on 1/11/2017.
@@ -39,4 +41,38 @@ public class Metodos {
             layoutAnimado.setVisibility(View.GONE);
         }
     }
+    public static boolean ValidarCampo(EditText campo){
+        if (campo.getText().toString().length()==0){
+            campo.requestFocus();
+            return true;
+        }
+        return false;
+    }
+    public  static Integer  TraducirMensaje(String mensaje){
+        if (mensaje.equalsIgnoreCase("The email address is badly formatted.")){
+            //Toast.makeText(Agrega_Usuario.this, R.string.email_errado, Toast.LENGTH_LONG).show();
+            return R.string.email_errado;
+        }else if ((mensaje.equalsIgnoreCase("The given password is invalid. [ Password should be at least 6 characters ]"))){
+            //Toast.makeText(Agrega_Usuario.this, R.string.contrasena_errado, Toast.LENGTH_LONG).show();
+            return R.string.contrasena_errado;
+        }else if ((mensaje.equalsIgnoreCase("An internal error has occurred. [ WEAK_PASSWORD  ]"))){
+            //Toast.makeText(Agrega_Usuario.this, R.string.contrasena_errado, Toast.LENGTH_LONG).show();
+            return R.string.contrasena_errado;
+        }else if ((mensaje.equalsIgnoreCase("The email address is already in use by another account."))){
+            //  Toast.makeText(Agrega_Usuario.this, R.string.cuenta_exite, Toast.LENGTH_LONG).show();
+            return R.string.cuenta_exite;
+        }else if ((mensaje.equalsIgnoreCase("There is no user record corresponding to this identifier. The user may have been deleted."))){
+            //  Toast.makeText(Agrega_Usuario.this, R.string.cuenta_exite, Toast.LENGTH_LONG).show();
+            return R.string.error_logear1;
+        }else if ((mensaje.equalsIgnoreCase("The password is invalid or the user does not have a password."))){
+            //  Toast.makeText(Agrega_Usuario.this, R.string.cuenta_exite, Toast.LENGTH_LONG).show();
+            return R.string.error_logear2;
+        }else{
+            //Toast.makeText(Agrega_Usuario.this, mensaje, Toast.LENGTH_LONG).show();
+            return -1;
+        }
+
+    }
+
+
 }

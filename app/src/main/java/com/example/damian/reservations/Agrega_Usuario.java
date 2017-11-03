@@ -119,14 +119,16 @@ public void Ocultar_Liner(){
             public void onComplete(@NonNull Task<AuthResult> task) {
 
                 if(task.isSuccessful()) {
-                    Toast.makeText(Agrega_Usuario.this, R.string.cuenta_creada, Toast.LENGTH_LONG).show();
-                    Intent i = new Intent(Agrega_Usuario.this,Principal.class);
+                    Intent i = new Intent(Agrega_Usuario.this,Login.class);
                     startActivity(i);
+                    Toast.makeText(Agrega_Usuario.this, R.string.cuenta_creada, Toast.LENGTH_LONG).show();
+
                 
                 }else{
                     String m =task.getException().getMessage();
-                   // Toast.makeText(Agrega_Usuario.this, task.getException().getMessage(),Toast.LENGTH_LONG).show();
-                     TraducirMensaje(m);
+                 int res=  Metodos.TraducirMensaje(m);
+                    if (res>0)Toast.makeText(Agrega_Usuario.this, res, Toast.LENGTH_LONG).show();
+                    else Toast.makeText(Agrega_Usuario.this, m, Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -135,11 +137,11 @@ public void Ocultar_Liner(){
         RegistrarUsuario(usuario.getText().toString(),contrasena.getText().toString());
     }
      public  void Continuar_Registro(View v){
-    if (ValidarCampo(usuario)){
+    if (Metodos.ValidarCampo(usuario)){
         Mensaje(R.string.ingrese_usuario);
-    }else if (ValidarCampo(contrasena)){
+    }else if (Metodos.ValidarCampo(contrasena)){
         Mensaje(R.string.ingrese_contrasena);
-    }else if (ValidarCampo(rcontrasena)){
+    }else if (Metodos.ValidarCampo(rcontrasena)){
         Mensaje(R.string.ingrese_re_contrasena);
     }else if (!contrasena.getText().toString().equals(rcontrasena.getText().toString())){
         Mensaje(R.string.contrasena_diferentes);
@@ -149,41 +151,25 @@ public void Ocultar_Liner(){
     }
 }
   public void RegistrarPersona(View v) {
-      if (ValidarCampo(txtNombre)) {
+      if (Metodos.ValidarCampo(txtNombre)) {
           Mensaje(R.string.errado_nombre);
-      } else if (ValidarCampo(txtApellido)) {
+      } else if (Metodos.ValidarCampo(txtApellido)) {
           Mensaje(R.string.errado_apellidos);
-      }else if (ValidarCampo(txtCelular)) {
+      }else if (Metodos.ValidarCampo(txtCelular)) {
           Mensaje(R.string.errado_celular);
-      }else if (ValidarCampo(txtcorreo)) {
+      }else if (Metodos.ValidarCampo(txtcorreo)) {
           Mensaje(R.string.errado_correo);
-      }else if (ValidarCampo(txtnacimiento)) {
+      }else if (Metodos.ValidarCampo(txtnacimiento)) {
           Mensaje(R.string.errado_nacimiento);
       }else{
           Ocultar_Liner();
       }
 
   }
-public boolean ValidarCampo(EditText campo){
-    if (campo.getText().toString().length()==0){
-        campo.requestFocus();
-return true;
-    }
-    return false;
-}
+
 
 public void Mensaje(int mensaje){
     Toast.makeText(Agrega_Usuario.this, mensaje, Toast.LENGTH_LONG).show();
 }
-public void TraducirMensaje(String mensaje){
-if (mensaje.equalsIgnoreCase("The email address is badly formatted.")){
-    Toast.makeText(Agrega_Usuario.this, R.string.email_errado, Toast.LENGTH_LONG).show();
-}else if ((mensaje.equalsIgnoreCase("The given password is invalid. [ Password should be at least 6 characters ]"))){
-    Toast.makeText(Agrega_Usuario.this, R.string.contrasena_errado, Toast.LENGTH_LONG).show();
-}else if ((mensaje.equalsIgnoreCase("The email address is already in use by another account."))){
-    Toast.makeText(Agrega_Usuario.this, R.string.cuenta_exite, Toast.LENGTH_LONG).show();
-}else{
-    Toast.makeText(Agrega_Usuario.this, mensaje, Toast.LENGTH_LONG).show();
-}
-}
+
 }
