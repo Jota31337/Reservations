@@ -36,6 +36,7 @@ public class Agrega_Usuario extends AppCompatActivity {
     private EditText txtCelular;
     private EditText txtNombre;
     private EditText txtApellido,txtnacimiento,txtcorreo;
+   String uid = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -113,17 +114,23 @@ public void Ocultar_Liner(){
         firebaseAuth.removeAuthStateListener(authStateListener);
     }
 
-    public void RegistrarUsuario(String email, String password){
+    public void RegistrarUsuario(final String email, String password){
         firebaseAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
 
                 if(task.isSuccessful()) {
-                    Intent i = new Intent(Agrega_Usuario.this,Login.class);
+                    Toast.makeText(Agrega_Usuario.this, R.string.cuenta_creada, Toast.LENGTH_LONG).show();
+                    /*Intent i = new Intent(Agrega_Usuario.this,Login.class);
                     startActivity(i);
                     Toast.makeText(Agrega_Usuario.this, R.string.cuenta_creada, Toast.LENGTH_LONG).show();
+*/
+                    detalle_usuarios d = new detalle_usuarios(txtNombre.getText().toString(), txtApellido.getText().toString(), txtCelular.getText().toString(), txtcorreo.getText().toString(), txtnacimiento.getText().toString(),sexo.getSelectedItemPosition());
+                    d.Guardar();
+                    uid=d.getId();
+                    signIn(usuario.getText().toString(),contrasena.getText().toString());
+                    Mensaje(R.string.cuenta_creada);
 
-                
                 }else{
                     String m =task.getException().getMessage();
                  int res=  Metodos.TraducirMensaje(m);
@@ -167,6 +174,30 @@ public void Ocultar_Liner(){
 
   }
 
+    public void signIn(String email, String password){
+        firebaseAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()) {
+
+                    Intent i = new Intent(Agrega_Usuario.this,Principal.class);
+                    Bundle b = new Bundle();
+                    b.putString("id",uid);
+                    i.putExtra("datos",b);
+                    startActivity(i);
+                    finish();
+                    Toast.makeText(Agrega_Usuario.this, R.string.bienvenido, Toast.LENGTH_LONG).show();
+                }else{
+                    String m =task.getException().getMessage();
+
+                    int res=  Metodos.TraducirMensaje(m);
+                    if (res>0)Toast.makeText(Agrega_Usuario.this, res, Toast.LENGTH_LONG).show();
+                    else Toast.makeText(Agrega_Usuario.this, m, Toast.LENGTH_LONG).show();
+
+                }
+            }
+        });
+    }
 
 public void Mensaje(int mensaje){
     Toast.makeText(Agrega_Usuario.this, mensaje, Toast.LENGTH_LONG).show();

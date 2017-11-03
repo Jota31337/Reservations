@@ -42,7 +42,7 @@
     <string name="ingrese_usuario">Ingrese Usuario</string>
     <string name="terminar">Terminar</string>
     <string name="ingrese_contrasena">Ingrese Contraseña</string>
-    <string name="cuenta_creada">Cuenta Creada Con Exito</string>
+    <string name="cuenta_creada">Cuenta Creada Con Exito .!!!</string>
     <string name="ingrese_re_contrasena">El campo Repetir Contraseña No puede estar vacio</string>
     <string name="email_">Email</string>
     <string name="errado_nombre">Ingrese Nombre</string>

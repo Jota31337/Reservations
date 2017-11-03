@@ -3,9 +3,12 @@ package com.example.damian.reservations;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -15,11 +18,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class Principal extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
   private  FloatingActionButton floatingActionButton;
     private Resources res;
+    private FirebaseAuth.AuthStateListener mAuthListener;
+    private FirebaseAuth mAuth;
+    private Bundle bundle;
+    private Intent i;
+private String uid;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +40,8 @@ public class Principal extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         res = this.getResources();
+        i = getIntent();
+        CompletarRegistroPersonaID_USUARIO();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -36,6 +51,8 @@ public class Principal extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
     }
 
     @Override
@@ -90,4 +107,35 @@ public class Principal extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    public void CompletarRegistroPersonaID_USUARIO(){
+        bundle = i.getBundleExtra("datos");
+        uid = bundle.getString("id");
+        if (uid.length()!=0) {
+
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            if (user != null) {
+                // Name, email address, and profile photo Url
+                // String name = user.getDisplayName();
+                //String email = user.getEmail();
+                //Uri photoUrl = user.getPhotoUrl();
+
+                // The user's ID, unique to the Firebase project. Do NOT use this value to
+                // authenticate with your backend server, if you have one. Use
+                // FirebaseUser.getToken() instead.
+
+
+                String uid_usuario = user.getUid();
+                Model_usuarios.ModificarLlaveID(uid, uid_usuario);
+
+
+            }
+        }
+    }
+    public void Mensaje(int mensaje){
+        Toast.makeText(Principal.this, mensaje, Toast.LENGTH_LONG).show();
+    }
+
+
+
 }

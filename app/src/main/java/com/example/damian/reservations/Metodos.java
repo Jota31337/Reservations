@@ -9,6 +9,9 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 /**
  * Created by DAMIAN on 1/11/2017.
  */
@@ -73,6 +76,22 @@ public class Metodos {
         }
 
     }
+
+   /* public static void CrearModeloTablas() {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+        DatabaseReference DetallePersona = database.getReference("DetallePersona");
+        DetallePersona.setValue("");
+
+        DatabaseReference Favoritos = database.getReference("Favoritos");
+        Favoritos.setValue("");
+
+        DatabaseReference Canchas = database.getReference("Canchas");
+        Canchas.setValue("");
+
+        DatabaseReference Establecimientos = database.getReference("Establecimientos");
+        Establecimientos.setValue("");
+    }*/
 
 
 }

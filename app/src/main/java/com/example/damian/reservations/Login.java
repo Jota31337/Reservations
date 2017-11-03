@@ -56,7 +56,11 @@ public class Login extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()) {
-                    Intent i = new Intent(Login.this,Principal.class);startActivity(i);
+                    Intent i = new Intent(Login.this,Principal.class);
+                    Bundle b = new Bundle();
+                    b.putString("id","");
+                    i.putExtra("datos",b);
+                    startActivity(i);
                     finish();
                     Toast.makeText(Login.this, R.string.bienvenido, Toast.LENGTH_LONG).show();
                 }else{
@@ -87,5 +91,18 @@ public class Login extends AppCompatActivity {
     }
     public void Mensaje(int mensaje){
         Toast.makeText(Login.this, mensaje, Toast.LENGTH_LONG).show();
+    }
+    @Override
+    public void onStart() {
+        super.onStart();
+        firebaseAuth.addAuthStateListener(authStateListener);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (authStateListener != null) {
+            firebaseAuth.removeAuthStateListener(authStateListener);
+        }
     }
 }

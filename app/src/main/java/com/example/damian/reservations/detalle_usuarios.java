@@ -15,16 +15,17 @@ public class detalle_usuarios {
     private String fecha_nacimiento;
     private int sexo;
 
-    public detalle_usuarios(String id, String id_usuarios, String nombres, String apellidos, String celular, String correo, String fecha_nacimiento, int sexo,int tipo) {
-        this.id = id;
-        this.id_usuarios = id_usuarios;
+
+    public detalle_usuarios(String nombres, String apellidos, String celular, String correo, String fecha_nacimiento, int sexo) {
+        this.id = Model_usuarios.GenereLlave();
+        this.id_usuarios = "";
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.celular = celular;
         this.correo = correo;
         this.fecha_nacimiento = fecha_nacimiento;
         this.sexo = sexo;
-        this.tipo=tipo;
+        this.tipo=0;
     }
 
     public String getId() {
@@ -97,5 +98,9 @@ public class detalle_usuarios {
 
     public void setSexo(int sexo) {
         this.sexo = sexo;
+    }
+
+    public void Guardar(){
+        Model_usuarios.GuardarDetalleUsuario(this);
     }
 }
