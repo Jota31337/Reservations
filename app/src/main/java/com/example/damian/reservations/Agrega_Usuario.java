@@ -125,7 +125,7 @@ public void Ocultar_Liner(){
                     startActivity(i);
                     Toast.makeText(Agrega_Usuario.this, R.string.cuenta_creada, Toast.LENGTH_LONG).show();
 */
-                    detalle_usuarios d = new detalle_usuarios(txtNombre.getText().toString(), txtApellido.getText().toString(), txtCelular.getText().toString(), txtcorreo.getText().toString(), txtnacimiento.getText().toString(),sexo.getSelectedItemPosition());
+                    detalle_usuarios d = new detalle_usuarios(txtNombre.getText().toString(), txtApellido.getText().toString(), txtCelular.getText().toString(), txtcorreo.getText().toString(), txtnacimiento.getText().toString(),sexo.getSelectedItemPosition(),"0",0);
                     d.Guardar();
                     uid=d.getId();
                     signIn(usuario.getText().toString(),contrasena.getText().toString());

@@ -18,20 +18,34 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class Principal extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-  private  FloatingActionButton floatingActionButton;
+    private  FloatingActionButton floatingActionButton;
     private Resources res;
+
     private FirebaseAuth.AuthStateListener mAuthListener;
     private FirebaseAuth mAuth;
     private Bundle bundle;
     private Intent i;
-private String uid;
+    private String uid_usuario="";
+    private String uid;
+    private String email="";
+    private TextView nombre_sesion,email_sesion;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,12 +54,16 @@ private String uid;
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         res = this.getResources();
+        nombre_sesion = (TextView) findViewById(R.id.txtnombre_sesion);
+        email_sesion = (TextView) findViewById(R.id.txtcorreo_sesion);
         i = getIntent();
         CompletarRegistroPersonaID_USUARIO();
 
+
+       // mPostReference.addValueEventListener(postListener);
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
@@ -125,7 +143,7 @@ private String uid;
                 // FirebaseUser.getToken() instead.
 
 
-                String uid_usuario = user.getUid();
+                 uid_usuario = user.getUid();
                 Model_usuarios.ModificarLlaveID(uid, uid_usuario);
 
 
@@ -136,6 +154,44 @@ private String uid;
         Toast.makeText(Principal.this, mensaje, Toast.LENGTH_LONG).show();
     }
 
+    public  void Traer(View v){
+        boolean en_session= TraerId_sesion();
+        System.out.println(en_session+ "");
+        if(en_session) {
+
+            Model_usuarios.TraerInfo(uid_usuario);
+            detalle_usuarios detalle = Model_usuarios.ObtenerDetallerPersona();
+            System.out.println(detalle + " valor trae");
+            if (detalle!=null){
+                System.out.println(detalle.getNombres() + " valor");
+              //  nombre_sesion.setText(detalle.getNombres() + " " + detalle.getApellidos());
+                //email_sesion.setText(email);
+            }
+        }else{
+            System.out.println("error en sesion");
+        }
+    }
+    public boolean TraerId_sesion(){
+
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            if (user != null) {
+                // Name, email address, and profile photo Url
+                // String name = user.getDisplayName();
+                //String email = user.getEmail();
+                //Uri photoUrl = user.getPhotoUrl();
+
+                // The user's ID, unique to the Firebase project. Do NOT use this value to
+                // authenticate with your backend server, if you have one. Use
+                // FirebaseUser.getToken() instead.
+
+                  email = user.getEmail();
+                  uid_usuario = user.getUid();
+
+return  true;
+
+            }
+        return false;
+    }
 
 
 }
