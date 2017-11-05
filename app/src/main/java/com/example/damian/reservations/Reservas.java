@@ -10,16 +10,26 @@ import java.util.Date;
 public class Reservas {
     private String id;
     private String id_cancha;
+    private String id_usuario;
     private Date fecha;
     private Time hora;
     private boolean estado;
 
-    public Reservas(String id, String id_cancha, Date fecha, Time hora, boolean estado) {
+    public Reservas(String id, String id_cancha, Date fecha, Time hora, boolean estado,String id_usuario) {
         this.id = id;
         this.id_cancha = id_cancha;
         this.fecha = fecha;
         this.hora = hora;
         this.estado = estado;
+        this.id_usuario=id_usuario;
+    }
+
+    public String getId_usuario() {
+        return id_usuario;
+    }
+
+    public void setId_usuario(String id_usuario) {
+        this.id_usuario = id_usuario;
     }
 
     public String getId() {

@@ -55,7 +55,7 @@
             android:layout_weight="0.11"
             android:fontFamily="serif"
 
-            android:text="Damain9530007@gmail.com"
+            android:text="Damian9530@gmail.com"
             android:textAlignment="center"
             android:textColor="@android:color/background_dark"
             android:textSize="12sp"

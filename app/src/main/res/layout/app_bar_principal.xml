@@ -50,7 +50,6 @@
             android:id="@+id/menu_favoritos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="Traer"
             android:src="@android:drawable/btn_star"
             fab:fab_label=""
             fab:fab_size="mini" />

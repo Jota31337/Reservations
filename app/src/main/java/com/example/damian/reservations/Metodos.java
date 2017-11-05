@@ -91,7 +91,10 @@ public class Metodos {
 
         DatabaseReference Establecimientos = database.getReference("Establecimientos");
         Establecimientos.setValue("");
-    }*/
 
+        DatabaseReference Reservas = database.getReference("Reservas");
+        Reservas.setValue("");
+    }
 
+*/
 }

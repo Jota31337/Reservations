@@ -7,14 +7,24 @@ package com.example.damian.reservations;
 public class Canchas {
     private String id;
     private String id_establecimiento;
+    private String id_foto;
     private int NumCancha;
     private int tamano;
 
-    public Canchas(String id, String id_establecimiento, int numCancha, int tamano) {
+    public Canchas(String id, String id_establecimiento, int numCancha, int tamano,String foto) {
         this.id = id;
         this.id_establecimiento = id_establecimiento;
         NumCancha = numCancha;
         this.tamano = tamano;
+        this.id_foto=foto;
+    }
+
+    public String getId_foto() {
+        return id_foto;
+    }
+
+    public void setId_foto(String id_foto) {
+        this.id_foto = id_foto;
     }
 
     public String getId() {

@@ -45,7 +45,7 @@ public class Principal extends AppCompatActivity
     private String email="";
     private TextView nombre_sesion,email_sesion;
 
-
+    detalle_usuarios detalle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,14 +54,12 @@ public class Principal extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         res = this.getResources();
-        nombre_sesion = (TextView) findViewById(R.id.txtnombre_sesion);
-        email_sesion = (TextView) findViewById(R.id.txtcorreo_sesion);
+       // nombre_sesion = (TextView) findViewById(R.id.txtnombre_sesion);
+        //email_sesion = (TextView) findViewById(R.id.txtcorreo_sesion);
+       // nombre_sesion.setText("damian torres");
         i = getIntent();
         CompletarRegistroPersonaID_USUARIO();
-
-
-       // mPostReference.addValueEventListener(postListener);
-
+        Traer();
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
@@ -153,20 +151,23 @@ public class Principal extends AppCompatActivity
     public void Mensaje(int mensaje){
         Toast.makeText(Principal.this, mensaje, Toast.LENGTH_LONG).show();
     }
-
-    public  void Traer(View v){
+public void  Mostrar(View v){
+    detalle = Model_usuarios.ObtenerDetallerPersona();
+    System.out.println(detalle + " valor trae");
+    if (detalle!=null){
+        System.out.println(detalle.getNombres()+ detalle.getApellidos() + " valor nombre");
+        System.out.println(email + " valor email");
+       // nombre_sesion.setText(detalle.getNombres() + " " + detalle.getApellidos());
+        //email_sesion.setText(email);
+    }
+}
+    public  void Traer(){
         boolean en_session= TraerId_sesion();
         System.out.println(en_session+ "");
         if(en_session) {
 
             Model_usuarios.TraerInfo(uid_usuario);
-            detalle_usuarios detalle = Model_usuarios.ObtenerDetallerPersona();
-            System.out.println(detalle + " valor trae");
-            if (detalle!=null){
-                System.out.println(detalle.getNombres() + " valor");
-              //  nombre_sesion.setText(detalle.getNombres() + " " + detalle.getApellidos());
-                //email_sesion.setText(email);
-            }
+
         }else{
             System.out.println("error en sesion");
         }

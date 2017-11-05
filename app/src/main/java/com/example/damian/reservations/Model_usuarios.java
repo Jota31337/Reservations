@@ -16,20 +16,18 @@ import java.util.ArrayList;
 public class Model_usuarios {
     static FirebaseDatabase  database = FirebaseDatabase.getInstance();
     static DatabaseReference  tabla = database.getReference("DetallePersona");
-    static ArrayList<detalle_usuarios> detalle = new ArrayList<detalle_usuarios>();
+    //static ArrayList<detalle_usuarios> detalle = new ArrayList<detalle_usuarios>();
 static detalle_usuarios detalle_persona ;
     public Model_usuarios() {
     }
 
     public static detalle_usuarios ObtenerDetallerPersona(){
-        System.out.println(detalle_persona + "valor llamado");
-        System.out.println(detalle.size() + " valor seiz");
+
         return detalle_persona;
     }
 
     public  static void GuardarDetalleUsuario(detalle_usuarios detalle) {
         detalle.setId(tabla.push().getKey());
-    //    databaseReference.child(db).child(p.getId()).setValue(p);
         tabla.child(detalle.getId()).setValue(detalle);
 
 
@@ -52,7 +50,7 @@ public static void TraerInfo(final String id_usuario){
                     detalle_usuarios user = snapshot.getValue(detalle_usuarios.class);
                  if (user.getId_usuarios().toString().equals(id_usuario.toString())){
                     detalle_persona =user;
-                     detalle.add(user);
+                    // detalle.add(user);
                      System.out.println("encontro valor");
                      System.out.println(detalle_persona.getNombres() +"valor");
                   }
