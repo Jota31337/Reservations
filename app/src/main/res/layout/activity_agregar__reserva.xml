@@ -7,63 +7,142 @@
     android:layout_height="match_parent"
     android:background="@drawable/header"
     android:orientation="vertical"
+    android:visibility="visible"
+    android:weightSum="1"
     tools:context="com.example.damian.reservations.Agregar_Reserva"
     tools:layout_editor_absoluteX="8dp"
-    tools:layout_editor_absoluteY="8dp"
-    android:weightSum="1">
+    tools:layout_editor_absoluteY="8dp">
 
     <LinearLayout
+        android:id="@+id/layinicial"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingBottom="10dp"
-        android:paddingLeft="80dp"
-        android:paddingTop="10dp">
+        android:orientation="vertical"
+        android:visibility="visible">
 
-        <ImageView
-            android:id="@+id/imageView6"
-            android:layout_width="34dp"
-            android:layout_height="32dp"
-            app:srcCompat="@drawable/refresh" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.29"
+            android:orientation="horizontal"
+            android:paddingBottom="10dp"
+            android:paddingLeft="80dp"
+            android:paddingTop="10dp">
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="202dp"
-            android:layout_height="wrap_content"
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="34dp"
+                android:layout_height="32dp"
+                app:srcCompat="@drawable/refresh" />
+
+            <TextView
+
+                android:layout_width="202dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="serif"
+                android:text="@string/nueva_reserva"
+
+                android:textAllCaps="false"
+                android:textColor="@color/colorPrimary"
+                android:textSize="24sp" />
+
+        </LinearLayout>
+
+        <Spinner
+            android:id="@+id/cbxestablecimientos"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
             android:fontFamily="serif"
-            android:text="@string/nueva_reserva"
-            android:textAlignment="viewStart"
-            android:textAllCaps="false"
-            android:textColor="@color/colorPrimary"
-            android:textSize="24sp" />
+            android:textSize="18sp"
+            android:visibility="visible"
+           />
+
+        <Spinner
+            android:id="@+id/cbxcanchas"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:background="@color/cardview_shadow_end_color" />
+
+        <CalendarView
+            android:id="@+id/txtcalendar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.29" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.29"
+            android:background="@color/colorPrimary"
+            android:fontFamily="serif"
+            android:onClick="Continuar"
+            android:text="@string/continuar"
+            android:textColor="@color/cardview_light_background"
+            android:textSize="14sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
-    <Spinner
-        android:id="@+id/cbxestablecimientos"
+    <LinearLayout
+        android:id="@+id/laylista"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.29"
-        android:visibility="visible"
-        android:fontFamily="serif"
-        android:textSize="18sp"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
 
-    <CalendarView
-        android:id="@+id/calendarView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:fontFamily="serif"
-        android:onClick="CargarEstablecimientos"
-        android:text="@string/continuar"
-        android:textColor="@color/cardview_light_background"
-        android:textSize="14sp"
-        android:textStyle="bold" />
+        <TableLayout
+            android:id="@+id/tablalista"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:stretchColumns="*">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+
+                    android:text="@string/hora"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimaryText"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+
+                    android:text="@string/estado"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimaryText"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+
+                    android:text="@string/opcion"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimaryText"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+            </TableRow>
+        </TableLayout>
+
+
+    </LinearLayout>
 
 </LinearLayout>
 

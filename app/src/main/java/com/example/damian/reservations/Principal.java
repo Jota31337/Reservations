@@ -63,6 +63,7 @@ public class Principal extends AppCompatActivity
         CompletarRegistroPersonaID_USUARIO();
         Traer();
         Model_Estableciminetos.CargarEstablecimientos();
+        Model_Canchas.CargarCanchas();
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);

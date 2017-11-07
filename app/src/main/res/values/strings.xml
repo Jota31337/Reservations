@@ -8,6 +8,7 @@
     <string name="perfil">Mi Perfil</string>
     <string name="informacion">Informacion</string>
     <string name="editar_perfil">Editar Perfil</string>
+    <string name="sin_canchas">El establecimiento no tiene Canchas Asociadas</string>
     <string name="ayuda">Ayuda</string>
     <string name="configuracion">Configuracion</string>
     <string name="cerrar_session">Cerrar Sesion</string>
@@ -52,6 +53,9 @@
     <string name="errado_celular">Ingrese Celular</string>
     <string name="nueva_reserva">Agregar Reserva</string>
     <string name="establecimiento">Establecimiento</string>
+    <string name="hora">Hora</string>
+    <string name="estado">Estado</string>
+    <string name="opcion">Opcion</string>
 
     <string-array name="sexo">
         <item>@string/m</item>

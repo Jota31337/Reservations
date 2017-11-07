@@ -11,11 +11,11 @@ public class Reservas {
     private String id;
     private String id_cancha;
     private String id_usuario;
-    private Date fecha;
+    private String fecha;
     private Time hora;
     private boolean estado;
 
-    public Reservas(String id, String id_cancha, Date fecha, Time hora, boolean estado,String id_usuario) {
+    public Reservas(String id, String id_cancha, String fecha, Time hora, boolean estado,String id_usuario) {
         this.id = id;
         this.id_cancha = id_cancha;
         this.fecha = fecha;
@@ -48,11 +48,11 @@ public class Reservas {
         this.id_cancha = id_cancha;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
