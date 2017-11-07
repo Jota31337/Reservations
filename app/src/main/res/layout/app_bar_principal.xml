@@ -58,7 +58,7 @@
             android:id="@+id/menu_reservas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick=""
+            android:onClick="AgregarReserva"
             android:src="@drawable/view_text"
             fab:fab_label=""
             fab:fab_size="mini" />

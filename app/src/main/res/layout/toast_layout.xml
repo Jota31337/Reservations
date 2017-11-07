@@ -10,7 +10,7 @@
         android:id="@+id/imgIcono"
         android:layout_width="24dp"
         android:layout_height="31dp"
-        android:src="@drawable/milky_25" />
+        android:src="@drawable/dialogwarning" />
 
     <TextView
         android:id="@+id/txtMensaje"

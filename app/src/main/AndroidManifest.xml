@@ -12,7 +12,7 @@
         <activity
             android:name=".Principal"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,7 +20,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Agrega_Usuario"></activity>
+        <activity android:name=".Agrega_Usuario" />
+        <activity android:name=".Agregar_Reserva"></activity>
     </application>
 
 </manifest>

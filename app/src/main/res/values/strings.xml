@@ -50,6 +50,11 @@
     <string name="errado_nacimiento">Ingrese Fecha de Nacimiento</string>
     <string name="errado_apellidos">Ingrese Apellidos</string>
     <string name="errado_celular">Ingrese Celular</string>
+    <string name="nueva_reserva">Agregar Reserva</string>
+    <string name="establecimiento">Establecimiento</string>
 
-    <string-array name="sexo"><item>@string/m</item><item>@string/f</item></string-array>
+    <string-array name="sexo">
+        <item>@string/m</item>
+        <item>@string/f</item>
+    </string-array>
 </resources>

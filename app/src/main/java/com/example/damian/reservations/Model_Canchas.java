@@ -1,7 +1,12 @@
 package com.example.damian.reservations;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 /**
  * Created by DAMIAN on 5/11/2017.
@@ -10,6 +15,11 @@ import com.google.firebase.database.FirebaseDatabase;
 public class Model_Canchas {
     static FirebaseDatabase database = FirebaseDatabase.getInstance();
     static DatabaseReference tabla = database.getReference("Canchas");
+    static ArrayList<Canchas> canchas = new ArrayList<Canchas>();
+
+    public static ArrayList<Canchas> getCanchas() {
+        return canchas;
+    }
 
     public  static void GuardarCanchas(Canchas canchas) {
         String id =tabla.push().getKey();
@@ -17,6 +27,8 @@ public class Model_Canchas {
         canchas.setId_foto(id);
         tabla.child(canchas.getId()).setValue(canchas);
     }
+
+
     public static void GuardarManual(){
         Canchas a = new Canchas("1","-KyBib3WqehgrGSSIM67",1,8,"2");
         Canchas a1 = new Canchas("1","-KyBib3WqehgrGSSIM67",2,6,"2");
@@ -40,5 +52,29 @@ public class Model_Canchas {
         GuardarCanchas(a6);
         GuardarCanchas(a7);
         GuardarCanchas(a8);
+    }
+
+
+
+    public static void CargarCanchas(){
+    tabla.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
+                    for(DataSnapshot snapshot:dataSnapshot.getChildren()){
+                        Canchas c = snapshot.getValue(Canchas.class);
+                        canchas.add(c);
+                     }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+                System.out.println("error" + databaseError.toException());
+            }
+        });
+
+
     }
 }

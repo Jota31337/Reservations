@@ -72,7 +72,7 @@ public class Login extends AppCompatActivity {
                     String m =task.getException().getMessage();
 
                    int res=  Metodos.TraducirMensaje(m);
-                    if (res>0)Toast.makeText(Login.this, res, Toast.LENGTH_LONG).show();
+                    if (res>0)Mensaje(res);
                     else Toast.makeText(Login.this, m, Toast.LENGTH_LONG).show();
 
                 }
@@ -103,9 +103,13 @@ public class Login extends AppCompatActivity {
                 (ViewGroup ) findViewById(R.id.lytLayout));
         TextView txtMsg = (TextView)layout.findViewById(R.id.txtMensaje);
         txtMsg.setText(mensaje);
+       // toast3.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
         toast3.setDuration(Toast.LENGTH_SHORT);
         toast3.setView(layout);
         toast3.show();
+
+
+
     }
     @Override
     public void onStart() {

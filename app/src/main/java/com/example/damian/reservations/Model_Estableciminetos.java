@@ -1,7 +1,12 @@
 package com.example.damian.reservations;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 /**
  * Created by DAMIAN on 5/11/2017.
@@ -10,12 +15,20 @@ import com.google.firebase.database.FirebaseDatabase;
 public class Model_Estableciminetos {
     static FirebaseDatabase database = FirebaseDatabase.getInstance();
     static DatabaseReference tabla = database.getReference("Establecimientos");
-
+    static ArrayList<Establecimientos> establecimientos = new ArrayList<Establecimientos>();
     public  static void GuardarEstablecimientos(Establecimientos establecimientos) {
         establecimientos.setId(tabla.push().getKey());
         tabla.child(establecimientos.getId()).setValue(establecimientos);
 
 
+    }
+
+    public static ArrayList<Establecimientos> getEstablecimientos() {
+        return establecimientos;
+    }
+
+    public static void setEstablecimientos(ArrayList<Establecimientos> establecimientos) {
+        Model_Estableciminetos.establecimientos = establecimientos;
     }
 
     public static void GuardarManual(){
@@ -29,5 +42,27 @@ public class Model_Estableciminetos {
         GuardarEstablecimientos(a2);
         GuardarEstablecimientos(a3);
         GuardarEstablecimientos(a4);
+    }
+
+    public static void CargarEstablecimientos(){
+        tabla.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
+                    for(DataSnapshot snapshot:dataSnapshot.getChildren()){
+                        Establecimientos c = snapshot.getValue(Establecimientos.class);
+                        establecimientos.add(c);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+                System.out.println("error" + databaseError.toException());
+            }
+        });
+
+
     }
 }

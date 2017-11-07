@@ -62,6 +62,7 @@ public class Principal extends AppCompatActivity
         i = getIntent();
         CompletarRegistroPersonaID_USUARIO();
         Traer();
+        Model_Estableciminetos.CargarEstablecimientos();
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
@@ -183,6 +184,12 @@ public void  Mostrar(View v){
         }else{
             System.out.println("error en sesion");
         }
+    }
+
+    public void AgregarReserva(View v){
+
+        Intent i = new Intent(Principal.this,Agregar_Reserva.class);
+        startActivity(i);
     }
     public boolean TraerId_sesion(){
 

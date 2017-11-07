@@ -137,7 +137,7 @@ public void Ocultar_Liner(){
                 }else{
                     String m =task.getException().getMessage();
                  int res=  Metodos.TraducirMensaje(m);
-                    if (res>0)Toast.makeText(Agrega_Usuario.this, res, Toast.LENGTH_LONG).show();
+                    if (res>0)Mensaje(res);
                     else Toast.makeText(Agrega_Usuario.this, m, Toast.LENGTH_LONG).show();
                 }
             }
@@ -177,6 +177,9 @@ public void Ocultar_Liner(){
 
   }
 
+  public  void Regresar(View v){
+      Mostrar_Liner();
+  }
     public void signIn(String email, String password){
         firebaseAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override

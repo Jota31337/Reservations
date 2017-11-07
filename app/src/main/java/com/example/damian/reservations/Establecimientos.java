@@ -16,6 +16,9 @@ public class Establecimientos {
         this.direccion = direccion;
     }
 
+    public Establecimientos() {
+    }
+
     public String getId() {
         return id;
     }

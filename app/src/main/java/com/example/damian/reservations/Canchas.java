@@ -19,6 +19,10 @@ public class Canchas {
         this.id_foto=foto;
     }
 
+    public Canchas() {
+
+    }
+
     public String getId_foto() {
         return id_foto;
     }
