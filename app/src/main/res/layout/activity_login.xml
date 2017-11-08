@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:visibility="gone"
+        android:visibility="visible"
         android:weightSum="1">
 
         <ImageView
@@ -78,8 +78,8 @@
             <ImageView
                 android:id="@+id/imageView3"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/refresh" />
+                android:layout_height="41dp"
+                app:srcCompat="@drawable/gnomeviewefresh" />
 
             <Button
                 android:id="@+id/button2"

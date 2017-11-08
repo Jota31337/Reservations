@@ -38,7 +38,7 @@
             android:layout_width="52dp"
             android:layout_height="29dp"
             android:onClick="Regresar"
-            app:srcCompat="@drawable/regresar" />
+            app:srcCompat="@drawable/backicon" />
 
         <TextView
             android:id="@+id/textView3"
