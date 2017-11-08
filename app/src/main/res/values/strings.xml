@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Reservations</string>
+    <string name="app_name">ReservApp</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -53,12 +53,25 @@
     <string name="errado_celular">Ingrese Celular</string>
     <string name="nueva_reserva">Agregar Reserva</string>
     <string name="establecimiento">Establecimiento</string>
+    <string name="sin_resultados">No se Encontraron Resultado</string>
     <string name="hora">Hora</string>
+    <string name="dato_busqueda">Ingrese Informacion a buscar</string>
     <string name="estado">Estado</string>
     <string name="opcion">Opcion</string>
+    <string name="metodo_busqueda">Seleccione Metodo de Busqueda</string>
 
+    <string name="tamano">Tamaño</string>
     <string-array name="sexo">
         <item>@string/m</item>
         <item>@string/f</item>
     </string-array>
+    <string-array name="op_busqueda">
+        <item>@string/metodo_busqueda</item>
+        <item>@string/establecimiento</item>
+        <item>@string/tamano</item>
+    </string-array>
+    <string name="title_activity_buscar__cancha">Buscar_Cancha</string>
+    <string name="buscar_cancha">Buscar Cancha</string>
+    <string name="dato">Dato</string>
+    <string name="buscar">Buscar</string>
 </resources>

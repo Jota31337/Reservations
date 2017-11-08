@@ -39,13 +39,15 @@ public class Agregar_Reserva extends AppCompatActivity  {
 
         canchas_sp = (Spinner)findViewById(R.id.cbxcanchas);
         fecha = (CalendarView)findViewById(R.id.txtcalendar);
-        CargarEstablecimientos();
+       // CargarEstablecimientos();
         Linerinicial = (LinearLayout)findViewById(R.id.layinicial);
         linerlista = (LinearLayout)findViewById(R.id.laylista);
         Ocultar_Liner();
         canchas=Model_Canchas.getCanchas();
 
     }
+
+    /*
 public  void CargarEstablecimientos(){
 
      establecimientos= Model_Estableciminetos.getEstablecimientos();
@@ -92,6 +94,8 @@ public  void CargarEstablecimientos(){
             Mensaje(R.string.sin_canchas);
         }
     }
+
+    */
 public void Continuar(View v){
     SimpleDateFormat formatoFecha = new SimpleDateFormat();
     formatoFecha.setTimeZone(TimeZone.getTimeZone("GMT-6"));

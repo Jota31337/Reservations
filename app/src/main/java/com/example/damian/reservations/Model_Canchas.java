@@ -77,4 +77,39 @@ public class Model_Canchas {
 
 
     }
+
+    public static ArrayList<Cancha_Establecimiento>  BuscarCancha(String buscar,int metodo){
+        ArrayList<Cancha_Establecimiento>   canchas_bus = new ArrayList<>();
+        if (metodo==1){
+            buscar = Model_Estableciminetos.BuscarIDEstablecimiento(buscar);
+            if (buscar.toString().length()==0){
+                return canchas_bus;
+            }
+        }
+
+        for (int i = 0; i <canchas.size() ; i++) {
+
+            if (metodo==1) {
+
+
+                if (canchas.get(i).getId_establecimiento().equals(buscar)){
+                    Canchas b = canchas.get(i);
+                    //(String id_cacha, String nombre_establecimiento, String direccion, String celular, String tamano)
+                    ArrayList<String> datos_establecimiento = Model_Estableciminetos.BuscarDatosEstablecimiento(b.getId_establecimiento());
+                    Cancha_Establecimiento a = new Cancha_Establecimiento(b.getId(),datos_establecimiento.get(0),datos_establecimiento.get(1),"30455442",b.getTamano()+"");
+                    canchas_bus.add(a);
+                }
+            }else{
+                int x= Integer.parseInt(buscar);
+                if (canchas.get(i).getTamano()==x){
+                    Canchas b = canchas.get(i);
+                    ArrayList<String> datos_establecimiento = Model_Estableciminetos.BuscarDatosEstablecimiento(b.getId_establecimiento());
+                    Cancha_Establecimiento a = new Cancha_Establecimiento(b.getId(),datos_establecimiento.get(0),datos_establecimiento.get(1),"30455442",b.getTamano()+"");
+                    canchas_bus.add(a);
+                }
+            }
+
+        }
+        return canchas_bus;
+    }
 }

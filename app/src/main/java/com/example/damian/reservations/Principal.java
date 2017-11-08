@@ -189,7 +189,7 @@ public void  Mostrar(View v){
 
     public void AgregarReserva(View v){
 
-        Intent i = new Intent(Principal.this,Agregar_Reserva.class);
+        Intent i = new Intent(Principal.this,Buscar_Cancha.class);
         startActivity(i);
     }
     public boolean TraerId_sesion(){

@@ -65,4 +65,39 @@ public class Model_Estableciminetos {
 
 
     }
+
+    public  static ArrayList<String> BuscarDatosEstablecimiento(String bus){
+
+
+        ArrayList<String> x = new ArrayList<>();
+
+        for (int i = 0; i <establecimientos.size() ; i++) {
+
+            if (establecimientos.get(i).getId().equals(bus)){
+                x.add(establecimientos.get(i).getNombre());
+                x.add(establecimientos.get(i).getDireccion());
+                return x;
+            }
+
+        }
+
+
+        return x;
+    }
+    public  static String BuscarIDEstablecimiento(String bus){
+
+
+        ArrayList<String> x = new ArrayList<>();
+
+        for (int i = 0; i <establecimientos.size() ; i++) {
+
+            if (establecimientos.get(i).getNombre().equalsIgnoreCase(bus)){
+              return establecimientos.get(i).getId();
+            }
+
+        }
+
+
+        return "";
+    }
 }

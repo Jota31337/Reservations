@@ -21,7 +21,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".Agrega_Usuario" />
-        <activity android:name=".Agregar_Reserva"></activity>
+        <activity android:name=".Agregar_Reserva" />
+        <activity android:name=".Buscar_Cancha" />
+        <activity android:name=".Resultado_Busqueda"></activity>
     </application>
 
 </manifest>
