@@ -96,7 +96,7 @@ public class Model_Canchas {
                     Canchas b = canchas.get(i);
                     //(String id_cacha, String nombre_establecimiento, String direccion, String celular, String tamano)
                     ArrayList<String> datos_establecimiento = Model_Estableciminetos.BuscarDatosEstablecimiento(b.getId_establecimiento());
-                    Cancha_Establecimiento a = new Cancha_Establecimiento(b.getId(),datos_establecimiento.get(0),datos_establecimiento.get(1),"30455442",b.getTamano()+"");
+                    Cancha_Establecimiento a = new Cancha_Establecimiento(b.getId(),datos_establecimiento.get(0),datos_establecimiento.get(1),datos_establecimiento.get(2),b.getTamano()+"");
                     canchas_bus.add(a);
                 }
             }else{
@@ -104,7 +104,7 @@ public class Model_Canchas {
                 if (canchas.get(i).getTamano()==x){
                     Canchas b = canchas.get(i);
                     ArrayList<String> datos_establecimiento = Model_Estableciminetos.BuscarDatosEstablecimiento(b.getId_establecimiento());
-                    Cancha_Establecimiento a = new Cancha_Establecimiento(b.getId(),datos_establecimiento.get(0),datos_establecimiento.get(1),"30455442",b.getTamano()+"");
+                    Cancha_Establecimiento a = new Cancha_Establecimiento(b.getId(),datos_establecimiento.get(0),datos_establecimiento.get(1),datos_establecimiento.get(2),b.getTamano()+"");
                     canchas_bus.add(a);
                 }
             }

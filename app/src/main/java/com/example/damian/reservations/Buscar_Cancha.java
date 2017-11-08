@@ -36,30 +36,38 @@ private EditText dato ;
         setContentView(R.layout.activity_buscar__cancha);
         res=this.getResources();
         busqueda = (Spinner)findViewById(R.id.cbxbusqueda);
+        Linerinicial = (LinearLayout)findViewById(R.id.layinicial_buscar);
         dato = (EditText) findViewById(R.id.txtdato);
         opc_busqueda = res.getStringArray(R.array.op_busqueda);
         adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,opc_busqueda);
         busqueda.setAdapter(adapter);
-
+        Mostrar_Liner();
     }
 
+        public void Mostrar_Liner(){
 
-    public void BuscarCanchas(View v){
-         int op=busqueda.getSelectedItemPosition();
-        if (op == 0) {
-          Mensaje(R.string.metodo_busqueda);
-        }else if (dato.getText().toString().length()==0){
-            Mensaje(R.string.dato_busqueda);
-        } else{
-            canchas = Model_Canchas.BuscarCancha(dato.getText().toString(), op);
-if (canchas.isEmpty()){
-    Mensaje(R.string.sin_resultados);
-}else {
-    Intent i = new Intent(Buscar_Cancha.this, Resultado_Busqueda.class);
-    startActivity(i);
-}
+            if (Linerinicial.getVisibility() == View.GONE)
+            {
+                Metodos.animar(true,Linerinicial);
+
+            }
         }
-    }
+        public void BuscarCanchas(View v){
+             int op=busqueda.getSelectedItemPosition();
+            if (op == 0) {
+              Mensaje(R.string.metodo_busqueda);
+            }else if (dato.getText().toString().length()==0){
+                Mensaje(R.string.dato_busqueda);
+            } else{
+                canchas = Model_Canchas.BuscarCancha(dato.getText().toString(), op);
+            if (canchas.isEmpty()){
+                Mensaje(R.string.sin_resultados);
+            }else {
+                Intent i = new Intent(Buscar_Cancha.this, Resultado_Busqueda.class);
+                startActivity(i);
+            }
+            }
+        }
     public void Mensaje(int mensaje){
         //Toast.makeText(Login.this, mensaje, Toast.LENGTH_LONG).show();
         Toast toast3 = new Toast(getApplicationContext());

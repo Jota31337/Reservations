@@ -8,15 +8,24 @@ public class Establecimientos {
     private String id;
     private  String nombre;
     private  String direccion;
+    private String celular;
 
-    public Establecimientos(String id, String nombre, String direccion) {
+    public Establecimientos(String id, String nombre, String direccion,String cel) {
         this.id = id;
         this.nombre = nombre;
-
+        this.celular=cel;
         this.direccion = direccion;
     }
 
     public Establecimientos() {
+    }
+
+    public String getCelular() {
+        return celular;
+    }
+
+    public void setCelular(String celular) {
+        this.celular = celular;
     }
 
     public String getId() {

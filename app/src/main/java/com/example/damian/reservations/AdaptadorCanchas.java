@@ -40,7 +40,7 @@ public class AdaptadorCanchas extends RecyclerView.Adapter<AdaptadorCanchas.Canc
         holder.foto.setImageDrawable(ResourcesCompat.getDrawable(res,R.drawable.user,null));
         holder.tamano.setText(p.getTamano());
         holder.direccion.setText(p.getDireccion());
-        holder.celular.setText(p.getCelular());
+        holder.celular.setText(p.getCelular()+"");
         holder.establecimiento.setText(p.getNombre_establecimiento());
 
         holder.v.setOnClickListener(new View.OnClickListener() {
