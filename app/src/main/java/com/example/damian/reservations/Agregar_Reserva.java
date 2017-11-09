@@ -20,24 +20,18 @@ import java.util.ArrayList;
 import java.util.TimeZone;
 
 public class Agregar_Reserva extends AppCompatActivity  {
-
-    private Spinner establecimientos_sp,canchas_sp;
     private Resources res;
-    private String [] est,can;
-    private boolean sw =true;
     private CalendarView fecha;
     private LinearLayout Linerinicial,linerlista;
-    ArrayList<Establecimientos> establecimientos;
+
     ArrayList<Canchas> canchas;
-    ArrayList<Canchas> canchas_bus ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agregar__reserva);
         res=this.getResources();
-        establecimientos_sp = (Spinner)findViewById(R.id.cbxestablecimientos);
 
-        canchas_sp = (Spinner)findViewById(R.id.cbxcanchas);
         fecha = (CalendarView)findViewById(R.id.txtcalendar);
        // CargarEstablecimientos();
         Linerinicial = (LinearLayout)findViewById(R.id.layinicial);

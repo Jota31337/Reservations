@@ -26,42 +26,22 @@
             android:layout_weight="0.29"
             android:orientation="horizontal"
             android:paddingBottom="10dp"
-            android:paddingLeft="80dp"
             android:paddingTop="10dp">
-
-            <ImageView
-                android:id="@+id/imageView6"
-                android:layout_width="34dp"
-                android:layout_height="32dp"
-                app:srcCompat="@drawable/refresh" />
 
             <TextView
 
-                android:layout_width="202dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="serif"
-                android:text="@string/nueva_reserva"
+                android:text="@string/fecha_reserva"
 
+                android:textAlignment="center"
                 android:textAllCaps="false"
                 android:textColor="@color/colorPrimary"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
-
-        <Spinner
-            android:id="@+id/cbxestablecimientos"
-            android:layout_width="match_parent"
-            android:layout_height="36dp"
-            android:fontFamily="serif"
-            android:textSize="18sp"
-            android:visibility="visible"
-           />
-
-        <Spinner
-            android:id="@+id/cbxcanchas"
-            android:layout_width="match_parent"
-            android:layout_height="36dp"
-            android:background="@color/cardview_shadow_end_color" />
 
         <CalendarView
             android:id="@+id/txtcalendar"
@@ -74,7 +54,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.29"
-            android:background="@color/colorPrimary"
+            android:background="@color/colorPrimaryDark"
             android:fontFamily="serif"
             android:onClick="Continuar"
             android:text="@string/continuar"
@@ -90,6 +70,19 @@
         android:orientation="vertical"
         android:visibility="gone">
 
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="serif"
+            android:text="@string/horas"
+            android:textAlignment="center"
+            android:textColor="@color/colorAccent"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <TableLayout
             android:id="@+id/tablalista"

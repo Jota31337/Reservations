@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:visibility="visible"
+        android:visibility="gone"
         android:weightSum="1">
 
         <ImageView
@@ -90,7 +90,7 @@
                 android:fontFamily="serif"
                 android:onClick="Nuevo_usuario"
                 android:text="@string/registrar"
-                android:textColor="@color/colorPrimary"
+                android:textColor="@color/colorPrimaryDark"
                 android:textStyle="bold" />
         </LinearLayout>
 

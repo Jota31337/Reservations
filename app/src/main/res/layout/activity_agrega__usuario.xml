@@ -23,7 +23,7 @@
         android:textAllCaps="false"
         android:textColor="@color/colorPrimary"
         android:textSize="24sp"
-        android:textStyle="bold|italic" />
+        android:textStyle="bold" />
 
     <LinearLayout
         android:id="@+id/laydatosusuario"
@@ -54,7 +54,7 @@
             android:id="@+id/imageView4"
             android:layout_width="match_parent"
             android:layout_height="141dp"
-            app:srcCompat="@drawable/user" />
+            app:srcCompat="@drawable/usereople" />
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"

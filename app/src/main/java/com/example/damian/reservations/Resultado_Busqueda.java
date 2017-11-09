@@ -42,6 +42,8 @@ public class Resultado_Busqueda extends AppCompatActivity implements AdaptadorCa
 
     @Override
     public void onCanchaClick(Cancha_Establecimiento p) {
+        Intent i = new Intent(Resultado_Busqueda.this,Agregar_Reserva.class);
+        startActivity(i);
 
     }
 }

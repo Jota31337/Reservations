@@ -74,4 +74,6 @@
     <string name="buscar_cancha">Buscar Cancha</string>
     <string name="dato">Dato</string>
     <string name="buscar">Buscar</string>
+    <string name="fecha_reserva">Fecha de Reserva</string>
+    <string name="horas">Horarios Disponibles</string>
 </resources>
