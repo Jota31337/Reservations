@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_weight="0.17"
@@ -11,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="270dp"
         android:layout_weight="0.08"
-        android:background="@drawable/header2"
+        android:background="@drawable/header5"
         android:gravity="bottom"
         android:orientation="vertical"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"
@@ -24,7 +25,7 @@
             android:fontFamily="serif"
             android:text="@string/perfil"
             android:textAlignment="center"
-            android:textColor="@color/cardview_dark_background"
+            android:textColor="@color/cardview_light_background"
             android:textSize="18sp"
             android:textStyle="bold|italic" />
 
@@ -44,7 +45,7 @@
             android:text="Damian Torres"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:textColor="@color/colorPrimaryText"
+            android:textColor="@color/cardview_light_background"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -57,7 +58,7 @@
 
             android:text="Damian9530@gmail.com"
             android:textAlignment="center"
-            android:textColor="@android:color/background_dark"
+            android:textColor="@color/cardview_light_background"
             android:textSize="12sp"
             android:textStyle="bold" />
 

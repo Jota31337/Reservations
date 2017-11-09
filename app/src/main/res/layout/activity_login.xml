@@ -79,7 +79,7 @@
                 android:id="@+id/imageView3"
                 android:layout_width="match_parent"
                 android:layout_height="41dp"
-                app:srcCompat="@drawable/gnomeviewefresh" />
+                app:srcCompat="@drawable/refresh2" />
 
             <Button
                 android:id="@+id/button2"
