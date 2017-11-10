@@ -42,7 +42,13 @@ public class Resultado_Busqueda extends AppCompatActivity implements AdaptadorCa
 
     @Override
     public void onCanchaClick(Cancha_Establecimiento p) {
+
         Intent i = new Intent(Resultado_Busqueda.this,Agregar_Reserva.class);
+        Bundle b = new Bundle();
+        b.putString("id_establecimiento",p.getId_establecimiento());
+        b.putString("id_cancha",p.getId_cacha());
+        b.putIntegerArrayList("programacion",p.getProgramacion());
+        i.putExtra("datos",b);
         startActivity(i);
 
     }

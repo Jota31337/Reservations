@@ -1,5 +1,7 @@
 package com.example.damian.reservations;
 
+import java.util.ArrayList;
+
 /**
  * Created by android on 02/11/2017.
  */
@@ -9,15 +11,25 @@ public class Establecimientos {
     private  String nombre;
     private  String direccion;
     private String celular;
+    private ArrayList<Canchas> canchas;
 
-    public Establecimientos(String id, String nombre, String direccion,String cel) {
+    public Establecimientos(String id, String nombre, String direccion,String cel,ArrayList<Canchas>  canchas) {
         this.id = id;
         this.nombre = nombre;
         this.celular=cel;
         this.direccion = direccion;
+        this.canchas=canchas;
     }
 
     public Establecimientos() {
+    }
+
+    public ArrayList<Canchas> getCanchas() {
+        return canchas;
+    }
+
+    public void setCanchas(ArrayList<Canchas> canchas) {
+        this.canchas = canchas;
     }
 
     public String getCelular() {

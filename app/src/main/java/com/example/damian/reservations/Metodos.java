@@ -77,7 +77,7 @@ public class Metodos {
 
     }
 
-   /* public static void CrearModeloTablas() {
+ public static void CrearModeloTablas() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
 
         DatabaseReference DetallePersona = database.getReference("DetallePersona");
@@ -96,5 +96,5 @@ public class Metodos {
         Reservas.setValue("");
     }
 
-*/
+
 }

@@ -59,7 +59,7 @@ private EditText dato ;
             }else if (dato.getText().toString().length()==0){
                 Mensaje(R.string.dato_busqueda);
             } else{
-                canchas = Model_Canchas.BuscarCancha(dato.getText().toString(), op);
+                canchas = Model_Estableciminetos.BuscarCanchas(dato.getText().toString(), op);
             if (canchas.isEmpty()){
                 Mensaje(R.string.sin_resultados);
             }else {

@@ -23,6 +23,10 @@ public class Agregar_Reserva extends AppCompatActivity  {
     private Resources res;
     private CalendarView fecha;
     private LinearLayout Linerinicial,linerlista;
+    private Bundle bundle;
+    private Intent i;
+    private String id_establecimiento,id_cancha;
+    private ArrayList<Integer> programacion;
 
     ArrayList<Canchas> canchas;
 
@@ -36,60 +40,16 @@ public class Agregar_Reserva extends AppCompatActivity  {
        // CargarEstablecimientos();
         Linerinicial = (LinearLayout)findViewById(R.id.layinicial);
         linerlista = (LinearLayout)findViewById(R.id.laylista);
+        i = getIntent();
+        bundle = i.getBundleExtra("datos");
+        id_establecimiento = bundle.getString("id_establecimiento");
+        id_cancha = bundle.getString("id_cancha");
+        programacion = bundle.getIntegerArrayList("programacion");
         Ocultar_Liner();
-        canchas=Model_Canchas.getCanchas();
+
 
     }
 
-    /*
-public  void CargarEstablecimientos(){
-
-     establecimientos= Model_Estableciminetos.getEstablecimientos();
-    est = new String[establecimientos.size()];
-
-    for (int i = 0; i <establecimientos.size() ; i++) {
-        est[i]=establecimientos.get(i).getNombre();
-
-    }
-    ArrayAdapter<String>  adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,est);
-    establecimientos_sp.setAdapter(adapter);
-    establecimientos_sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-
-        @Override
-        public void onItemSelected(AdapterView<?> adapterView, View view, int pos, long id)
-        {
-
-            String idestablecimiento = establecimientos.get(pos).getId();
-            CargarCanchas(idestablecimiento);
-        }
-
-        @Override
-        public void onNothingSelected(AdapterView<?> parent)
-        {    }
-    });
-
-
-}
-    public  void CargarCanchas(String establecimiento){
-        canchas_bus = new ArrayList<>();
-    for (int i = 0; i <canchas.size() ; i++) {
-           if (canchas.get(i).getId_establecimiento().equals(establecimiento))
-               canchas_bus.add(canchas.get(i));
-        }
-        if (canchas_bus.size()>0) {
-            can = new String[canchas_bus.size()];
-            for (int i = 0; i < canchas_bus.size(); i++) {
-                can[i] = "Cancha " + canchas_bus.get(i).getNumCancha() + ", Tamaño " + canchas_bus.get(i).getTamano();
-
-            }
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, can);
-            canchas_sp.setAdapter(adapter);
-        }else{
-            Mensaje(R.string.sin_canchas);
-        }
-    }
-
-    */
 public void Continuar(View v){
     SimpleDateFormat formatoFecha = new SimpleDateFormat();
     formatoFecha.setTimeZone(TimeZone.getTimeZone("GMT-6"));
