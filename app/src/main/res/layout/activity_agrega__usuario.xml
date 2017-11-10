@@ -35,10 +35,10 @@
 
         <ImageView
             android:id="@+id/imageView5"
-            android:layout_width="52dp"
-            android:layout_height="29dp"
+            android:layout_width="59dp"
+            android:layout_height="38dp"
             android:onClick="Regresar"
-            app:srcCompat="@drawable/backicon" />
+            app:srcCompat="@drawable/flecha" />
 
         <TextView
             android:id="@+id/textView3"
@@ -54,7 +54,7 @@
             android:id="@+id/imageView4"
             android:layout_width="match_parent"
             android:layout_height="141dp"
-            app:srcCompat="@drawable/usereople" />
+            app:srcCompat="@drawable/usermale3" />
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
