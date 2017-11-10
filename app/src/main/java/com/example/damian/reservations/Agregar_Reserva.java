@@ -12,6 +12,8 @@ import android.widget.ArrayAdapter;
 import android.widget.CalendarView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +29,7 @@ public class Agregar_Reserva extends AppCompatActivity  {
     private Intent i;
     private String id_establecimiento,id_cancha;
     private ArrayList<Integer> programacion;
+    private TableLayout tabla;
 
     ArrayList<Canchas> canchas;
 
@@ -40,6 +43,7 @@ public class Agregar_Reserva extends AppCompatActivity  {
        // CargarEstablecimientos();
         Linerinicial = (LinearLayout)findViewById(R.id.layinicial);
         linerlista = (LinearLayout)findViewById(R.id.laylista);
+        tabla = (TableLayout) findViewById(R.id.tablalista);
         i = getIntent();
         bundle = i.getBundleExtra("datos");
         id_establecimiento = bundle.getString("id_establecimiento");
@@ -56,6 +60,38 @@ public void Continuar(View v){
     formatoFecha.applyPattern("dd/MM/yyyy");
     String fechaRespuesta = formatoFecha.format(fecha.getDate());
     Toast.makeText(Agregar_Reserva.this,""+fechaRespuesta, Toast.LENGTH_LONG).show();
+    for(int i = 0 ; i< programacion.size();i++){
+        TableRow fila = new TableRow(this);
+        TextView c1 = new TextView(this);
+        TextView c2 = new TextView(this);
+        TextView c3 = new TextView(this);
+
+
+        c1.setText(""+programacion.get(i));
+        c2.setText("       ");
+        c3.setText("Reservar");
+
+      //  c2.setBackgroundColor(res.getColor(R.color.colorAccent2,null));
+       c2.setBackground(res.getDrawable(R.drawable.borde));
+        c1.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+        c2.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+        c3.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+
+        c1.setTextSize(16);
+        c2.setTextSize(16);
+        c3.setTextSize(16);
+
+        c1.setTextColor(res.getColor(R.color.colorPrimaryText,null));
+        c2.setTextColor(res.getColor(R.color.colorPrimaryText,null));
+        c3.setTextColor(res.getColor(R.color.colorPrimaryText,null));
+      fila.addView(c1);
+        fila.addView(c2);
+        fila.addView(c3);
+
+fila.setBackground(res.getDrawable(R.drawable.borde_fila));
+
+        tabla.addView(fila);
+    }
     Mostrar_Liner();
 }
     public void Mensaje(int mensaje){
@@ -80,8 +116,8 @@ public void Continuar(View v){
         }
         if (linerlista.getVisibility() == View.GONE)
         {
-            Metodos.animar(true,linerlista);
-
+           Metodos.animar(true,linerlista);
+            //linerlista.setVisibility(View.VISIBLE);
         }
     }
     public void Ocultar_Liner(){
@@ -95,6 +131,9 @@ public void Continuar(View v){
             Metodos.animar(true,Linerinicial);
 
         }
+    }
+    public void Regresar(View v){
+        Ocultar_Liner();
     }
 
 }

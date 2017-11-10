@@ -11,6 +11,7 @@
     <color name="colorSecondaryText">#ece5dd</color>
     <color name="shadown_color">#075e54</color>
     <color name="ripple_color">#128c7e</color>
+    <color name="blue">#0489B1</color>
 
 
     <color name="icons">#ffffff</color>
