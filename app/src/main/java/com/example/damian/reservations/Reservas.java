@@ -1,6 +1,7 @@
 package com.example.damian.reservations;
 
 import java.sql.Time;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -12,24 +13,22 @@ public class Reservas {
     private String id_cancha;
     private String id_usuario;
     private String fecha;
-    private Time hora;
+    private ArrayList<Integer> horas;
     private boolean estado;
+    private String id_establecimiento;
 
-    public Reservas(String id, String id_cancha, String fecha, Time hora, boolean estado,String id_usuario) {
+    public Reservas(String id, String id_cancha, String id_usuario, String fecha, ArrayList<Integer> horas, boolean estado, String id_establecimiento) {
         this.id = id;
         this.id_cancha = id_cancha;
-        this.fecha = fecha;
-        this.hora = hora;
-        this.estado = estado;
-        this.id_usuario=id_usuario;
-    }
-
-    public String getId_usuario() {
-        return id_usuario;
-    }
-
-    public void setId_usuario(String id_usuario) {
         this.id_usuario = id_usuario;
+        this.fecha = fecha;
+        this.horas = horas;
+        this.estado = estado;
+        this.id_establecimiento = id_establecimiento;
+    }
+
+    public Reservas() {
+
     }
 
     public String getId() {
@@ -48,6 +47,14 @@ public class Reservas {
         this.id_cancha = id_cancha;
     }
 
+    public String getId_usuario() {
+        return id_usuario;
+    }
+
+    public void setId_usuario(String id_usuario) {
+        this.id_usuario = id_usuario;
+    }
+
     public String getFecha() {
         return fecha;
     }
@@ -56,12 +63,12 @@ public class Reservas {
         this.fecha = fecha;
     }
 
-    public Time getHora() {
-        return hora;
+    public ArrayList<Integer> getHora() {
+        return horas;
     }
 
-    public void setHora(Time hora) {
-        this.hora = hora;
+    public void setHora(ArrayList<Integer> hora) {
+        this.horas = hora;
     }
 
     public boolean isEstado() {
@@ -70,5 +77,13 @@ public class Reservas {
 
     public void setEstado(boolean estado) {
         this.estado = estado;
+    }
+
+    public String getId_establecimiento() {
+        return id_establecimiento;
+    }
+
+    public void setId_establecimiento(String id_establecimiento) {
+        this.id_establecimiento = id_establecimiento;
     }
 }

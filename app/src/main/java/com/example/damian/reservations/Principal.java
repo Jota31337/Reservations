@@ -164,54 +164,54 @@ public class Principal extends AppCompatActivity
         toast3.setView(layout);
         toast3.show();
     }
-public void  Mostrar(View v){
-    detalle = Model_usuarios.ObtenerDetallerPersona();
-    System.out.println(detalle + " valor trae");
-    if (detalle!=null){
-        System.out.println(detalle.getNombres()+ detalle.getApellidos() + " valor nombre");
-        System.out.println(email + " valor email");
-       // nombre_sesion.setText(detalle.getNombres() + " " + detalle.getApellidos());
-        //email_sesion.setText(email);
-    }
-}
-    public  void Traer(){
-        boolean en_session= TraerId_sesion();
-        System.out.println(en_session+ "");
-        if(en_session) {
-
-            Model_usuarios.TraerInfo(uid_usuario);
-
-        }else{
-            System.out.println("error en sesion");
+    public void  Mostrar(View v){
+        detalle = Model_usuarios.ObtenerDetallerPersona();
+        System.out.println(detalle + " valor trae");
+        if (detalle!=null){
+            System.out.println(detalle.getNombres()+ detalle.getApellidos() + " valor nombre");
+            System.out.println(email + " valor email");
+           // nombre_sesion.setText(detalle.getNombres() + " " + detalle.getApellidos());
+            //email_sesion.setText(email);
         }
     }
+        public  void Traer(){
+            boolean en_session= TraerId_sesion();
+            System.out.println(en_session+ "");
+            if(en_session) {
 
-    public void AgregarReserva(View v){
+                Model_usuarios.TraerInfo(uid_usuario);
 
-        Intent i = new Intent(Principal.this,Buscar_Cancha.class);
-        startActivity(i);
-    }
-    public boolean TraerId_sesion(){
-
-            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-            if (user != null) {
-                // Name, email address, and profile photo Url
-                // String name = user.getDisplayName();
-                //String email = user.getEmail();
-                //Uri photoUrl = user.getPhotoUrl();
-
-                // The user's ID, unique to the Firebase project. Do NOT use this value to
-                // authenticate with your backend server, if you have one. Use
-                // FirebaseUser.getToken() instead.
-
-                  email = user.getEmail();
-                  uid_usuario = user.getUid();
-
-return  true;
-
+            }else{
+                System.out.println("error en sesion");
             }
-        return false;
+        }
+
+        public void AgregarReserva(View v){
+
+            Intent i = new Intent(Principal.this,Buscar_Cancha.class);
+            startActivity(i);
+        }
+        public boolean TraerId_sesion(){
+
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                if (user != null) {
+                    // Name, email address, and profile photo Url
+                    // String name = user.getDisplayName();
+                    //String email = user.getEmail();
+                    //Uri photoUrl = user.getPhotoUrl();
+
+                    // The user's ID, unique to the Firebase project. Do NOT use this value to
+                    // authenticate with your backend server, if you have one. Use
+                    // FirebaseUser.getToken() instead.
+
+                      email = user.getEmail();
+                      uid_usuario = user.getUid();
+
+            return  true;
+
+                }
+            return false;
+        }
+
+
     }
-
-
-}
