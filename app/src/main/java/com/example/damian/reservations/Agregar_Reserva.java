@@ -2,6 +2,7 @@ package com.example.damian.reservations;
 
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -55,11 +56,15 @@ public class Agregar_Reserva extends AppCompatActivity  {
     }
 
 public void Continuar(View v){
+
+    tabla.removeAllViews();
+
     SimpleDateFormat formatoFecha = new SimpleDateFormat();
     formatoFecha.setTimeZone(TimeZone.getTimeZone("GMT-6"));
     formatoFecha.applyPattern("dd/MM/yyyy");
     String fechaRespuesta = formatoFecha.format(fecha.getDate());
     Toast.makeText(Agregar_Reserva.this,""+fechaRespuesta, Toast.LENGTH_LONG).show();
+    CrearFilaPrincipalTabla();
     for(int i = 0 ; i< programacion.size();i++){
         TableRow fila = new TableRow(this);
         TextView c1 = new TextView(this);
@@ -84,7 +89,8 @@ public void Continuar(View v){
         c1.setTextColor(res.getColor(R.color.colorPrimaryText,null));
         c2.setTextColor(res.getColor(R.color.colorPrimaryText,null));
         c3.setTextColor(res.getColor(R.color.colorPrimaryText,null));
-      fila.addView(c1);
+
+        fila.addView(c1);
         fila.addView(c2);
         fila.addView(c3);
 
@@ -135,5 +141,30 @@ fila.setBackground(res.getDrawable(R.drawable.borde_fila));
     public void Regresar(View v){
         Ocultar_Liner();
     }
-
+public void CrearFilaPrincipalTabla(){
+    TableRow fila_principal = new TableRow(this);
+    TextView f1 = new TextView(this);
+    TextView f2 = new TextView(this);
+    TextView f3 = new TextView(this);
+    f1.setText(res.getString(R.string.hora));
+    f2.setText(res.getString(R.string.estado));
+    f3.setText(res.getString(R.string.opcion));
+    f1.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+    f2.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+    f3.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+    f1.setTextColor(res.getColor(R.color.icons,null));
+    f2.setTextColor(res.getColor(R.color.icons,null));
+    f3.setTextColor(res.getColor(R.color.icons,null));
+    f1.setTextSize(18);
+    f2.setTextSize(18);
+    f3.setTextSize(18);
+    f1.setTypeface(null, Typeface.BOLD);
+    f2.setTypeface(null, Typeface.BOLD);
+    f3.setTypeface(null, Typeface.BOLD);
+    fila_principal.addView(f1);
+    fila_principal.addView(f2);
+    fila_principal.addView(f3);
+    fila_principal.setBackground(res.getDrawable(R.drawable.borde_fila_principal));
+    tabla.addView(fila_principal);
+}
 }

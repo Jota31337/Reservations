@@ -54,10 +54,10 @@
     <string name="nueva_reserva">Agregar Reserva</string>
     <string name="establecimiento">Establecimiento</string>
     <string name="sin_resultados">No se Encontraron Resultado</string>
-    <string name="hora">Hora</string>
+    <string name="hora"> <b>Hora</b></string>
     <string name="dato_busqueda">Ingrese Informacion a buscar</string>
-    <string name="estado">Estado</string>
-    <string name="opcion">Opcion</string>
+    <string name="estado"><b>Estado</b></string>
+    <string name="opcion"><b>Opcion</b></string>
     <string name="metodo_busqueda">Seleccione Metodo de Busqueda</string>
 
     <string name="tamano">Tamaño</string>
