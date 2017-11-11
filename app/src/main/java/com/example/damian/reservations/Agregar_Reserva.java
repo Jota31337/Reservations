@@ -1,8 +1,10 @@
 package com.example.damian.reservations;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Typeface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -62,8 +64,8 @@ public void Continuar(View v){
     SimpleDateFormat formatoFecha = new SimpleDateFormat();
     formatoFecha.setTimeZone(TimeZone.getTimeZone("GMT-6"));
     formatoFecha.applyPattern("dd/MM/yyyy");
-    String fechaRespuesta = formatoFecha.format(fecha.getDate());
-    Toast.makeText(Agregar_Reserva.this,""+fechaRespuesta, Toast.LENGTH_LONG).show();
+    String fechaSelecionada = formatoFecha.format(fecha.getDate());
+ 
     CrearFilaPrincipalTabla();
     for(int i = 0 ; i< programacion.size();i++){
         TableRow fila = new TableRow(this);
@@ -167,4 +169,40 @@ public void CrearFilaPrincipalTabla(){
     fila_principal.setBackground(res.getDrawable(R.drawable.borde_fila_principal));
     tabla.addView(fila_principal);
 }
+
+    public void Cancelar(View v){
+        String positivo,negativo;
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(res.getString(R.string.titulo_cancelar));
+        builder.setMessage(res.getString(R.string.texto_cancelar_reserva));
+        positivo = res.getString(R.string.si_cancelar);
+        negativo = res.getString(R.string.no_cancelar);
+
+
+
+        builder.setPositiveButton(positivo, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Intent r = new Intent(Agregar_Reserva.this,Principal.class);
+                Bundle b = new Bundle();
+                b.putString("id","");
+                r.putExtra("datos",b);
+                startActivity(r);
+                onBackPressed();
+
+            }
+        });
+        builder.setNegativeButton(negativo, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+
+
+    }
 }

@@ -1,9 +1,11 @@
 package com.example.damian.reservations;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -94,7 +96,38 @@ public void Ocultar_Liner(){
 
     }
 }
+    public void Cancelar(View v){
+        String positivo,negativo;
 
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(res.getString(R.string.titulo_cancelar));
+        builder.setMessage(res.getString(R.string.texto_cancelar_agregar_usuario));
+        positivo = res.getString(R.string.si_cancelar);
+        negativo = res.getString(R.string.no_cancelar);
+
+
+
+        builder.setPositiveButton(positivo, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Intent r = new Intent(Agrega_Usuario.this,Login.class);
+                startActivity(r);
+                onBackPressed();
+
+            }
+        });
+        builder.setNegativeButton(negativo, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+
+
+    }
     public void Mostrar_Liner(View button)
     {
         Mostrar_Liner();

@@ -95,18 +95,38 @@
                 android:inputType="textPassword" />
         </android.support.design.widget.TextInputLayout>
 
-        <Button
-            android:id="@+id/btncontinuar"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@color/colorPrimaryDark"
-            android:fontFamily="serif"
-            android:onClick="Continuar_Registro"
-            android:text="@string/registrar"
-            android:textColor="@color/icons"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btncontinuar"
+                android:layout_width="166dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.13"
+                android:background="@color/colorPrimaryDark"
+                android:fontFamily="serif"
+                android:onClick="Continuar_Registro"
+                android:text="@string/registrar"
+                android:textColor="@color/icons"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/button8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:background="@color/colorCancel"
+                android:fontFamily="serif"
+                android:onClick="Cancelar"
+                android:text="@string/cancelar"
+                android:textColor="@color/cardview_light_background"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
     </LinearLayout>
 

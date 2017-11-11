@@ -7,7 +7,8 @@
     <color name="colorPrimaryLight">#dcf8c6</color>
     <color name="colorAccent2">#25d366</color>
     <color name="colorAccent">#075e54</color>
-    <color name="colorPrimaryText">#000000</color>
+    <color name="colorPrimaryText">#000</color>
+    <color name="colorCancel">#c35252</color>
     <color name="colorSecondaryText">#ece5dd</color>
     <color name="shadown_color">#075e54</color>
     <color name="ripple_color">#128c7e</color>

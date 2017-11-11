@@ -76,4 +76,12 @@
     <string name="buscar">Buscar</string>
     <string name="fecha_reserva">Fecha de Reserva</string>
     <string name="horas">Horarios Disponibles</string>
+    <string name="completar">Completar</string>
+    <string name="titulo_cancelar">Cancelar .!!</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="texto_cancelar_agregar_usuario"> ¿ Esta seguro que desea Cancelar El registro de Usuario ?</string>
+    <string name="texto_cancelar_reserva"> ¿ Esta seguro que desea Cancelar la Reserva ?</string>
+    <string name="si_cancelar">Si</string>
+    <string name="no_cancelar">No</string>
+
 </resources>
