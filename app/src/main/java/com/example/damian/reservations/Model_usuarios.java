@@ -39,7 +39,7 @@ static detalle_usuarios detalle_persona ;
         tabla.child(id_detalle).child("id_usuarios").setValue(id_usuario);
     }
 public static void TraerInfo(final String id_usuario){
-    System.out.println("llamo");
+
 
     tabla.addValueEventListener(new ValueEventListener() {
         @Override

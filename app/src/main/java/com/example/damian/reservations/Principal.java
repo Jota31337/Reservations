@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,11 +35,9 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class Principal extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class Principal extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, AdaptadorReservas.OnCanchaClickListener {
     private  FloatingActionButton floatingActionButton;
     private Resources res;
-
     private FirebaseAuth.AuthStateListener mAuthListener;
     private FirebaseAuth mAuth;
     private Bundle bundle;
@@ -46,8 +46,12 @@ public class Principal extends AppCompatActivity
     private String uid;
     private String email="";
     private TextView nombre_sesion,email_sesion;
-
     detalle_usuarios detalle;
+    private RecyclerView listadoreservas;
+    private ArrayList<Cancha_Reserva> reservas;
+
+    private AdaptadorReservas adapter;
+    private LinearLayoutManager llm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +66,7 @@ public class Principal extends AppCompatActivity
         i = getIntent();
         CompletarRegistroPersonaID_USUARIO();
         Traer();
-        Model_Estableciminetos.CargarEstablecimientos();
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
@@ -178,7 +182,7 @@ public class Principal extends AppCompatActivity
             boolean en_session= TraerId_sesion();
             System.out.println(en_session+ "");
             if(en_session) {
-
+                Model_Estableciminetos.CargarEstablecimientos();
                 Model_usuarios.TraerInfo(uid_usuario);
 
             }else{
@@ -187,7 +191,7 @@ public class Principal extends AppCompatActivity
         }
 
         public void AgregarReserva(View v){
-
+            Moldel_Reservas.TraerReservas(uid_usuario);
             Intent i = new Intent(Principal.this,Buscar_Cancha.class);
             startActivity(i);
         }
@@ -213,5 +217,21 @@ public class Principal extends AppCompatActivity
             return false;
         }
 
+    public void MostrarReservas(View v){
+        listadoreservas = (RecyclerView) findViewById(R.id.reservasusuario);
+        reservas = Moldel_Reservas.getReservas();
+        llm = new LinearLayoutManager(this);
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+
+        adapter = new AdaptadorReservas(getApplicationContext(),reservas,this);
+
+        listadoreservas.setLayoutManager(llm);
+        listadoreservas.setAdapter(adapter);
 
     }
+
+    @Override
+    public void onCanchaClick(Cancha_Reserva p) {
+
+    }
+}

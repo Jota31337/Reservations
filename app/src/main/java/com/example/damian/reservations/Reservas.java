@@ -28,7 +28,6 @@ public class Reservas {
     }
 
     public Reservas() {
-
     }
 
     public String getId() {

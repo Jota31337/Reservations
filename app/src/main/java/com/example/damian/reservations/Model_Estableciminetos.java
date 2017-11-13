@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class Model_Estableciminetos {
     static FirebaseDatabase database = FirebaseDatabase.getInstance();
     static DatabaseReference tabla = database.getReference("Establecimientos");
-    static ArrayList<Establecimientos> establecimientos = new ArrayList<Establecimientos>();
+    static ArrayList<Establecimientos> establecimientos ;
 
     public  static void GuardarEstablecimientos(Establecimientos establecimientos) {
         establecimientos.setId(tabla.push().getKey());
@@ -84,6 +84,7 @@ public class Model_Estableciminetos {
     }
 
     public static void CargarEstablecimientos(){
+        establecimientos = new ArrayList<Establecimientos>();
         tabla.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -133,6 +134,28 @@ public class Model_Estableciminetos {
 
             if (establecimientos.get(i).getNombre().equalsIgnoreCase(bus)){
               return establecimientos.get(i).getId();
+            }
+
+        }
+
+
+        return "";
+    }
+    public  static String BuscarNumCanchaId(String id,String stablecimiento){
+
+
+        ArrayList<Canchas> x;
+
+        for (int i = 0; i <establecimientos.size() ; i++) {
+
+            if (establecimientos.get(i).getId().equalsIgnoreCase(stablecimiento)){
+                x = establecimientos.get(i).getCanchas();
+                for (int j = 0; j < x.size(); j++) {
+                    int f= Integer.parseInt(id);
+                    if (j==f){
+                        return x.get(j).getNumCancha()+"";
+                    }
+                }
             }
 
         }
