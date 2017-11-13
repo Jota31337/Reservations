@@ -37,7 +37,7 @@ public class AdaptadorCanchas extends RecyclerView.Adapter<AdaptadorCanchas.Canc
     public void onBindViewHolder(CanchasViewHolder holder, int position) {
 
         final Cancha_Establecimiento p = canchas_res.get(position);
-        holder.foto.setImageDrawable(ResourcesCompat.getDrawable(res,R.drawable.logoi,null));
+        holder.foto.setImageDrawable(ResourcesCompat.getDrawable(res,R.drawable.socc,null));
         holder.tamano.setText(p.getTamano());
         holder.direccion.setText(p.getDireccion());
         holder.celular.setText(p.getCelular()+"");

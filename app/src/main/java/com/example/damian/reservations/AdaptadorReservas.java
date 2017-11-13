@@ -35,10 +35,10 @@ public class AdaptadorReservas extends RecyclerView.Adapter<AdaptadorReservas.Re
     public void onBindViewHolder(ReservasViewHolder holder, int position) {
 
         final Cancha_Reserva p = reservas.get(position);
-        holder.foto.setImageDrawable(ResourcesCompat.getDrawable(res,R.drawable.logoi,null));
+        holder.foto.setImageDrawable(ResourcesCompat.getDrawable(res,R.drawable.socc,null));
         holder.fecha_hora.setText(p.getFecha());
         holder.establecimiento.setText(p.getNombre_establecimiento());
-        holder.num_cancha.setText("Cancha :"+ p.getNumero_cancha());
+        holder.num_cancha.setText("Cancha :"+ p.getNumero_cancha() +" - Hora: "+p.getHora_tras());
 
         holder.v.setOnClickListener(new View.OnClickListener() {
             @Override

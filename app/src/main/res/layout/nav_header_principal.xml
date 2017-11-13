@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="270dp"
         android:layout_weight="0.08"
-        android:background="@drawable/header7"
+        android:background="@drawable/header5"
         android:gravity="bottom"
         android:orientation="vertical"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"
@@ -34,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="90dp"
             android:layout_weight="0.06"
-            app:srcCompat="@drawable/usereople" />
+            app:srcCompat="@drawable/user" />
 
         <TextView
             android:id="@+id/txtnombre_sesion"
