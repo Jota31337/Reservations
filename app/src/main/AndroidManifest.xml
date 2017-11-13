@@ -23,7 +23,8 @@
         <activity android:name=".Agrega_Usuario" />
         <activity android:name=".Agregar_Reserva" />
         <activity android:name=".Buscar_Cancha" />
-        <activity android:name=".Resultado_Busqueda"></activity>
+        <activity android:name=".Resultado_Busqueda" />
+        <activity android:name=".splash_screen"></activity>
     </application>
 
 </manifest>

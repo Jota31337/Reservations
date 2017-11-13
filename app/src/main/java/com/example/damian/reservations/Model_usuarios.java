@@ -35,9 +35,11 @@ static detalle_usuarios detalle_persona ;
     public static String  GenereLlave(){
       return  tabla.push().getKey();
     }
+
     public static void ModificarLlaveID(String id_detalle,String id_usuario) {
         tabla.child(id_detalle).child("id_usuarios").setValue(id_usuario);
     }
+
 public static void TraerInfo(final String id_usuario){
 
 
@@ -51,8 +53,7 @@ public static void TraerInfo(final String id_usuario){
                  if (user.getId_usuarios().toString().equals(id_usuario.toString())){
                     detalle_persona =user;
                     // detalle.add(user);
-                     System.out.println("encontro valor");
-                     System.out.println(detalle_persona.getNombres() +"valor");
+
                   }
 
 

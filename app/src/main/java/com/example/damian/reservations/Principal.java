@@ -60,13 +60,14 @@ public class Principal extends AppCompatActivity implements NavigationView.OnNav
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         res = this.getResources();
+
        // nombre_sesion = (TextView) findViewById(R.id.txtnombre_sesion);
         //email_sesion = (TextView) findViewById(R.id.txtcorreo_sesion);
        // nombre_sesion.setText("damian torres");
         i = getIntent();
-        CompletarRegistroPersonaID_USUARIO();
-        Traer();
+       // Traer();
 
+        MostrarReservas();
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
@@ -131,30 +132,6 @@ public class Principal extends AppCompatActivity implements NavigationView.OnNav
         return true;
     }
 
-    public void CompletarRegistroPersonaID_USUARIO(){
-        bundle = i.getBundleExtra("datos");
-        uid = bundle.getString("id");
-        if (uid.length()!=0) {
-
-            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-            if (user != null) {
-                // Name, email address, and profile photo Url
-                // String name = user.getDisplayName();
-                //String email = user.getEmail();
-                //Uri photoUrl = user.getPhotoUrl();
-
-                // The user's ID, unique to the Firebase project. Do NOT use this value to
-                // authenticate with your backend server, if you have one. Use
-                // FirebaseUser.getToken() instead.
-
-
-                 uid_usuario = user.getUid();
-                Model_usuarios.ModificarLlaveID(uid, uid_usuario);
-
-
-            }
-        }
-    }
     public void Mensaje(int mensaje){
         //Toast.makeText(Login.this, mensaje, Toast.LENGTH_LONG).show();
         Toast toast3 = new Toast(getApplicationContext());
@@ -191,7 +168,7 @@ public class Principal extends AppCompatActivity implements NavigationView.OnNav
         }
 
         public void AgregarReserva(View v){
-            Moldel_Reservas.TraerReservas(uid_usuario);
+
             Intent i = new Intent(Principal.this,Buscar_Cancha.class);
             startActivity(i);
         }
@@ -217,7 +194,8 @@ public class Principal extends AppCompatActivity implements NavigationView.OnNav
             return false;
         }
 
-    public void MostrarReservas(View v){
+    public void MostrarReservas(){
+
         listadoreservas = (RecyclerView) findViewById(R.id.reservasusuario);
         reservas = Moldel_Reservas.getReservas();
         llm = new LinearLayoutManager(this);

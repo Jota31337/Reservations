@@ -1,5 +1,6 @@
 package com.example.damian.reservations;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -41,12 +42,14 @@ public class Agrega_Usuario extends AppCompatActivity {
     private EditText txtCelular;
     private EditText txtNombre;
     private EditText txtApellido,txtnacimiento,txtcorreo;
+    private ProgressDialog progressDialog;
    String uid = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agrega__usuario);
         res=this.getResources();
+        progressDialog= new ProgressDialog(this);
         LinerPersonas = (LinearLayout)findViewById(R.id.laydatospersona);
         LinerUsuarios = (LinearLayout)findViewById(R.id.laydatosusuario);
         usuario = (EditText) findViewById(R.id.txtusuario);
@@ -72,7 +75,7 @@ public class Agrega_Usuario extends AppCompatActivity {
         };
     }
 
-public void Mostrar_Liner(){
+    public void Mostrar_Liner(){
     if (LinerUsuarios.getVisibility() == View.VISIBLE)
     {
         Metodos.animar(false,LinerUsuarios);
@@ -84,7 +87,7 @@ public void Mostrar_Liner(){
 
     }
 }
-public void Ocultar_Liner(){
+    public void Ocultar_Liner(){
     if (LinerPersonas.getVisibility() == View.VISIBLE)
     {
         Metodos.animar(false,LinerPersonas);
@@ -132,9 +135,7 @@ public void Ocultar_Liner(){
     {
         Mostrar_Liner();
     }
-
-    public void Ocultar_Liner(View button)
-    {
+    public void Ocultar_Liner(View button) {
         Ocultar_Liner();
 
     }
@@ -151,23 +152,23 @@ public void Ocultar_Liner(){
     }
 
     public void RegistrarUsuario(final String email, String password){
+        //agregas un mensaje en el ProgressDialog
+        progressDialog.setMessage("Creando Usuario");
+        //muestras el ProgressDialog
+        progressDialog.show();
         firebaseAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
 
                 if(task.isSuccessful()) {
-                    Toast.makeText(Agrega_Usuario.this, R.string.cuenta_creada, Toast.LENGTH_LONG).show();
-                    /*Intent i = new Intent(Agrega_Usuario.this,Login.class);
-                    startActivity(i);
-                    Toast.makeText(Agrega_Usuario.this, R.string.cuenta_creada, Toast.LENGTH_LONG).show();
-*/
                     detalle_usuarios d = new detalle_usuarios(txtNombre.getText().toString(), txtApellido.getText().toString(), txtCelular.getText().toString(), txtcorreo.getText().toString(), txtnacimiento.getText().toString(),sexo.getSelectedItemPosition(),"0",0);
                     d.Guardar();
                     uid=d.getId();
+                    progressDialog.dismiss();
                     signIn(usuario.getText().toString(),contrasena.getText().toString());
-                    Mensaje(R.string.cuenta_creada);
 
                 }else{
+                    progressDialog.dismiss();
                     String m =task.getException().getMessage();
                  int res=  Metodos.TraducirMensaje(m);
                     if (res>0)Mensaje(res);
@@ -214,19 +215,24 @@ public void Ocultar_Liner(){
       Mostrar_Liner();
   }
     public void signIn(String email, String password){
+        //agregas un mensaje en el ProgressDialog
+        progressDialog.setMessage("Iniciado sesión");
+        //muestras el ProgressDialog
+        progressDialog.show();
         firebaseAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()) {
-
-                    Intent i = new Intent(Agrega_Usuario.this,Principal.class);
+                    progressDialog.dismiss();
+                    Intent i = new Intent(Agrega_Usuario.this,splash_screen.class);
                     Bundle b = new Bundle();
                     b.putString("id",uid);
                     i.putExtra("datos",b);
                     startActivity(i);
                     finish();
-                    Toast.makeText(Agrega_Usuario.this, R.string.bienvenido, Toast.LENGTH_LONG).show();
+
                 }else{
+                    progressDialog.dismiss();
                     String m =task.getException().getMessage();
 
                     int res=  Metodos.TraducirMensaje(m);

@@ -1,5 +1,6 @@
 package com.example.damian.reservations;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.support.annotation.NonNull;
@@ -27,9 +28,11 @@ public class Login extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener authStateListener;
     private EditText email;
     private EditText password;
+    private ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        progressDialog= new ProgressDialog(this);
         setContentView(R.layout.activity_login);
         res=this.getResources();
         LinerLogin = (LinearLayout)findViewById(R.id.layalogin);
@@ -57,21 +60,27 @@ public class Login extends AppCompatActivity {
     }
     }
     public void signIn(String email, String password){
+          //agregas un mensaje en el ProgressDialog
+          progressDialog.setMessage("Iniciado sesión");
+            //muestras el ProgressDialog
+        progressDialog.show();
         firebaseAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()) {
-                    Intent i = new Intent(Login.this,Principal.class);
+                    progressDialog.dismiss();
+                    Intent i = new Intent(Login.this,splash_screen.class);
                     Bundle b = new Bundle();
                     b.putString("id","");
                     i.putExtra("datos",b);
                     startActivity(i);
                     finish();
-                    Toast.makeText(Login.this, R.string.bienvenido, Toast.LENGTH_LONG).show();
+
                 }else{
+                    progressDialog.dismiss();
                     String m =task.getException().getMessage();
 
-                   int res=  Metodos.TraducirMensaje(m);
+                    int res=  Metodos.TraducirMensaje(m);
                     if (res>0)Mensaje(res);
                     else Toast.makeText(Login.this, m, Toast.LENGTH_LONG).show();
 

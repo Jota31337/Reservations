@@ -294,7 +294,13 @@ public void CrearFilaPrincipalTabla(){
     }
 
     public void GuardarReserva(){
+        Moldel_Reservas.setReservas();
         Reservas a = new Reservas("1",id_cancha, id_user, fechaSelecionada, horas_Seleccionadas, true, id_establecimiento);
         Moldel_Reservas.GuardarReserva(a);
+        Intent r = new Intent(Agregar_Reserva.this,Principal.class);
+        Bundle b = new Bundle();
+        b.putString("id","");
+        r.putExtra("datos",b);
+        startActivity(r);
     }
 }

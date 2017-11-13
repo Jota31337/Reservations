@@ -15,10 +15,14 @@ import java.util.ArrayList;
 public class Moldel_Reservas {
     static FirebaseDatabase database = FirebaseDatabase.getInstance();
     static DatabaseReference tabla = database.getReference("Reservas");
-    private static ArrayList<Cancha_Reserva> reservas;
+    private static ArrayList<Cancha_Reserva> reservas = new ArrayList<Cancha_Reserva>();
 
     public static ArrayList<Cancha_Reserva> getReservas() {
         return reservas;
+    }
+
+    public static void setReservas() {
+        Moldel_Reservas.reservas = new ArrayList<Cancha_Reserva>();
     }
 
     public  static void GuardarReserva(Reservas r) {
@@ -27,6 +31,8 @@ public class Moldel_Reservas {
     }
 
     public static void TraerReservas(final String id_usuario){
+        System.out.println("llama");
+        System.out.println("llama "+id_usuario);
         reservas = new ArrayList<Cancha_Reserva>();
         tabla.addValueEventListener(new ValueEventListener() {
             @Override
@@ -35,9 +41,15 @@ public class Moldel_Reservas {
                     for(DataSnapshot snapshot:dataSnapshot.getChildren()){
                         Reservas r = snapshot.getValue(Reservas.class);
                         if (r.getId_usuario().equals(id_usuario.toString())){
+
                             ArrayList<String> nombre_establecimiento = Model_Estableciminetos.BuscarDatosEstablecimiento(r.getId_establecimiento());
-                            Cancha_Reserva a = new Cancha_Reserva(r.getId(),nombre_establecimiento.get(0),Model_Estableciminetos.BuscarNumCanchaId(r.getId_cancha(),r.getId_establecimiento()),r.getFecha(),r.getHora());
-                            reservas.add(a);
+                            System.out.println("llama "+ r.getId());
+                              ArrayList<Integer> ho= new ArrayList<Integer>();
+                              ho.add(3);
+
+                          Cancha_Reserva a1 = new Cancha_Reserva(r.getId(),nombre_establecimiento.get(0),Model_Estableciminetos.BuscarNumCanchaId(r.getId_cancha(),r.getId_establecimiento()),r.getFecha(),r.getHora());
+                          //  Cancha_Reserva a = new Cancha_Reserva("1","prueba","4","13/11/2017",ho);
+                            reservas.add(a1);
                         }
 
 
