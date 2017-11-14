@@ -234,7 +234,7 @@ public class Principal extends AppCompatActivity implements NavigationView.OnNav
 
                 if (id.length()!=0){
                     Moldel_Reservas.Cancelarreserva(id);
-                    System.out.println();
+
                 }else{
                 }
 

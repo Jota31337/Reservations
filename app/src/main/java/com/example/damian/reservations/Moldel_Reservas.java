@@ -39,7 +39,7 @@ static String Id_cancelar="";
     }
     public static void Cancelarreserva(String id_reserva) {
         tabla.child(id_reserva).child("estado").setValue(false);
-        
+
     }
 
     public static void TraerReservas(final String id_usuario){
