@@ -1,5 +1,6 @@
 package com.example.damian.reservations;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
@@ -8,6 +9,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -49,7 +51,7 @@ public class Principal extends AppCompatActivity implements NavigationView.OnNav
     detalle_usuarios detalle;
     private RecyclerView listadoreservas;
     private ArrayList<Cancha_Reserva> reservas;
-
+    static AlertDialog.Builder builder ;
     private AdaptadorReservas adapter;
     private LinearLayoutManager llm;
 
@@ -60,7 +62,7 @@ public class Principal extends AppCompatActivity implements NavigationView.OnNav
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         res = this.getResources();
-
+     builder = new AlertDialog.Builder(this);
        // nombre_sesion = (TextView) findViewById(R.id.txtnombre_sesion);
         //email_sesion = (TextView) findViewById(R.id.txtcorreo_sesion);
        // nombre_sesion.setText("damian torres");
@@ -210,6 +212,45 @@ public class Principal extends AppCompatActivity implements NavigationView.OnNav
 
     @Override
     public void onCanchaClick(Cancha_Reserva p) {
+
+    }
+
+    public static void Cancelar(Resources res){
+
+        String positivo,negativo;
+
+
+        builder.setTitle(res.getString(R.string.titulo_cancelar));
+        builder.setMessage(res.getString(R.string.texto_cancelar_reserva));
+        positivo = res.getString(R.string.si_cancelar);
+        negativo = res.getString(R.string.no_cancelar);
+
+
+
+        builder.setPositiveButton(positivo, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                String id=Moldel_Reservas.getId_cancelar();
+
+                if (id.length()!=0){
+                    Moldel_Reservas.Cancelarreserva(id);
+                    System.out.println();
+                }else{
+                }
+
+
+            }
+        });
+        builder.setNegativeButton(negativo, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+
 
     }
 }

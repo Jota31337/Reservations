@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -39,7 +40,16 @@ public class AdaptadorReservas extends RecyclerView.Adapter<AdaptadorReservas.Re
         holder.fecha_hora.setText(p.getFecha());
         holder.establecimiento.setText(p.getNombre_establecimiento());
         holder.num_cancha.setText("Cancha :"+ p.getNumero_cancha() +" - Hora: "+p.getHora_tras());
+        holder.eliminar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Principal.Cancelar(contexto,res);
+                // Moldel_Reservas.eliminarRserva(p.getId_reserva());
+                Moldel_Reservas.setId_cancelar(p.getId_reserva());
+                Principal.Cancelar(res);//System.out.println("Eliminado");
 
+            }
+        });
         holder.v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,7 +67,7 @@ public class AdaptadorReservas extends RecyclerView.Adapter<AdaptadorReservas.Re
         private ImageView foto;
         private TextView establecimiento;
         private TextView fecha_hora,num_cancha;
-
+        private Button eliminar;
         private View v;
 
         public ReservasViewHolder(View itemView){
@@ -67,7 +77,7 @@ public class AdaptadorReservas extends RecyclerView.Adapter<AdaptadorReservas.Re
             fecha_hora = (TextView)itemView.findViewById(R.id.lblfecha_hora);
             establecimiento =(TextView)itemView.findViewById(R.id.lblestablecimiento_res);
             num_cancha =(TextView)itemView.findViewById(R.id.lbl_num_cancha);
-
+            eliminar =(Button)itemView.findViewById(R.id.btneliminar);
         }
     }
 

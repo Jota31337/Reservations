@@ -16,9 +16,17 @@ public class Moldel_Reservas {
     static FirebaseDatabase database = FirebaseDatabase.getInstance();
     static DatabaseReference tabla = database.getReference("Reservas");
     private static ArrayList<Cancha_Reserva> reservas = new ArrayList<Cancha_Reserva>();
-
+static String Id_cancelar="";
     public static ArrayList<Cancha_Reserva> getReservas() {
         return reservas;
+    }
+
+    public static String getId_cancelar() {
+        return Id_cancelar;
+    }
+
+    public static void setId_cancelar(String id_cancelar) {
+        Id_cancelar = id_cancelar;
     }
 
     public static void setReservas() {
@@ -29,10 +37,13 @@ public class Moldel_Reservas {
         r.setId(tabla.push().getKey());
         tabla.child(r.getId()).setValue(r);
     }
+    public static void Cancelarreserva(String id_reserva) {
+        tabla.child(id_reserva).child("estado").setValue(false);
+        
+    }
 
     public static void TraerReservas(final String id_usuario){
-        System.out.println("llama");
-        System.out.println("llama "+id_usuario);
+
         reservas = new ArrayList<Cancha_Reserva>();
         tabla.addValueEventListener(new ValueEventListener() {
             @Override
@@ -40,15 +51,9 @@ public class Moldel_Reservas {
                 if(dataSnapshot.exists()){
                     for(DataSnapshot snapshot:dataSnapshot.getChildren()){
                         Reservas r = snapshot.getValue(Reservas.class);
-                        if (r.getId_usuario().equals(id_usuario.toString())){
-
+                        if (r.getId_usuario().equals(id_usuario.toString()) && r.isEstado()){
                             ArrayList<String> nombre_establecimiento = Model_Estableciminetos.BuscarDatosEstablecimiento(r.getId_establecimiento());
-                            System.out.println("llama "+ r.getId());
-                              ArrayList<Integer> ho= new ArrayList<Integer>();
-                              ho.add(3);
-
                           Cancha_Reserva a1 = new Cancha_Reserva(r.getId(),nombre_establecimiento.get(0),Model_Estableciminetos.BuscarNumCanchaId(r.getId_cancha(),r.getId_establecimiento()),r.getFecha(),r.getHora());
-                          //  Cancha_Reserva a = new Cancha_Reserva("1","prueba","4","13/11/2017",ho);
                             reservas.add(a1);
                         }
 

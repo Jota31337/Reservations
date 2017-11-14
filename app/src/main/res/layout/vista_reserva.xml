@@ -89,7 +89,7 @@ android:orientation="vertical"
                 </LinearLayout>
 
                 <Button
-                    android:id="@+id/button9"
+                    android:id="@+id/btneliminar"
                     android:layout_width="28dp"
                     android:layout_height="31dp"
                     android:layout_marginLeft="5dp"
