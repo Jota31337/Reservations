@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/icons"
+    android:background="@drawable/fondoq"
     android:orientation="vertical"
     tools:context="com.example.damian.reservations.Agrega_Usuario"
     tools:layout_editor_absoluteX="8dp"
@@ -29,7 +29,6 @@
         android:id="@+id/laydatosusuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/header"
         android:orientation="vertical"
         android:visibility="gone">
 
@@ -134,7 +133,6 @@
         android:id="@+id/laydatospersona"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/header"
         android:orientation="vertical"
         android:visibility="gone"
         android:weightSum="1">

@@ -78,7 +78,7 @@ public void Continuar(View v){
         TableRow fila = new TableRow(this);
         TextView c1 = new TextView(this);
         TextView c2 = new TextView(this);
-        TextView c3 = new TextView(this);
+
        final CheckBox c4 = new CheckBox(this);
         c4.setText(res.getString(R.string.reservar));
         c4.setId(programacion.get(i));
@@ -102,21 +102,21 @@ public void Continuar(View v){
         });
         c1.setText(""+programacion.get(i));
         c2.setText("       ");
-        c3.setText(res.getString(R.string.reservar));
+
 
       //  c2.setBackgroundColor(res.getColor(R.color.colorAccent2,null));
        c2.setBackground(res.getDrawable(R.drawable.borde));
         c1.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
         c2.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-        c3.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+
 
         c1.setTextSize(16);
         c2.setTextSize(16);
-        c3.setTextSize(16);
+
 
         c1.setTextColor(res.getColor(R.color.colorPrimaryText,null));
         c2.setTextColor(res.getColor(R.color.colorPrimaryText,null));
-        c3.setTextColor(res.getColor(R.color.colorPrimaryText,null));
+
 
         fila.addView(c1);
         fila.addView(c2);

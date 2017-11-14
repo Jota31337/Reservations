@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/header"
+    android:background="@drawable/fondoq"
     android:orientation="vertical"
     android:visibility="visible"
     tools:context="com.example.damian.reservations.Buscar_Cancha"
