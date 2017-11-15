@@ -162,7 +162,7 @@
                 android:fitsSystemWindows="true"
                 android:scaleType="centerCrop"
                 app:layout_collapseMode="pin"
-                app:srcCompat="@drawable/cancha4" />
+                app:srcCompat="@drawable/cancha2" />
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar2"

@@ -24,6 +24,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -54,6 +55,8 @@ public class Principal extends AppCompatActivity implements NavigationView.OnNav
 
     private AdaptadorReservas adapter;
     private LinearLayoutManager llm;
+    private int icon_warning =0;
+    private int icon_good =0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +65,8 @@ public class Principal extends AppCompatActivity implements NavigationView.OnNav
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         res = this.getResources();
-
+        icon_warning =R.drawable.milky_25;
+        icon_good =R.drawable.milky_25;
        // nombre_sesion = (TextView) findViewById(R.id.txtnombre_sesion);
         //email_sesion = (TextView) findViewById(R.id.txtcorreo_sesion);
        // nombre_sesion.setText("damian torres");
@@ -134,18 +138,22 @@ public class Principal extends AppCompatActivity implements NavigationView.OnNav
         return true;
     }
 
-    public void Mensaje(int mensaje){
+    public void Mensaje(int mensaje,int img){
         //Toast.makeText(Login.this, mensaje, Toast.LENGTH_LONG).show();
         Toast toast3 = new Toast(getApplicationContext());
 
         LayoutInflater inflater = getLayoutInflater();
         View layout = inflater.inflate(R.layout.toast_layout,
-                (ViewGroup) findViewById(R.id.lytLayout));
+                (ViewGroup ) findViewById(R.id.lytLayout));
         TextView txtMsg = (TextView)layout.findViewById(R.id.txtMensaje);
+        ImageView icon =(ImageView)layout.findViewById(R.id.iconomensaje);
+        icon.setImageResource(img);
         txtMsg.setText(mensaje);
+        // toast3.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
         toast3.setDuration(Toast.LENGTH_SHORT);
         toast3.setView(layout);
         toast3.show();
+
     }
     public void  Mostrar(View v){
         detalle = Model_usuarios.ObtenerDetallerPersona();

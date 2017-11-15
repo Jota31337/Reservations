@@ -14,8 +14,9 @@ public class Cancha_Reserva {
     private ArrayList<Integer> hora;
     private String celular;
     private String Direccion;
+    private boolean estado;
 private String hora_tras="";
-    public Cancha_Reserva(String id_reserva, String nombre_establecimiento, String numero_cancha, String fecha, ArrayList<Integer> hora,String celular,String direccion) {
+    public Cancha_Reserva(String id_reserva, String nombre_establecimiento, String numero_cancha, String fecha, ArrayList<Integer> hora,String celular,String direccion,boolean estado) {
         this.id_reserva = id_reserva;
         this.nombre_establecimiento = nombre_establecimiento;
         this.numero_cancha = numero_cancha;
@@ -24,6 +25,15 @@ private String hora_tras="";
         this.hora_tras=ConvertirHora(hora.get(0));
         this.Direccion=direccion;
         this.celular=celular;
+        this.estado=estado;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
     }
 
     public String getCelular() {

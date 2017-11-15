@@ -7,6 +7,7 @@ import android.graphics.Typeface;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CalendarView;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.Spinner;
@@ -42,12 +44,15 @@ public class Agregar_Reserva extends AppCompatActivity  {
     private String id_user = "";
     private   String fechaSelecionada="";
     ArrayList<Canchas> canchas;
-
+    private int icon_warning =0;
+    private int icon_good =0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agregar__reserva);
         res=this.getResources();
+        icon_warning =R.drawable.milky_25;
+        icon_good =R.drawable.icono_ok;
         horas_Seleccionadas = new ArrayList<>();
         fecha = (CalendarView)findViewById(R.id.txtcalendar);
        // CargarEstablecimientos();
@@ -128,18 +133,22 @@ fila.setBackground(res.getDrawable(R.drawable.borde_fila));
     }
     Mostrar_Liner();
 }
-    public void Mensaje(int mensaje){
+    public void Mensaje(int mensaje,int img){
         //Toast.makeText(Login.this, mensaje, Toast.LENGTH_LONG).show();
         Toast toast3 = new Toast(getApplicationContext());
 
         LayoutInflater inflater = getLayoutInflater();
         View layout = inflater.inflate(R.layout.toast_layout,
-                (ViewGroup) findViewById(R.id.lytLayout));
+                (ViewGroup ) findViewById(R.id.lytLayout));
         TextView txtMsg = (TextView)layout.findViewById(R.id.txtMensaje);
+        ImageView icon =(ImageView)layout.findViewById(R.id.iconomensaje);
+        icon.setImageResource(img);
         txtMsg.setText(mensaje);
+         toast3.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
         toast3.setDuration(Toast.LENGTH_SHORT);
         toast3.setView(layout);
         toast3.show();
+
     }
 
     public void Mostrar_Liner(){
@@ -298,6 +307,7 @@ public void CrearFilaPrincipalTabla(){
         Moldel_Reservas.setReservas();
         Reservas a = new Reservas("1",id_cancha, id_user, fechaSelecionada, horas_Seleccionadas, true, id_establecimiento);
         Moldel_Reservas.GuardarReserva(a);
+        Mensaje(R.string.ok_reserva, icon_good);
         Intent r = new Intent(Agregar_Reserva.this,Principal.class);
         Bundle b = new Bundle();
         b.putString("id","");

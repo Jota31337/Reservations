@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +22,10 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.TimeZone;
+
 public class Login extends AppCompatActivity {
     private LinearLayout LinerLogin;
     private Resources res;
@@ -29,12 +34,15 @@ public class Login extends AppCompatActivity {
     private EditText email;
     private EditText password;
     private ProgressDialog progressDialog;
+    private int icon_warning =0;
+    private int icon_good =0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         progressDialog= new ProgressDialog(this);
         setContentView(R.layout.activity_login);
         res=this.getResources();
+        icon_warning =R.drawable.milky_25;
         Model_Estableciminetos.CargarEstablecimientos();
         LinerLogin = (LinearLayout)findViewById(R.id.layalogin);
         Mostrar_Liner();
@@ -48,14 +56,16 @@ public class Login extends AppCompatActivity {
                 FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
             }
         };
+
+
     }
 
     public void Logear(View v){
         if (Metodos.ValidarCampo(email)){
 
-             Mensaje(R.string.ingrese_usuario);
+             Mensaje(R.string.ingrese_usuario, icon_warning);
         }else  if (Metodos.ValidarCampo(password)){
-            Mensaje(R.string.ingrese_contrasena);
+            Mensaje(R.string.ingrese_contrasena, icon_warning);
         }else{
         signIn(email.getText().toString(),password.getText().toString());
     }
@@ -82,7 +92,7 @@ public class Login extends AppCompatActivity {
                     String m =task.getException().getMessage();
 
                     int res=  Metodos.TraducirMensaje(m);
-                    if (res>0)Mensaje(res);
+                    if (res>0)Mensaje(res, icon_warning);
                     else Toast.makeText(Login.this, m, Toast.LENGTH_LONG).show();
 
                 }
@@ -104,7 +114,7 @@ public class Login extends AppCompatActivity {
     {
         Mostrar_Liner();
     }
-    public void Mensaje(int mensaje){
+    public void Mensaje(int mensaje,int img){
         //Toast.makeText(Login.this, mensaje, Toast.LENGTH_LONG).show();
         Toast toast3 = new Toast(getApplicationContext());
 
@@ -112,13 +122,13 @@ public class Login extends AppCompatActivity {
         View layout = inflater.inflate(R.layout.toast_layout,
                 (ViewGroup ) findViewById(R.id.lytLayout));
         TextView txtMsg = (TextView)layout.findViewById(R.id.txtMensaje);
+        ImageView icon =(ImageView)layout.findViewById(R.id.iconomensaje);
+        icon.setImageResource(img);
         txtMsg.setText(mensaje);
-       // toast3.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+        toast3.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
         toast3.setDuration(Toast.LENGTH_SHORT);
         toast3.setView(layout);
         toast3.show();
-
-
 
     }
     @Override
@@ -134,4 +144,5 @@ public class Login extends AppCompatActivity {
             firebaseAuth.removeAuthStateListener(authStateListener);
         }
     }
+
 }

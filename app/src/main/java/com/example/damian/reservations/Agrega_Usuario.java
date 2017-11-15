@@ -9,6 +9,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ import android.view.animation.LayoutAnimationController;
 import android.view.animation.TranslateAnimation;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -44,11 +46,15 @@ public class Agrega_Usuario extends AppCompatActivity {
     private EditText txtApellido,txtnacimiento,txtcorreo;
     private ProgressDialog progressDialog;
    String uid = "";
+    private int icon_warning =0;
+    private int icon_good =0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agrega__usuario);
         res=this.getResources();
+        icon_warning =R.drawable.milky_25;
+        icon_good =R.drawable.milky_25;
         progressDialog= new ProgressDialog(this);
         LinerPersonas = (LinearLayout)findViewById(R.id.laydatospersona);
         LinerUsuarios = (LinearLayout)findViewById(R.id.laydatosusuario);
@@ -171,7 +177,7 @@ public class Agrega_Usuario extends AppCompatActivity {
                     progressDialog.dismiss();
                     String m =task.getException().getMessage();
                  int res=  Metodos.TraducirMensaje(m);
-                    if (res>0)Mensaje(res);
+                    if (res>0)Mensaje(res,icon_warning);
                     else Toast.makeText(Agrega_Usuario.this, m, Toast.LENGTH_LONG).show();
                 }
             }
@@ -182,13 +188,13 @@ public class Agrega_Usuario extends AppCompatActivity {
     }
      public  void Continuar_Registro(View v){
     if (Metodos.ValidarCampo(usuario)){
-        Mensaje(R.string.ingrese_usuario);
+        Mensaje(R.string.ingrese_usuario,icon_warning);
     }else if (Metodos.ValidarCampo(contrasena)){
-        Mensaje(R.string.ingrese_contrasena);
+        Mensaje(R.string.ingrese_contrasena,icon_warning);
     }else if (Metodos.ValidarCampo(rcontrasena)){
-        Mensaje(R.string.ingrese_re_contrasena);
+        Mensaje(R.string.ingrese_re_contrasena,icon_warning);
     }else if (!contrasena.getText().toString().equals(rcontrasena.getText().toString())){
-        Mensaje(R.string.contrasena_diferentes);
+        Mensaje(R.string.contrasena_diferentes,icon_warning);
     }else{
         RegistrarUsuario(usuario.getText().toString(),contrasena.getText().toString());
 
@@ -196,15 +202,15 @@ public class Agrega_Usuario extends AppCompatActivity {
 }
   public void RegistrarPersona(View v) {
       if (Metodos.ValidarCampo(txtNombre)) {
-          Mensaje(R.string.errado_nombre);
+          Mensaje(R.string.errado_nombre,icon_warning);
       } else if (Metodos.ValidarCampo(txtApellido)) {
-          Mensaje(R.string.errado_apellidos);
+          Mensaje(R.string.errado_apellidos,icon_warning);
       }else if (Metodos.ValidarCampo(txtCelular)) {
-          Mensaje(R.string.errado_celular);
+          Mensaje(R.string.errado_celular,icon_warning);
       }else if (Metodos.ValidarCampo(txtcorreo)) {
-          Mensaje(R.string.errado_correo);
+          Mensaje(R.string.errado_correo,icon_warning);
       }else if (Metodos.ValidarCampo(txtnacimiento)) {
-          Mensaje(R.string.errado_nacimiento);
+          Mensaje(R.string.errado_nacimiento,icon_warning);
       }else{
           Ocultar_Liner();
       }
@@ -244,18 +250,22 @@ public class Agrega_Usuario extends AppCompatActivity {
         });
     }
 
-    public void Mensaje(int mensaje){
+    public void Mensaje(int mensaje,int img){
         //Toast.makeText(Login.this, mensaje, Toast.LENGTH_LONG).show();
         Toast toast3 = new Toast(getApplicationContext());
 
         LayoutInflater inflater = getLayoutInflater();
         View layout = inflater.inflate(R.layout.toast_layout,
-                (ViewGroup) findViewById(R.id.lytLayout));
+                (ViewGroup ) findViewById(R.id.lytLayout));
         TextView txtMsg = (TextView)layout.findViewById(R.id.txtMensaje);
+        ImageView icon =(ImageView)layout.findViewById(R.id.iconomensaje);
+        icon.setImageResource(img);
         txtMsg.setText(mensaje);
+         toast3.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
         toast3.setDuration(Toast.LENGTH_SHORT);
         toast3.setView(layout);
         toast3.show();
+
     }
 
 }

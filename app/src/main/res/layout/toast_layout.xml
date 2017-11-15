@@ -9,23 +9,25 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/cardview_shadow_end_color"
-        android:orientation="vertical">
+        android:layout_height="98dp"
+        android:background="@drawable/fondoq"
+        android:orientation="vertical"
+        android:weightSum="1">
 
         <ImageView
-            android:id="@+id/imageView7"
-            android:layout_width="wrap_content"
-            android:layout_height="153dp"
-            app:srcCompat="@drawable/warning2" />
+            android:id="@+id/iconomensaje"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/milky_25" />
 
         <TextView
             android:id="@+id/txtMensaje"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_weight="0.21"
+            android:layout_weight="0.00"
             android:fontFamily="serif"
+            android:text="Mensaje"
             android:textAlignment="center"
             android:textColor="@color/colorPrimaryText"
             android:textSize="18sp" />

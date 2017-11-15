@@ -89,12 +89,12 @@ android:orientation="vertical"
                 </LinearLayout>
 
                 <TextView
-                    android:id="@+id/btneliminar"
+                    android:id="@+id/lbl_estado"
                     android:layout_width="28dp"
                     android:layout_height="31dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="30dp"
-                    android:background="@drawable/ojo" />
+                    android:background="@drawable/res_active" />
 
             </LinearLayout>
 

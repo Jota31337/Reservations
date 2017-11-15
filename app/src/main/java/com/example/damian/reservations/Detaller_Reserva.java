@@ -9,9 +9,13 @@ import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -25,11 +29,15 @@ public class Detaller_Reserva extends AppCompatActivity {
     private int fot;
     private ImageView foto;
     private Resources res;
+    private int icon_warning =0;
+    private int icon_good =0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detaller__reserva);
         res = this.getResources();
+        icon_warning =R.drawable.milky_25;
+        icon_good =R.drawable.icono_ok;
         collapsingToolbarLayout=(CollapsingToolbarLayout) findViewById(R.id.collapsingtoolbard);
        // foto = (ImageView) findViewById(R.id.fotocarro);
         cancha = (TextView) findViewById(R.id.txtd_cancha);
@@ -67,7 +75,8 @@ public class Detaller_Reserva extends AppCompatActivity {
         builder.setPositiveButton(positivo, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                    Moldel_Reservas.Cancelarreserva(id);
+                Moldel_Reservas.Cancelarreserva(id);
+                Mensaje(R.string.ok_eliminar_reserva, icon_good);
                 Intent si = new Intent(Detaller_Reserva.this,Principal.class);
                 startActivity(si);
             }
@@ -82,6 +91,23 @@ public class Detaller_Reserva extends AppCompatActivity {
         dialog.show();
 
 
+
+    }
+    public void Mensaje(int mensaje,int img){
+        //Toast.makeText(Login.this, mensaje, Toast.LENGTH_LONG).show();
+        Toast toast3 = new Toast(getApplicationContext());
+
+        LayoutInflater inflater = getLayoutInflater();
+        View layout = inflater.inflate(R.layout.toast_layout,
+                (ViewGroup) findViewById(R.id.lytLayout));
+        TextView txtMsg = (TextView)layout.findViewById(R.id.txtMensaje);
+        ImageView icon =(ImageView)layout.findViewById(R.id.iconomensaje);
+        icon.setImageResource(img);
+        txtMsg.setText(mensaje);
+         toast3.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+        toast3.setDuration(Toast.LENGTH_SHORT);
+        toast3.setView(layout);
+        toast3.show();
 
     }
 }

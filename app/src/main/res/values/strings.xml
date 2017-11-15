@@ -61,7 +61,8 @@
     <string name="estado"><b>Estado</b></string>
     <string name="opcion"><b>Opcion</b></string>
     <string name="metodo_busqueda">Seleccione Metodo de Busqueda</string>
-
+    <string name="ok_reserva">Reserva Agregada con exito</string>
+    <string name="ok_eliminar_reserva">Reserva Cancelada con exito</string>
     <string name="tamano">Tamaño</string>
     <string-array name="sexo">
         <item>@string/m</item>

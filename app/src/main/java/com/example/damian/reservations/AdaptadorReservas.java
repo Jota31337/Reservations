@@ -11,7 +11,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.TimeZone;
 
 /**
  * Created by android on 07/10/2017.
@@ -36,6 +39,11 @@ public class AdaptadorReservas extends RecyclerView.Adapter<AdaptadorReservas.Re
     public void onBindViewHolder(ReservasViewHolder holder, int position) {
 
         final Cancha_Reserva p = reservas.get(position);
+        if (p.isEstado()){
+            holder.estado.setBackground(res.getDrawable(R.drawable.res_active));
+        }else{
+            holder.estado.setBackground(res.getDrawable(R.drawable.res_incactive));
+        }
         holder.foto.setImageDrawable(ResourcesCompat.getDrawable(res,R.drawable.socc,null));
         holder.fecha_hora.setText(p.getFecha());
         holder.establecimiento.setText(p.getNombre_establecimiento());
@@ -56,7 +64,7 @@ public class AdaptadorReservas extends RecyclerView.Adapter<AdaptadorReservas.Re
     public static class ReservasViewHolder extends RecyclerView.ViewHolder{
         private ImageView foto;
         private TextView establecimiento;
-        private TextView fecha_hora,num_cancha;
+        private TextView fecha_hora,num_cancha,estado;
 
         private View v;
 
@@ -67,6 +75,7 @@ public class AdaptadorReservas extends RecyclerView.Adapter<AdaptadorReservas.Re
             fecha_hora = (TextView)itemView.findViewById(R.id.lblfecha_hora);
             establecimiento =(TextView)itemView.findViewById(R.id.lblestablecimiento_res);
             num_cancha =(TextView)itemView.findViewById(R.id.lbl_num_cancha);
+            estado =(TextView)itemView.findViewById(R.id.lbl_estado);
 
         }
     }
@@ -74,4 +83,11 @@ public class AdaptadorReservas extends RecyclerView.Adapter<AdaptadorReservas.Re
     public interface OnCanchaClickListener {
         void onCanchaClick(Cancha_Reserva p);
     }
+   /* public String Estado_Reserva(String fecha_reserva){
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        Calendar calendar = Calendar.getInstance();
+        String fechaactual = simpleDateFormat.format(calendar.getTime());
+
+        return fechaactual;
+    }*/
 }
