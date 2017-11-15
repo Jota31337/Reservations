@@ -33,12 +33,12 @@ public class Favoritos {
         this.id_usuario = id_usuario;
     }
 
-    public String getId_cancha() {
+    public String getId_establecimiento() {
         return id_establecimiento;
     }
 
-    public void setId_cancha(String id_cancha) {
-        this.id_establecimiento = id_cancha;
+    public void setId_establecimiento(String id_establecimiento) {
+        this.id_establecimiento = id_establecimiento;
     }
 
     public float getCalificacion() {

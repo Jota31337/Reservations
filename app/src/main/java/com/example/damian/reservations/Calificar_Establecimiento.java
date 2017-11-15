@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,11 +29,15 @@ public class Calificar_Establecimiento extends AppCompatActivity {
     private Intent i;
     private int icon_warning =0;
     private int icon_good =0;
+    private LinearLayout Linercal;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calificar__establecimiento);
         res = this.getResources();
+
+        Linercal = (LinearLayout)findViewById(R.id.laycalificar);
+        Mostrar_Liner();
         addListenerOnRatingBar();
         TraerId_sesion();
         i = getIntent();
@@ -40,6 +45,7 @@ public class Calificar_Establecimiento extends AppCompatActivity {
         id_establecimiento=bundle.getString("id_establecimiento");
         icon_warning =R.drawable.milky_25;
         icon_good =R.drawable.icono_ok;
+
     }
     public void addListenerOnRatingBar() {
 
@@ -64,6 +70,7 @@ public class Calificar_Establecimiento extends AppCompatActivity {
         Favoritos a = new Favoritos("1",uid_usuario,id_establecimiento,cal);
         Model_Favoritos.GuardarFavorito(a);
         Mensaje(R.string.calificacion_ok, icon_good);
+        onBackPressed();
     }
     public void Cancelar(View v){
 
@@ -110,6 +117,19 @@ public class Calificar_Establecimiento extends AppCompatActivity {
         toast3.setDuration(Toast.LENGTH_SHORT);
         toast3.setView(layout);
         toast3.show();
+
+    }
+    @Override
+    public void onBackPressed() {
+        Intent x = new Intent(Calificar_Establecimiento.this,Detaller_Reserva.class);
+        x.putExtra("datos",bundle);
+        startActivity(x);
+    }
+    public void Mostrar_Liner(){
+        if (Linercal.getVisibility() == View.GONE){
+            Metodos.animar(true,Linercal);
+
+        }
 
     }
 }

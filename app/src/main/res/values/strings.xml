@@ -94,6 +94,6 @@
     <string name="datos_reserva">Datos Reserva</string>
     <string name="calificar">Calificar</string>
     <string name="valorar">Valorar</string>
-    <string name="seleccione_cal">Seleccione Calificacion</string>
+    <string name="seleccione_cal">Calificacion</string>
 
 </resources>

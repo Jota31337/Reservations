@@ -117,6 +117,11 @@ public class Detaller_Reserva extends AppCompatActivity {
         si.putExtra("datos",bundle);
         startActivity(si);
     }
+    @Override
+    public void onBackPressed() {
+        Intent si = new Intent(Detaller_Reserva.this,Principal.class);
+        startActivity(si);
+    }
 
 
 }
