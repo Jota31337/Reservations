@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 public class Cancha_Reserva {
     private String id_reserva;
+    private String id_establecimiento;
     private String nombre_establecimiento;
     private String numero_cancha;
     private String fecha;
@@ -15,8 +16,8 @@ public class Cancha_Reserva {
     private String celular;
     private String Direccion;
     private boolean estado;
-private String hora_tras="";
-    public Cancha_Reserva(String id_reserva, String nombre_establecimiento, String numero_cancha, String fecha, ArrayList<Integer> hora,String celular,String direccion,boolean estado) {
+    private String hora_tras="";
+    public Cancha_Reserva(String id_reserva, String nombre_establecimiento, String numero_cancha, String fecha, ArrayList<Integer> hora,String celular,String direccion,boolean estado,String id_establecmiento) {
         this.id_reserva = id_reserva;
         this.nombre_establecimiento = nombre_establecimiento;
         this.numero_cancha = numero_cancha;
@@ -26,10 +27,19 @@ private String hora_tras="";
         this.Direccion=direccion;
         this.celular=celular;
         this.estado=estado;
+        this.id_establecimiento=id_establecmiento;
     }
 
     public boolean isEstado() {
         return estado;
+    }
+
+    public String getId_establecimiento() {
+        return id_establecimiento;
+    }
+
+    public void setId_establecimiento(String id_establecimiento) {
+        this.id_establecimiento = id_establecimiento;
     }
 
     public void setEstado(boolean estado) {

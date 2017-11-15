@@ -22,7 +22,7 @@ import java.util.ArrayList;
 public class Detaller_Reserva extends AppCompatActivity {
     private CollapsingToolbarLayout collapsingToolbarLayout;
     private Cancha_Reserva p;
-    private String id;
+    private String id,id_establecimiento;
     private Bundle bundle;
     private TextView cancha,direccion,celular,fecha,hora;
     private Intent i;
@@ -49,6 +49,7 @@ public class Detaller_Reserva extends AppCompatActivity {
         bundle = i.getBundleExtra("datos");
         //fot = bundle.getInt("foto");
         id=bundle.getString("id");
+        id_establecimiento=bundle.getString("id_establecimiento");
         ArrayList<Integer> h =bundle.getIntegerArrayList("hora");
         cancha.setText(cancha.getText()+": "+bundle.getString("cancha"));
         direccion.setText(direccion.getText()+": "+bundle.getString("direccion"));
@@ -110,4 +111,12 @@ public class Detaller_Reserva extends AppCompatActivity {
         toast3.show();
 
     }
+
+    public  void MiFavorito(View v){
+        Intent si = new Intent(Detaller_Reserva.this,Calificar_Establecimiento.class);
+        si.putExtra("datos",bundle);
+        startActivity(si);
+    }
+
+
 }

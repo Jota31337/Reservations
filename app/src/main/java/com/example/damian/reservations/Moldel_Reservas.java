@@ -47,7 +47,7 @@ public class Moldel_Reservas {
                         Reservas r = snapshot.getValue(Reservas.class);
                         if (r.getId_usuario().equals(id_usuario.toString())){
                             ArrayList<String> nombre_establecimiento = Model_Estableciminetos.BuscarDatosEstablecimiento(r.getId_establecimiento());
-                          Cancha_Reserva a1 = new Cancha_Reserva(r.getId(),nombre_establecimiento.get(0),Model_Estableciminetos.BuscarNumCanchaId(r.getId_cancha(),r.getId_establecimiento()),r.getFecha(),r.getHora(),nombre_establecimiento.get(2),nombre_establecimiento.get(1),r.isEstado());
+                          Cancha_Reserva a1 = new Cancha_Reserva(r.getId(),nombre_establecimiento.get(0),Model_Estableciminetos.BuscarNumCanchaId(r.getId_cancha(),r.getId_establecimiento()),r.getFecha(),r.getHora(),nombre_establecimiento.get(2),nombre_establecimiento.get(1),r.isEstado(),r.getId_establecimiento());
                             reservas.add(a1);
                         }
 

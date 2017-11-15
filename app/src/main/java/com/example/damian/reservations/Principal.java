@@ -213,6 +213,7 @@ public class Principal extends AppCompatActivity implements NavigationView.OnNav
         Intent i = new Intent(Principal.this,Detaller_Reserva.class);
         Bundle b = new Bundle();
         b.putString("establecimiento",p.getNombre_establecimiento());
+        b.putString("id_establecimiento",p.getId_establecimiento());
         b.putString("cancha",p.getNumero_cancha());
         b.putString("id",p.getId_reserva());
         b.putString("direccion",p.getDireccion());

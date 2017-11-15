@@ -82,13 +82,18 @@
     <string name="completar">Completar</string>
     <string name="titulo_cancelar">Cancelar .!!</string>
     <string name="cancelar">Cancelar</string>
+    <string name="calificacion_ok">Calificacion Exitosa</string>
     <string name="texto_cancelar_agregar_usuario"> ¿ Esta seguro que desea Cancelar El registro de Usuario ?</string>
     <string name="texto_cancelar_reserva"> ¿ Esta seguro que desea Cancelar la Reserva ?</string>
+    <string name="texto_cancelar_favoritos"> ¿ Esta seguro que desea Cancelar la Calificacion ?</string>
     <string name="si_cancelar">Si</string>
     <string name="no_cancelar">No</string>
     <string name="cancha">Cancha</string>
     <string name="direccion">Direccion</string>
     <string name="fecha">Fecha</string>
     <string name="datos_reserva">Datos Reserva</string>
+    <string name="calificar">Calificar</string>
+    <string name="valorar">Valorar</string>
+    <string name="seleccione_cal">Seleccione Calificacion</string>
 
 </resources>
