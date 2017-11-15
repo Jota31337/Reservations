@@ -16,18 +16,11 @@ public class Moldel_Reservas {
     static FirebaseDatabase database = FirebaseDatabase.getInstance();
     static DatabaseReference tabla = database.getReference("Reservas");
     private static ArrayList<Cancha_Reserva> reservas = new ArrayList<Cancha_Reserva>();
-static String Id_cancelar="";
+
     public static ArrayList<Cancha_Reserva> getReservas() {
         return reservas;
     }
 
-    public static String getId_cancelar() {
-        return Id_cancelar;
-    }
-
-    public static void setId_cancelar(String id_cancelar) {
-        Id_cancelar = id_cancelar;
-    }
 
     public static void setReservas() {
         Moldel_Reservas.reservas = new ArrayList<Cancha_Reserva>();
@@ -52,9 +45,9 @@ static String Id_cancelar="";
                 if(dataSnapshot.exists()){
                     for(DataSnapshot snapshot:dataSnapshot.getChildren()){
                         Reservas r = snapshot.getValue(Reservas.class);
-                        if (r.getId_usuario().equals(id_usuario.toString()) && r.isEstado()){
+                        if (r.getId_usuario().equals(id_usuario.toString())){
                             ArrayList<String> nombre_establecimiento = Model_Estableciminetos.BuscarDatosEstablecimiento(r.getId_establecimiento());
-                          Cancha_Reserva a1 = new Cancha_Reserva(r.getId(),nombre_establecimiento.get(0),Model_Estableciminetos.BuscarNumCanchaId(r.getId_cancha(),r.getId_establecimiento()),r.getFecha(),r.getHora());
+                          Cancha_Reserva a1 = new Cancha_Reserva(r.getId(),nombre_establecimiento.get(0),Model_Estableciminetos.BuscarNumCanchaId(r.getId_cancha(),r.getId_establecimiento()),r.getFecha(),r.getHora(),nombre_establecimiento.get(2),nombre_establecimiento.get(1));
                             reservas.add(a1);
                         }
 

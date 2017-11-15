@@ -12,14 +12,34 @@ public class Cancha_Reserva {
     private String numero_cancha;
     private String fecha;
     private ArrayList<Integer> hora;
+    private String celular;
+    private String Direccion;
 private String hora_tras="";
-    public Cancha_Reserva(String id_reserva, String nombre_establecimiento, String numero_cancha, String fecha, ArrayList<Integer> hora) {
+    public Cancha_Reserva(String id_reserva, String nombre_establecimiento, String numero_cancha, String fecha, ArrayList<Integer> hora,String celular,String direccion) {
         this.id_reserva = id_reserva;
         this.nombre_establecimiento = nombre_establecimiento;
         this.numero_cancha = numero_cancha;
         this.fecha = ConvertirFecha(fecha);
         this.hora = hora;
         this.hora_tras=ConvertirHora(hora.get(0));
+        this.Direccion=direccion;
+        this.celular=celular;
+    }
+
+    public String getCelular() {
+        return celular;
+    }
+
+    public void setCelular(String celular) {
+        this.celular = celular;
+    }
+
+    public String getDireccion() {
+        return Direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        Direccion = direccion;
     }
 
     public String getHora_tras() {
@@ -100,7 +120,12 @@ private String hora_tras="";
 return fecha;
     }
     public String ConvertirHora(int x){
-
+if (x==12){
+    return  "12 PM";
+}
+if (x==24){
+    return  "12 AM";
+}
         if (x>12){
             return (x-12) + " PM";
         }

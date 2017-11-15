@@ -24,7 +24,9 @@
         <activity android:name=".Agregar_Reserva" />
         <activity android:name=".Buscar_Cancha" />
         <activity android:name=".Resultado_Busqueda" />
-        <activity android:name=".splash_screen"></activity>
+        <activity android:name=".splash_screen" />
+        <activity android:name=".Detaller_Reserva"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

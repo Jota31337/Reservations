@@ -56,7 +56,7 @@
     <string name="nueva_reserva">Agregar Reserva</string>
     <string name="establecimiento">Establecimiento</string>
     <string name="sin_resultados">No se Encontraron Resultado</string>
-    <string name="hora"> <b>Hora</b></string>
+    <string name="hora"><b>Hora</b></string>
     <string name="dato_busqueda">Ingrese Informacion a buscar</string>
     <string name="estado"><b>Estado</b></string>
     <string name="opcion"><b>Opcion</b></string>
@@ -85,5 +85,9 @@
     <string name="texto_cancelar_reserva"> ¿ Esta seguro que desea Cancelar la Reserva ?</string>
     <string name="si_cancelar">Si</string>
     <string name="no_cancelar">No</string>
+    <string name="cancha">Cancha</string>
+    <string name="direccion">Direccion</string>
+    <string name="fecha">Fecha</string>
+    <string name="datos_reserva">Datos Reserva</string>
 
 </resources>

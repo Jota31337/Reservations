@@ -88,13 +88,13 @@ android:orientation="vertical"
 
                 </LinearLayout>
 
-                <Button
+                <TextView
                     android:id="@+id/btneliminar"
                     android:layout_width="28dp"
                     android:layout_height="31dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="30dp"
-                    android:background="@drawable/bin_basic_red" />
+                    android:background="@drawable/ojo" />
 
             </LinearLayout>
 
