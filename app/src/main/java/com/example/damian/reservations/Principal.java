@@ -50,7 +50,7 @@ public class Principal extends AppCompatActivity implements NavigationView.OnNav
     private TextView nombre_sesion,email_sesion;
     detalle_usuarios detalle;
     private RecyclerView listadoreservas;
-    private ArrayList<Cancha_Reserva> reservas;
+    static ArrayList<Cancha_Reserva> reservas = new ArrayList<>();
     static AlertDialog.Builder builder ;
     private AdaptadorReservas adapter;
     private LinearLayoutManager llm;
@@ -62,7 +62,7 @@ public class Principal extends AppCompatActivity implements NavigationView.OnNav
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         res = this.getResources();
-     builder = new AlertDialog.Builder(this);
+        builder = new AlertDialog.Builder(this);
        // nombre_sesion = (TextView) findViewById(R.id.txtnombre_sesion);
         //email_sesion = (TextView) findViewById(R.id.txtcorreo_sesion);
        // nombre_sesion.setText("damian torres");
@@ -178,15 +178,6 @@ public class Principal extends AppCompatActivity implements NavigationView.OnNav
 
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 if (user != null) {
-                    // Name, email address, and profile photo Url
-                    // String name = user.getDisplayName();
-                    //String email = user.getEmail();
-                    //Uri photoUrl = user.getPhotoUrl();
-
-                    // The user's ID, unique to the Firebase project. Do NOT use this value to
-                    // authenticate with your backend server, if you have one. Use
-                    // FirebaseUser.getToken() instead.
-
                       email = user.getEmail();
                       uid_usuario = user.getUid();
 
@@ -197,14 +188,13 @@ public class Principal extends AppCompatActivity implements NavigationView.OnNav
         }
 
     public void MostrarReservas(){
-
+        System.out.println("Tamaño viejo"+reservas.size());
         listadoreservas = (RecyclerView) findViewById(R.id.reservasusuario);
         reservas = Moldel_Reservas.getReservas();
+        System.out.println("Tamaño nuevo"+reservas.size());
         llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
-
         adapter = new AdaptadorReservas(getApplicationContext(),reservas,this);
-
         listadoreservas.setLayoutManager(llm);
         listadoreservas.setAdapter(adapter);
 
@@ -234,6 +224,7 @@ public class Principal extends AppCompatActivity implements NavigationView.OnNav
 
                 if (id.length()!=0){
                     Moldel_Reservas.Cancelarreserva(id);
+                  
 
                 }else{
                 }

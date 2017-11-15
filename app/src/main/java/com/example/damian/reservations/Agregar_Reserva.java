@@ -210,6 +210,7 @@ public void CrearFilaPrincipalTabla(){
         builder.setPositiveButton(positivo, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+
                 Intent r = new Intent(Agregar_Reserva.this,Principal.class);
                 Bundle b = new Bundle();
                 b.putString("id","");
