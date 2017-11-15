@@ -98,7 +98,7 @@
                 android:layout_height="28dp"
                 android:layout_marginTop="10dp"
                 android:onClick="Regresar"
-                app:srcCompat="@drawable/backicon" />
+                app:srcCompat="@drawable/regresarnuevo" />
 
             <TextView
                 android:id="@+id/textView8"

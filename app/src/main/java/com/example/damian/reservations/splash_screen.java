@@ -40,7 +40,7 @@ public class splash_screen extends AppCompatActivity {
             public void run() {
 
                 // Start the next activity
-                Moldel_Reservas.TraerReservas(uid_usuario);
+
                 Intent i = new Intent(splash_screen.this,Principal.class);
                 Bundle b = new Bundle();
                 startActivity(i);
@@ -89,9 +89,9 @@ public class splash_screen extends AppCompatActivity {
         boolean en_session= TraerId_sesion();
         System.out.println(en_session+ "");
         if(en_session) {
-            Model_Estableciminetos.CargarEstablecimientos();
-            Model_usuarios.TraerInfo(uid_usuario);
 
+            Model_usuarios.TraerInfo(uid_usuario);
+            Moldel_Reservas.TraerReservas(uid_usuario);
             CompletarRegistroPersonaID_USUARIO();
 
         }else{

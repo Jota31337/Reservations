@@ -35,6 +35,7 @@ public class Login extends AppCompatActivity {
         progressDialog= new ProgressDialog(this);
         setContentView(R.layout.activity_login);
         res=this.getResources();
+        Model_Estableciminetos.CargarEstablecimientos();
         LinerLogin = (LinearLayout)findViewById(R.id.layalogin);
         Mostrar_Liner();
         email= (EditText)findViewById(R.id.txtemaillogin);
