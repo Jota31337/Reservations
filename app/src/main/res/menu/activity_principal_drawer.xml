@@ -24,7 +24,7 @@
     <item android:title="@string/opciones">
         <menu>
             <item
-                android:id="@+id/nav_share"
+                android:id="@+id/cerrar_sesion"
                 android:icon="@drawable/logout"
                 android:title="@string/cerrar_session" />
         </menu>

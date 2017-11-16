@@ -25,6 +25,9 @@ static detalle_usuarios detalle_persona ;
 
         return detalle_persona;
     }
+    public static  void SetDetalle(){
+        detalle_persona=null;
+    }
 
     public  static void GuardarDetalleUsuario(detalle_usuarios detalle) {
         detalle.setId(tabla.push().getKey());

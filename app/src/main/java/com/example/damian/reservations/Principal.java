@@ -41,8 +41,7 @@ import java.util.ArrayList;
 public class Principal extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, AdaptadorReservas.OnCanchaClickListener {
     private  FloatingActionButton floatingActionButton;
     private Resources res;
-    private FirebaseAuth.AuthStateListener mAuthListener;
-    private FirebaseAuth mAuth;
+
     private Bundle bundle;
     private Intent i;
     private String uid_usuario="";
@@ -52,7 +51,8 @@ public class Principal extends AppCompatActivity implements NavigationView.OnNav
     detalle_usuarios detalle;
     private RecyclerView listadoreservas;
     static ArrayList<Cancha_Reserva> reservas = new ArrayList<>();
-
+    private FirebaseAuth firebaseAuth;
+    private FirebaseAuth.AuthStateListener authStateListener;
     private AdaptadorReservas adapter;
     private LinearLayoutManager llm;
     private int icon_warning =0;
@@ -82,7 +82,14 @@ public class Principal extends AppCompatActivity implements NavigationView.OnNav
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        firebaseAuth = FirebaseAuth.getInstance();
+        authStateListener = new FirebaseAuth.AuthStateListener(){
 
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+            }
+        };
     }
 
     @Override
@@ -131,6 +138,8 @@ public class Principal extends AppCompatActivity implements NavigationView.OnNav
 
         } else if (id == R.id.nav_manage) {
 
+        } else if (id == R.id.cerrar_sesion) {
+ConfirmarSalirr();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -169,7 +178,7 @@ public class Principal extends AppCompatActivity implements NavigationView.OnNav
             boolean en_session= TraerId_sesion();
             System.out.println(en_session+ "");
             if(en_session) {
-                Model_Estableciminetos.CargarEstablecimientos();
+
                 Model_usuarios.TraerInfo(uid_usuario);
 
             }else{
@@ -223,8 +232,44 @@ public class Principal extends AppCompatActivity implements NavigationView.OnNav
         i.putExtra("datos",b);
         startActivity(i);
     }
+    public void signOut(){
+        firebaseAuth.signOut();
+        Model_Estableciminetos.setEstablecimientos();
+        Moldel_Reservas.setReservas();Model_usuarios.SetDetalle();
+        Intent i = new Intent(Principal.this,Login.class);
+        startActivity(i);
+        finish();
+    }
+
+
+    public void ConfirmarSalirr(){
+        String positivo,negativo;
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(res.getString(R.string.titulo_sesion));
+        builder.setMessage(res.getString(R.string.texto_cerra_sesion));
+        positivo = res.getString(R.string.si_cancelar);
+        negativo = res.getString(R.string.no_cancelar);
 
 
 
+        builder.setPositiveButton(positivo, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+            signOut();
+
+            }
+        });
+        builder.setNegativeButton(negativo, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+
+    }
 }
 

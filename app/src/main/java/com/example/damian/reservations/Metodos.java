@@ -96,5 +96,16 @@ public class Metodos {
         Reservas.setValue("");
     }
 
-
+    public static String ConvertirHora(int x){
+        if (x==12){
+            return  "12 PM";
+        }
+        if (x==24){
+            return  "12 AM";
+        }
+        if (x>12){
+            return (x-12) + " PM";
+        }
+        return x+" AM";
+    }
 }

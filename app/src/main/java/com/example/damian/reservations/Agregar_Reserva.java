@@ -78,7 +78,8 @@ public void Continuar(View v){
     formatoFecha.setTimeZone(TimeZone.getTimeZone("GMT-6"));
     formatoFecha.applyPattern("dd/MM/yyyy");
      fechaSelecionada = formatoFecha.format(fecha.getDate());
-    CrearFilaPrincipalTabla();
+
+    //CrearFilaPrincipalTabla();
     for(int i = 0 ; i< programacion.size();i++){
         TableRow fila = new TableRow(this);
         TextView c1 = new TextView(this);
@@ -94,7 +95,6 @@ public void Continuar(View v){
                     if (!existe(c4.getId())){
                         horas_Seleccionadas.add(c4.getId());
                     }
-                    System.out.println("presiono" + c4.getId());
                 }else{
                     if (existe(c4.getId())){
                         horas_Seleccionadas.remove(existeIndex(c4.getId()));
@@ -105,19 +105,20 @@ public void Continuar(View v){
 
             }
         });
-        c1.setText(""+programacion.get(i));
-        c2.setText("       ");
+
+        c1.setText(Metodos.ConvertirHora(programacion.get(i)));
+        c2.setText("                           ");
 
 
       //  c2.setBackgroundColor(res.getColor(R.color.colorAccent2,null));
-       c2.setBackground(res.getDrawable(R.drawable.borde));
+        c2.setBackground(res.getDrawable(R.drawable.borde));
         c1.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-        c2.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+      //  c2.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
 
 
         c1.setTextSize(16);
         c2.setTextSize(16);
-
+        c4.setTextSize(16);
 
         c1.setTextColor(res.getColor(R.color.colorPrimaryText,null));
         c2.setTextColor(res.getColor(R.color.colorPrimaryText,null));

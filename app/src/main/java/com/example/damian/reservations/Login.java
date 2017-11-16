@@ -43,7 +43,8 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         res=this.getResources();
         icon_warning =R.drawable.milky_25;
-        Model_Estableciminetos.CargarEstablecimientos();
+
+        System.out.println("cargo solo");
         LinerLogin = (LinearLayout)findViewById(R.id.layalogin);
         Mostrar_Liner();
         email= (EditText)findViewById(R.id.txtemaillogin);
