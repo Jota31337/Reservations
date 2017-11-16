@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +24,7 @@ public class Detaller_Reserva extends AppCompatActivity {
     private CollapsingToolbarLayout collapsingToolbarLayout;
     private Cancha_Reserva p;
     private String id,id_establecimiento;
+    float cali_actual=0;
     private Bundle bundle;
     private TextView cancha,direccion,celular,fecha,hora;
     private Intent i;
@@ -31,6 +33,7 @@ public class Detaller_Reserva extends AppCompatActivity {
     private Resources res;
     private int icon_warning =0;
     private int icon_good =0;
+    private RatingBar ratingBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +42,7 @@ public class Detaller_Reserva extends AppCompatActivity {
         icon_warning =R.drawable.milky_25;
         icon_good =R.drawable.icono_ok;
         collapsingToolbarLayout=(CollapsingToolbarLayout) findViewById(R.id.collapsingtoolbard);
+        ratingBar = (RatingBar) findViewById(R.id.ratingBarDetalle);
        // foto = (ImageView) findViewById(R.id.fotocarro);
         cancha = (TextView) findViewById(R.id.txtd_cancha);
         direccion = (TextView) findViewById(R.id.txtd_direccion);
@@ -49,6 +53,17 @@ public class Detaller_Reserva extends AppCompatActivity {
         bundle = i.getBundleExtra("datos");
         //fot = bundle.getInt("foto");
         id=bundle.getString("id");
+        cali_actual=Model_Favoritos.ObtenerCalificacion(id);
+        System.out.println("valor nueva d "+Calificar_Establecimiento.nueva_cal);
+        if (Calificar_Establecimiento.nueva_cal==0) {
+            ratingBar.setRating(cali_actual);
+            Calificar_Establecimiento.SetearValor();
+            System.out.println("valor entro actual y setea "+Calificar_Establecimiento.nueva_cal);
+        }else{
+            ratingBar.setRating(Calificar_Establecimiento.nueva_cal);
+            Calificar_Establecimiento.SetearValor();
+            System.out.println("valor nueva d "+Calificar_Establecimiento.nueva_cal);
+        }
         id_establecimiento=bundle.getString("id_establecimiento");
         ArrayList<Integer> h =bundle.getIntegerArrayList("hora");
         cancha.setText(cancha.getText()+": "+bundle.getString("cancha"));

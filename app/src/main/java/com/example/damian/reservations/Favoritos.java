@@ -7,14 +7,17 @@ package com.example.damian.reservations;
 public class Favoritos {
     private String id;
     private String id_usuario;
-    private String id_establecimiento;
+    private String id_reserva;
     private float calificacion;
 
-    public Favoritos(String id, String id_usuario, String id_establecimiento, float calificacion) {
+    public Favoritos(String id, String id_usuario, String id_reserva, float calificacion) {
         this.id = id;
         this.id_usuario = id_usuario;
-        this.id_establecimiento = id_establecimiento;
+        this.id_reserva = id_reserva;
         this.calificacion = calificacion;
+    }
+
+    public Favoritos() {
     }
 
     public String getId() {
@@ -33,12 +36,12 @@ public class Favoritos {
         this.id_usuario = id_usuario;
     }
 
-    public String getId_establecimiento() {
-        return id_establecimiento;
+    public String getId_reserva() {
+        return id_reserva;
     }
 
-    public void setId_establecimiento(String id_establecimiento) {
-        this.id_establecimiento = id_establecimiento;
+    public void setId_reserva(String id_establecimiento) {
+        this.id_reserva = id_establecimiento;
     }
 
     public float getCalificacion() {

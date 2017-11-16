@@ -23,39 +23,46 @@ public class Calificar_Establecimiento extends AppCompatActivity {
     private RatingBar ratingBar;
     private float cal=2;
     private String uid_usuario="";
-    private String id_establecimiento;
+    private String id_reserva;
     private Bundle bundle;
     private Resources res;
     private Intent i;
     private int icon_warning =0;
     private int icon_good =0;
     private LinearLayout Linercal;
+    float cal_actual=0;
+    static float nueva_cal=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calificar__establecimiento);
         res = this.getResources();
 
+        i = getIntent();
+        bundle = i.getBundleExtra("datos");
+        id_reserva=bundle.getString("id");
+        icon_warning =R.drawable.milky_25;
+        icon_good =R.drawable.icono_ok;
         Linercal = (LinearLayout)findViewById(R.id.laycalificar);
         Mostrar_Liner();
         addListenerOnRatingBar();
         TraerId_sesion();
-        i = getIntent();
-        bundle = i.getBundleExtra("datos");
-        id_establecimiento=bundle.getString("id_establecimiento");
-        icon_warning =R.drawable.milky_25;
-        icon_good =R.drawable.icono_ok;
 
     }
     public void addListenerOnRatingBar() {
-
+        cal_actual=Model_Favoritos.ObtenerCalificacion(id_reserva);
         ratingBar = (RatingBar) findViewById(R.id.ratingBar);
+        ratingBar.setRating(cal_actual);
+        cal=cal_actual;
         ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             public void onRatingChanged(RatingBar ratingBar, float rating,
                                         boolean fromUser) { cal=rating;  }
         });
     }
-
+public static  void SetearValor(){
+    nueva_cal=0;
+    System.out.println(nueva_cal+"set");
+}
     public boolean TraerId_sesion(){
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -67,10 +74,16 @@ public class Calificar_Establecimiento extends AppCompatActivity {
         return false;
     }
     public void Calificar(View v){
-        Favoritos a = new Favoritos("1",uid_usuario,id_establecimiento,cal);
-        Model_Favoritos.GuardarFavorito(a);
-        Mensaje(R.string.calificacion_ok, icon_good);
-        onBackPressed();
+        if (cal==cal_actual){
+            Mensaje(R.string.misma_calificacion, icon_warning);
+        }else {
+            nueva_cal=cal;
+            Favoritos a = new Favoritos("1", uid_usuario, id_reserva, cal);
+            Model_Favoritos.GuardarFavorito(a);
+            Mensaje(R.string.calificacion_ok, icon_good);
+            Model_Favoritos.TraerFavoritos(uid_usuario);
+            onBackPressed();
+        }
     }
     public void Cancelar(View v){
 

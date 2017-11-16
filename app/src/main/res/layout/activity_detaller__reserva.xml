@@ -30,6 +30,19 @@
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
+            <RatingBar
+                android:id="@+id/ratingBarDetalle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:isIndicator="true"
+                android:numStars="5"
+                android:rating="2.0"
+                android:stepSize="1.0" />
+
             <TableLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -39,8 +52,8 @@
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="5dp"
-                    android:background="@drawable/borde_fila">
+                    android:background="@drawable/borde_fila"
+                    android:paddingTop="5dp">
 
                     <TextView
                         android:id="@+id/txtd_cancha"
@@ -58,8 +71,8 @@
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="5dp"
-                    android:background="@drawable/borde_fila">
+                    android:background="@drawable/borde_fila"
+                    android:paddingTop="5dp">
 
                     <TextView
                         android:id="@+id/txtd_fecha"
@@ -77,8 +90,8 @@
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="5dp"
-                    android:background="@drawable/borde_fila">
+                    android:background="@drawable/borde_fila"
+                    android:paddingTop="5dp">
 
                     <TextView
                         android:id="@+id/txtd_hora"
@@ -96,8 +109,8 @@
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="5dp"
-                    android:background="@drawable/borde_fila">
+                    android:background="@drawable/borde_fila"
+                    android:paddingTop="5dp">
 
                     <TextView
                         android:id="@+id/txtd_direccion"
@@ -115,8 +128,8 @@
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="5dp"
-                    android:background="@drawable/borde_fila">
+                    android:background="@drawable/borde_fila"
+                    android:paddingTop="5dp">
 
                     <TextView
                         android:id="@+id/txtd_celular"

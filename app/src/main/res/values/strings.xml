@@ -95,5 +95,6 @@
     <string name="calificar">Calificar</string>
     <string name="valorar">Valorar</string>
     <string name="seleccione_cal">Calificacion</string>
-
+    <string name="cargando">Cargando...</string>
+    <string name="misma_calificacion">No se Detectan Cambios</string>
 </resources>

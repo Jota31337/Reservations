@@ -92,6 +92,7 @@ public class splash_screen extends AppCompatActivity {
 
             Model_usuarios.TraerInfo(uid_usuario);
             Moldel_Reservas.TraerReservas(uid_usuario);
+            Model_Favoritos.TraerFavoritos(uid_usuario);
             CompletarRegistroPersonaID_USUARIO();
 
         }else{

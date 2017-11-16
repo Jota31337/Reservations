@@ -18,8 +18,13 @@ public class Model_Favoritos {
     static ArrayList<Favoritos> misfavoritos = new ArrayList<>();
     static ArrayList<Favoritos> favoritosGenral = new ArrayList<>();
     public  static void GuardarFavorito(Favoritos f) {
-        f.setId(tabla.push().getKey());
-        tabla.child(f.getId()).setValue(f);
+        String obte=ObtenerId_Calificacion(f.getId_reserva());
+        if (obte.toString().length()==0) {
+            f.setId(tabla.push().getKey());
+            tabla.child(f.getId()).setValue(f);
+        }else{
+            tabla.child(obte).child("calificacion").setValue(f.getCalificacion());
+}
     }
     public static void TraerFavoritos(final String id_usuario){
         misfavoritos = new ArrayList<>();
@@ -34,7 +39,7 @@ public class Model_Favoritos {
                         if (f.getId_usuario().toString().equals(id_usuario.toString())){
                             misfavoritos.add(f);
                         }
-
+                        System.out.println(f.getId()+" val" + f.getId_usuario());
 
                     }
                 }
@@ -50,5 +55,23 @@ public class Model_Favoritos {
         });
 
 
+    }
+
+
+    public static float ObtenerCalificacion(String reserva){
+        for (int i = 0; i < misfavoritos.size() ; i++) {
+            if (misfavoritos.get(i).getId_reserva().equals(reserva)){
+                return misfavoritos.get(i).getCalificacion();
+            }
+        }
+        return 0;
+    }
+    public static String ObtenerId_Calificacion(String reserva){
+        for (int i = 0; i < misfavoritos.size() ; i++) {
+            if (misfavoritos.get(i).getId_reserva().equals(reserva)){
+                return misfavoritos.get(i).getId();
+            }
+        }
+        return "";
     }
 }
