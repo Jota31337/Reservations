@@ -97,7 +97,7 @@ public class Model_Estableciminetos {
                     }
                 }
 
-               Moldel_Reservas.TraerReservas(uid_usuario);
+              Moldel_Reservas.TraerReservas(uid_usuario);
             }
 
             @Override

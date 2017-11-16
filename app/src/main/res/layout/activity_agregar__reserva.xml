@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:visibility="gone">
+        android:visibility="visible">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -84,7 +84,7 @@
         android:layout_height="match_parent"
         android:layout_weight="0.00"
         android:orientation="vertical"
-        android:visibility="visible">
+        android:visibility="gone">
 
 
         <ImageView
@@ -137,8 +137,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
+                    android:paddingLeft="20dp"
                     android:text="@string/hora"
-                    android:textAlignment="center"
+                    android:textAlignment="viewStart"
                     android:textColor="@color/cardview_light_background"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -148,8 +149,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
+                    android:paddingLeft="15dp"
                     android:text="@string/estado"
-                    android:textAlignment="center"
+                    android:textAlignment="viewStart"
                     android:textColor="@color/cardview_light_background"
                     android:textSize="18sp"
                     android:textStyle="bold" />

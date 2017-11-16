@@ -57,7 +57,7 @@ public class splash_screen extends AppCompatActivity {
             @Override
             public void run() {
 
-                if (Moldel_Reservas.getReservas().isEmpty()){
+                if (!Moldel_Reservas.isEstado_cargue()){
 
                     Timer timer = new Timer();
                     timer.schedule(task2, SPLASH_SCREEN_DELAY2);
@@ -77,7 +77,7 @@ public class splash_screen extends AppCompatActivity {
             public void run() {
 
 
-                if (Moldel_Reservas.getReservas().isEmpty()){
+                if (!Moldel_Reservas.isEstado_cargue()){
                     error=true;
                     onBackPressed();
 

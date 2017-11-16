@@ -16,11 +16,19 @@ public class Moldel_Reservas {
     static FirebaseDatabase database = FirebaseDatabase.getInstance();
     static DatabaseReference tabla = database.getReference("Reservas");
     private static ArrayList<Cancha_Reserva> reservas = new ArrayList<Cancha_Reserva>();
-
+    private static ArrayList<Reservas> reservasgeneral = new ArrayList<Reservas>();
+    private static boolean estado_cargue=false;
     public static ArrayList<Cancha_Reserva> getReservas() {
         return reservas;
     }
 
+    public static boolean isEstado_cargue() {
+        return estado_cargue;
+    }
+
+    public static void setEstado_cargue(boolean estado_cargue) {
+        Moldel_Reservas.estado_cargue = estado_cargue;
+    }
 
     public static void setReservas() {
         Moldel_Reservas.reservas = new ArrayList<Cancha_Reserva>();
@@ -45,9 +53,10 @@ public class Moldel_Reservas {
                 if(dataSnapshot.exists()){
                     for(DataSnapshot snapshot:dataSnapshot.getChildren()){
                         Reservas r = snapshot.getValue(Reservas.class);
+                        reservasgeneral.add(r);
                         if (r.getId_usuario().equals(id_usuario.toString())){
                             ArrayList<String> nombre_establecimiento = Model_Estableciminetos.BuscarDatosEstablecimiento(r.getId_establecimiento());
-                          Cancha_Reserva a1 = new Cancha_Reserva(r.getId(),nombre_establecimiento.get(0),Model_Estableciminetos.BuscarNumCanchaId(r.getId_cancha(),r.getId_establecimiento()),r.getFecha(),r.getHora(),nombre_establecimiento.get(2),nombre_establecimiento.get(1),r.isEstado(),r.getId_establecimiento());
+                            Cancha_Reserva a1 = new Cancha_Reserva(r.getId(),nombre_establecimiento.get(0),Model_Estableciminetos.BuscarNumCanchaId(r.getId_cancha(),r.getId_establecimiento()),r.getFecha(),r.getHora(),nombre_establecimiento.get(2),nombre_establecimiento.get(1),r.isEstado(),r.getId_establecimiento());
                             reservas.add(a1);
                         }
 
@@ -55,7 +64,7 @@ public class Moldel_Reservas {
                     }
                 }
 
-
+                 setEstado_cargue(true);
             }
 
             @Override
@@ -69,4 +78,19 @@ public class Moldel_Reservas {
     }
 
 
+    public static boolean ValidarHora(String fecha,int hora,String Establecimiento,String id_cancha){
+        for (int i = 0; i < reservasgeneral.size(); i++) {
+            Reservas f=reservasgeneral.get(i);
+
+        if (f.getFecha().equals(fecha) && f.getId_establecimiento().equals(Establecimiento) && f.getId_cancha().equals(id_cancha)){
+            for (int j = 0; j < f.getHora().size(); j++) {
+                if (f.getHora().get(j)==hora){
+                    return  true;
+                }
+            }
+        }
+        }
+        return false;
+
+    }
 }

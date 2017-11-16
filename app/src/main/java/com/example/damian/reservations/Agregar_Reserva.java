@@ -11,14 +11,10 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.CalendarView;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -55,6 +51,16 @@ public class Agregar_Reserva extends AppCompatActivity  {
         icon_good =R.drawable.icono_ok;
         horas_Seleccionadas = new ArrayList<>();
         fecha = (CalendarView)findViewById(R.id.txtcalendar);
+        SimpleDateFormat formatoFecha = new SimpleDateFormat();
+        formatoFecha.setTimeZone(TimeZone.getTimeZone("GMT-6"));
+        formatoFecha.applyPattern("dd/MM/yyyy");
+        fechaSelecionada = formatoFecha.format(fecha.getDate());
+        fecha.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(CalendarView calendarView, int i, int i1, int i2) {
+                fechaSelecionada=i2 + "/" + i1 + "/" + i;
+                 }
+        });
        // CargarEstablecimientos();
         Linerinicial = (LinearLayout)findViewById(R.id.layinicial);
         linerlista = (LinearLayout)findViewById(R.id.laylista);
@@ -71,51 +77,58 @@ public class Agregar_Reserva extends AppCompatActivity  {
     }
 
 public void Continuar(View v){
-
+     horas_Seleccionadas = new ArrayList<>();
     tabla.removeAllViews();
 
-    SimpleDateFormat formatoFecha = new SimpleDateFormat();
-    formatoFecha.setTimeZone(TimeZone.getTimeZone("GMT-6"));
-    formatoFecha.applyPattern("dd/MM/yyyy");
-     fechaSelecionada = formatoFecha.format(fecha.getDate());
+
 
     //CrearFilaPrincipalTabla();
     for(int i = 0 ; i< programacion.size();i++){
+        boolean no_disponible = Moldel_Reservas.ValidarHora(fechaSelecionada,programacion.get(i),id_establecimiento,id_cancha);
+        System.out.println("no dispo "+no_disponible + programacion.get(i) + " fecha "+ fechaSelecionada);
         TableRow fila = new TableRow(this);
+        final CheckBox c4 = new CheckBox(this);
         TextView c1 = new TextView(this);
         TextView c2 = new TextView(this);
-
-       final CheckBox c4 = new CheckBox(this);
-        c4.setText(res.getString(R.string.reservar));
-        c4.setId(programacion.get(i));
-        c4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (c4.isChecked()){
-                    if (!existe(c4.getId())){
-                        horas_Seleccionadas.add(c4.getId());
-                    }
-                }else{
-                    if (existe(c4.getId())){
-                        horas_Seleccionadas.remove(existeIndex(c4.getId()));
-                    }
-
-                }
-
-
-            }
-        });
-
         c1.setText(Metodos.ConvertirHora(programacion.get(i)));
         c2.setText("                           ");
+        c4.setText(res.getString(R.string.reservar));
+        c4.setId(programacion.get(i));
 
 
-      //  c2.setBackgroundColor(res.getColor(R.color.colorAccent2,null));
-        c2.setBackground(res.getDrawable(R.drawable.borde));
+        if (!no_disponible){
+            c2.setBackground(res.getDrawable(R.drawable.borde_disponible));
+            c4.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (c4.isChecked()){
+                        if (!existe(c4.getId())){
+                            horas_Seleccionadas.add(c4.getId());
+                        }
+                    }else{
+                        if (existe(c4.getId())){
+                            horas_Seleccionadas.remove(existeIndex(c4.getId()));
+                        }
+
+                    }
+
+
+                }
+            });
+        }else{
+            c2.setBackground(res.getDrawable(R.drawable.borde_no_disponible));
+            c4.setEnabled(false);
+        }
+
+
+
+
+
+
+
+
+
         c1.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-      //  c2.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-
-
         c1.setTextSize(16);
         c2.setTextSize(16);
         c4.setTextSize(16);
