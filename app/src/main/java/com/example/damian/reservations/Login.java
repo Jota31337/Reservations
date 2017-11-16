@@ -48,6 +48,8 @@ public class Login extends AppCompatActivity {
         Mostrar_Liner();
         email= (EditText)findViewById(R.id.txtemaillogin);
         password = (EditText)findViewById(R.id.txtcontrasenalogin);
+        email.setText("damian@gmail.com");
+        password.setText("12345678");
         firebaseAuth = FirebaseAuth.getInstance();
         authStateListener = new FirebaseAuth.AuthStateListener(){
 
@@ -79,11 +81,12 @@ public class Login extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()) {
-                    progressDialog.dismiss();
+
                     Intent i = new Intent(Login.this,splash_screen.class);
                     Bundle b = new Bundle();
                     b.putString("id","");
                     i.putExtra("datos",b);
+                    progressDialog.dismiss();
                     startActivity(i);
                     finish();
 

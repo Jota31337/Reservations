@@ -3,6 +3,8 @@ package com.example.damian.reservations;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.LayerDrawable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -52,6 +54,8 @@ public class Calificar_Establecimiento extends AppCompatActivity {
     public void addListenerOnRatingBar() {
         cal_actual=Model_Favoritos.ObtenerCalificacion(id_reserva);
         ratingBar = (RatingBar) findViewById(R.id.ratingBar);
+        LayerDrawable stars = (LayerDrawable) ratingBar.getProgressDrawable();
+        stars.getDrawable(2).setColorFilter(res.getColor(R.color.amarillo,null), PorterDuff.Mode.SRC_ATOP);
         ratingBar.setRating(cal_actual);
         cal=cal_actual;
         ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {

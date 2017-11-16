@@ -3,13 +3,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/laycalificar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondoq"
     android:orientation="vertical"
     android:paddingTop="10dp"
-    android:visibility="gone"
+    android:visibility="visible"
     tools:context="com.example.damian.reservations.Calificar_Establecimiento">
 
     <LinearLayout
@@ -19,7 +18,7 @@
         android:layout_weight="1"
         android:orientation="vertical"
         android:paddingTop="20dp"
-        android:visibility="visible">
+        android:visibility="gone">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -31,7 +30,7 @@
                 android:id="@+id/imageView7"
                 android:layout_width="match_parent"
                 android:layout_height="44dp"
-                app:srcCompat="@android:drawable/btn_star_big_on" />
+                app:srcCompat="@drawable/blue_star" />
 
             <TextView
                 android:id="@+id/textView4"
@@ -56,7 +55,9 @@
             android:layout_marginTop="30dp"
             android:numStars="5"
             android:rating="2.0"
-            android:stepSize="1.0" />
+            android:stepSize="1.0"
+
+            />
 
         <LinearLayout
             android:layout_width="match_parent"

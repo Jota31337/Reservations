@@ -4,6 +4,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.LayerDrawable;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AlertDialog;
@@ -43,6 +45,8 @@ public class Detaller_Reserva extends AppCompatActivity {
         icon_good =R.drawable.icono_ok;
         collapsingToolbarLayout=(CollapsingToolbarLayout) findViewById(R.id.collapsingtoolbard);
         ratingBar = (RatingBar) findViewById(R.id.ratingBarDetalle);
+        LayerDrawable stars = (LayerDrawable) ratingBar.getProgressDrawable();
+        stars.getDrawable(2).setColorFilter(res.getColor(R.color.amarillo,null), PorterDuff.Mode.SRC_ATOP);
        // foto = (ImageView) findViewById(R.id.fotocarro);
         cancha = (TextView) findViewById(R.id.txtd_cancha);
         direccion = (TextView) findViewById(R.id.txtd_direccion);

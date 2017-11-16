@@ -229,11 +229,12 @@ public class Agrega_Usuario extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()) {
-                    progressDialog.dismiss();
+
                     Intent i = new Intent(Agrega_Usuario.this,splash_screen.class);
                     Bundle b = new Bundle();
                     b.putString("id",uid);
                     i.putExtra("datos",b);
+                    progressDialog.dismiss();
                     startActivity(i);
                     finish();
 
