@@ -74,7 +74,7 @@ public class Detaller_Reserva extends AppCompatActivity {
         direccion.setText(direccion.getText()+": "+bundle.getString("direccion"));
         celular.setText(celular.getText()+": "+bundle.getString("celular"));
         fecha.setText(fecha.getText()+": "+bundle.getString("fecha"));
-        hora.setText(hora.getText()+": "+h.get(0)+" - "+(h.get(h.size()-1)+1));
+        hora.setText(hora.getText()+": "+Metodos.ConvertirHora(h.get(0))+" - "+ Metodos.ConvertirHora((h.get(h.size()-1)+1)));
         //foto.setImageDrawable(ResourcesCompat.getDrawable(res,fot,null));
         collapsingToolbarLayout.setTitle(bundle.getString("establecimiento"));
 

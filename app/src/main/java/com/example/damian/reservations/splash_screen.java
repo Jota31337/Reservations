@@ -3,29 +3,47 @@ package com.example.damian.reservations;
 import android.app.LauncherActivity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.res.Resources;
 import android.graphics.drawable.AnimationDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.sql.SQLOutput;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class splash_screen extends AppCompatActivity {
-    private static final long SPLASH_SCREEN_DELAY = 3000;
+    private static final long SPLASH_SCREEN_DELAY = 2000;
+    private static final long SPLASH_SCREEN_DELAY2 = 4000;
     private Bundle bundle;
     private String uid_usuario="";
     private String uid;
     private Intent i;
+    Resources res;
+    TimerTask task,task2;
+    private int icon_warning =0;
+    private int icon_good =0;
+     static boolean error=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        res=this.getResources();
+        error=false;
         i = getIntent();
+        icon_warning =R.drawable.milky_25;
+        icon_good =R.drawable.icono_ok;
         Traer();
         setContentView(R.layout.activity_splash_screen);
         // Set portrait orientation
@@ -35,24 +53,44 @@ public class splash_screen extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_splash_screen);
 
-        TimerTask task = new TimerTask() {
+         task = new TimerTask() {
             @Override
             public void run() {
 
-                // Start the next activity
+                if (Moldel_Reservas.getReservas().isEmpty()){
 
-                Intent i = new Intent(splash_screen.this,Principal.class);
-                Bundle b = new Bundle();
-                startActivity(i);
-                finish();
+                    Timer timer = new Timer();
+                    timer.schedule(task2, SPLASH_SCREEN_DELAY2);
 
+                }else {
 
-                // Close the activity so the user won't able to go back this
-                // activity pressing Back button
-                finish();
+                    Intent i = new Intent(splash_screen.this, Principal.class);
+                    Bundle b = new Bundle();
+                    startActivity(i);
+                    finish();
+
+                }
             }
         };
+          task2 = new TimerTask() {
+            @Override
+            public void run() {
 
+
+                if (Moldel_Reservas.getReservas().isEmpty()){
+                    error=true;
+                    onBackPressed();
+
+                }else {
+
+                    Intent i = new Intent(splash_screen.this, Principal.class);
+                    Bundle b = new Bundle();
+                    startActivity(i);
+                    finish();
+
+                }
+            }
+        };
         // Simulate a long loading process on application startup.
         Timer timer = new Timer();
         timer.schedule(task, SPLASH_SCREEN_DELAY);
@@ -99,5 +137,12 @@ public class splash_screen extends AppCompatActivity {
             System.out.println("error en sesion");
         }
     }
+    @Override
+    public void onBackPressed() {
+        Intent si = new Intent(splash_screen.this,Login.class);
+        startActivity(si);
+    }
+
+
     }
 

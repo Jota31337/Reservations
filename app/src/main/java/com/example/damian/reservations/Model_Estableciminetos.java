@@ -84,7 +84,7 @@ public class Model_Estableciminetos {
     }
 
     public static void CargarEstablecimientos(final String uid_usuario){
-        System.out.println("llama cargo");
+
         establecimientos = new ArrayList<Establecimientos>();
         tabla.addValueEventListener(new ValueEventListener() {
             @Override
@@ -93,11 +93,11 @@ public class Model_Estableciminetos {
                     for(DataSnapshot snapshot:dataSnapshot.getChildren()){
                         Establecimientos c = snapshot.getValue(Establecimientos.class);
                         establecimientos.add(c);
-                        System.out.println("Cargando" + c.getId());
+
                     }
                 }
-                System.out.println("salio car");
-                Moldel_Reservas.TraerReservas(uid_usuario);
+
+               Moldel_Reservas.TraerReservas(uid_usuario);
             }
 
             @Override

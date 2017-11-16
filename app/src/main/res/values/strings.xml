@@ -99,4 +99,5 @@
     <string name="seleccione_cal">Calificacion</string>
     <string name="cargando">Cargando...</string>
     <string name="misma_calificacion">No se Detectan Cambios</string>
+    <string name="error_dba">Verifique Su conexión de Internet</string>
 </resources>

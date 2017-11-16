@@ -39,11 +39,15 @@ public class Login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         progressDialog= new ProgressDialog(this);
         setContentView(R.layout.activity_login);
         res=this.getResources();
         icon_warning =R.drawable.milky_25;
-
+        if (splash_screen.error==true){
+            Mensaje(R.string.error_dba,icon_warning);
+            splash_screen.error=false;
+        }
         System.out.println("cargo solo");
         LinerLogin = (LinearLayout)findViewById(R.id.layalogin);
         Mostrar_Liner();
