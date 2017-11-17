@@ -107,4 +107,5 @@
     <string name="error_cargar_detaller_eprsona">Error al cargar el Detalle de la Persona</string>
     <string name="modificar">Modificar</string>
     <string name="detaller_modificado">Datos Modificados Con Exito</string>
+    <string name="espere_porfavor">Espere Por favor...</string>
 </resources>

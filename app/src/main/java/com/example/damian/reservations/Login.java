@@ -39,7 +39,14 @@ public class Login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+if (TraerId_sesion()){
+    Intent i = new Intent(Login.this,splash_screen.class);
+    Bundle b = new Bundle();
+    b.putString("id","");
+    i.putExtra("datos",b);
+    startActivity(i);;
+    finish();
+}
         progressDialog= new ProgressDialog(this);
         setContentView(R.layout.activity_login);
         res=this.getResources();
@@ -152,5 +159,12 @@ public class Login extends AppCompatActivity {
             firebaseAuth.removeAuthStateListener(authStateListener);
         }
     }
+    public boolean TraerId_sesion(){
 
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            return  true;
+        }
+        return false;
+    }
 }

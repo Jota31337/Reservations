@@ -141,8 +141,7 @@ public class splash_screen extends AppCompatActivity {
     }
     @Override
     public void onBackPressed() {
-        Intent si = new Intent(splash_screen.this,Login.class);
-        startActivity(si);
+        Toast.makeText(this,res.getString(R.string.espere_porfavor),Toast.LENGTH_SHORT).show();
     }
 
 
