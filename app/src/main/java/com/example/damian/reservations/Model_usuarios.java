@@ -17,9 +17,18 @@ public class Model_usuarios {
     static FirebaseDatabase  database = FirebaseDatabase.getInstance();
     static DatabaseReference  tabla = database.getReference("DetallePersona");
     //static ArrayList<detalle_usuarios> detalle = new ArrayList<detalle_usuarios>();
-static detalle_usuarios detalle_persona ;
+     static detalle_usuarios detalle_persona ;
+    static String emanil_sesion="";
 
     public Model_usuarios() {
+    }
+
+    public static String getEmanil_sesion() {
+        return emanil_sesion;
+    }
+
+    public static void setEmanil_sesion(String emanil_sesion) {
+        Model_usuarios.emanil_sesion = emanil_sesion;
     }
 
     public static detalle_usuarios getDetalle_persona() {

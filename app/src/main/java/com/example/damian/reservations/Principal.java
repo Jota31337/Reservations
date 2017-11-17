@@ -68,9 +68,7 @@ public class Principal extends AppCompatActivity implements NavigationView.OnNav
         res = this.getResources();
         icon_warning =R.drawable.milky_25;
         icon_good =R.drawable.milky_25;
-       // nombre_sesion = (TextView) findViewById(R.id.txtnombre_sesion);
-        //email_sesion = (TextView) findViewById(R.id.txtcorreo_sesion);
-       // nombre_sesion.setText("damian torres");
+
         i = getIntent();
 
 
@@ -83,6 +81,11 @@ public class Principal extends AppCompatActivity implements NavigationView.OnNav
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+         View hView = navigationView.getHeaderView(0);
+          email_sesion = (TextView) hView.findViewById(R.id.txtcorreo_sesion);
+          nombre_sesion =  (TextView) hView.findViewById(R.id.txtnombre_sesion);
+         email_sesion.setText(Model_usuarios.getEmanil_sesion());
+        nombre_sesion.setText(Model_usuarios.getDetalle_persona().getNombres()+" "+Model_usuarios.getDetalle_persona().getApellidos());
         firebaseAuth = FirebaseAuth.getInstance();
         authStateListener = new FirebaseAuth.AuthStateListener(){
 

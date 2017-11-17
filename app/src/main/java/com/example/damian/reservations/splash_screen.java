@@ -28,7 +28,7 @@ public class splash_screen extends AppCompatActivity {
     private static final long SPLASH_SCREEN_DELAY = 2000;
     private static final long SPLASH_SCREEN_DELAY2 = 4000;
     private Bundle bundle;
-    private String uid_usuario="";
+    private String uid_usuario="",email="";
     private String uid;
     private Intent i;
     Resources res;
@@ -116,6 +116,7 @@ public class splash_screen extends AppCompatActivity {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             uid_usuario = user.getUid();
+            email=user.getEmail();
 
             return  true;
 
@@ -132,6 +133,7 @@ public class splash_screen extends AppCompatActivity {
             Model_Estableciminetos.CargarEstablecimientos(uid_usuario);
             Model_Favoritos.TraerFavoritos(uid_usuario);
             CompletarRegistroPersonaID_USUARIO();
+            Model_usuarios.setEmanil_sesion(email);
 
         }else{
             System.out.println("error en sesion");

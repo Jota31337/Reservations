@@ -7,6 +7,7 @@ import android.content.res.Resources;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -143,7 +144,7 @@ public class Modificar_Usuario extends AppCompatActivity {
         ImageView icon =(ImageView)layout.findViewById(R.id.iconomensaje);
         icon.setImageResource(img);
         txtMsg.setText(mensaje);
-        // toast3.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+        toast3.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
         toast3.setDuration(Toast.LENGTH_SHORT);
         toast3.setView(layout);
         toast3.show();
