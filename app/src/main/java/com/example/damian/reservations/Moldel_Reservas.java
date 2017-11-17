@@ -18,6 +18,7 @@ public class Moldel_Reservas {
     private static ArrayList<Cancha_Reserva> reservas = new ArrayList<Cancha_Reserva>();
     private static ArrayList<Reservas> reservasgeneral = new ArrayList<Reservas>();
     private static boolean estado_cargue=false;
+    static int d=0;
     public static ArrayList<Cancha_Reserva> getReservas() {
         return reservas;
     }
@@ -31,22 +32,27 @@ public class Moldel_Reservas {
     }
 
     public static void setReservas() {
-        Moldel_Reservas.reservas = new ArrayList<Cancha_Reserva>();
+        reservas.clear();
     }
 
     public  static void GuardarReserva(Reservas r) {
+        setReservas();
         r.setId(tabla.push().getKey());
         tabla.child(r.getId()).setValue(r);
+
     }
     public static void Cancelarreserva(String id_reserva) {
-        tabla.child(id_reserva).removeValue();
         setReservas();
+        tabla.child(id_reserva).removeValue();
+
 
     }
 
     public static void TraerReservas(final String id_usuario){
-
-        reservas = new ArrayList<Cancha_Reserva>();
+        System.out.println("llamoooooooo" + d);
+        d++;
+        reservas.clear();
+        reservasgeneral.clear();
         tabla.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

@@ -141,7 +141,9 @@ public static  void SetearValor(){
         Intent x = new Intent(Calificar_Establecimiento.this,Detaller_Reserva.class);
         x.putExtra("datos",bundle);
         startActivity(x);
+        finish();
     }
+
     public void Mostrar_Liner(){
         if (Linercal.getVisibility() == View.GONE){
             Metodos.animar(true,Linercal);

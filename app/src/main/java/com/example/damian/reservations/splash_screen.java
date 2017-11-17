@@ -64,9 +64,8 @@ public class splash_screen extends AppCompatActivity {
 
                 }else {
 
-                    Intent i = new Intent(splash_screen.this, Principal.class);
-                    Bundle b = new Bundle();
-                    startActivity(i);
+                    startActivity(new Intent(getBaseContext(), Principal.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP ));
+                    finish();
                     finish();
 
                 }
@@ -83,9 +82,8 @@ public class splash_screen extends AppCompatActivity {
 
                 }else {
 
-                    Intent i = new Intent(splash_screen.this, Principal.class);
-                    Bundle b = new Bundle();
-                    startActivity(i);
+                    startActivity(new Intent(getBaseContext(), Principal.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP ));
+                    finish();
                     finish();
 
                 }
@@ -139,10 +137,7 @@ public class splash_screen extends AppCompatActivity {
             System.out.println("error en sesion");
         }
     }
-    @Override
-    public void onBackPressed() {
-        Toast.makeText(this,res.getString(R.string.espere_porfavor),Toast.LENGTH_SHORT).show();
-    }
+
 
 
     }

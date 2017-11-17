@@ -192,7 +192,7 @@ fila.setBackground(res.getDrawable(R.drawable.borde_fila));
     public void Regresar(View v){
         Ocultar_Liner();
     }
-public void CrearFilaPrincipalTabla(){
+    public void CrearFilaPrincipalTabla(){
     TableRow fila_principal = new TableRow(this);
     TextView f1 = new TextView(this);
     TextView f2 = new TextView(this);
@@ -233,13 +233,7 @@ public void CrearFilaPrincipalTabla(){
         builder.setPositiveButton(positivo, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-
-                Intent r = new Intent(Agregar_Reserva.this,Principal.class);
-                Bundle b = new Bundle();
-                b.putString("id","");
-                r.putExtra("datos",b);
-                startActivity(r);
-                onBackPressed();
+                onBackPressed2();
 
             }
         });
@@ -274,39 +268,42 @@ public void CrearFilaPrincipalTabla(){
     }
 
     public void Reservar(View v){
-        String positivo,negativo;
+        if (horas_Seleccionadas.size()==0){
+             Mensaje(R.string.seleccione_horas,icon_warning);
+        }else {
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(res.getString(R.string.reservar));
-        builder.setMessage(res.getString(R.string.texto_reservar));
-        positivo = res.getString(R.string.si_cancelar);
-        negativo = res.getString(R.string.no_cancelar);
+            String positivo, negativo;
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle(res.getString(R.string.reservar));
+            builder.setMessage(res.getString(R.string.texto_reservar));
+            positivo = res.getString(R.string.si_cancelar);
+            negativo = res.getString(R.string.no_cancelar);
 
 
-
-        builder.setPositiveButton(positivo, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
+            builder.setPositiveButton(positivo, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
               /*  Intent r = new Intent(Agregar_Reserva.this,Principal.class);
                 Bundle b = new Bundle();
                 b.putString("id","");
                 r.putExtra("datos",b);
                 startActivity(r);*/
-              GuardarReserva();
-                onBackPressed();
-
-            }
-        });
-        builder.setNegativeButton(negativo, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-
-            }
-        });
-        AlertDialog dialog = builder.create();
-        dialog.show();
+                    GuardarReserva();
 
 
+                }
+            });
+            builder.setNegativeButton(negativo, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                }
+            });
+            AlertDialog dialog = builder.create();
+            dialog.show();
+
+        }
     }
 
     public void TraerId_sesion(){
@@ -318,14 +315,18 @@ public void CrearFilaPrincipalTabla(){
     }
 
     public void GuardarReserva(){
-        Moldel_Reservas.setReservas();
+
         Reservas a = new Reservas("1",id_cancha, id_user, fechaSelecionada, horas_Seleccionadas, true, id_establecimiento);
         Moldel_Reservas.GuardarReserva(a);
         Mensaje(R.string.ok_reserva, icon_good);
-        Intent r = new Intent(Agregar_Reserva.this,Principal.class);
-        Bundle b = new Bundle();
-        b.putString("id","");
-        r.putExtra("datos",b);
-        startActivity(r);
+  onBackPressed2();
     }
+
+    public void onBackPressed2(){
+
+        startActivity(new Intent(getBaseContext(), Principal.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+        finish();
+    }
+
 }
+

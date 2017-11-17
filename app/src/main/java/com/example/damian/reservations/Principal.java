@@ -98,6 +98,7 @@ public class Principal extends AppCompatActivity implements NavigationView.OnNav
 
     @Override
     public void onBackPressed() {
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
@@ -148,6 +149,7 @@ public class Principal extends AppCompatActivity implements NavigationView.OnNav
             b.putString("id",p.getId());
             user.putExtra("datos",b);
             startActivity(user);
+            finish();
         } else if (id == R.id.informacion) {
 
         } else if (id == R.id.ayuda) {
@@ -156,6 +158,7 @@ public class Principal extends AppCompatActivity implements NavigationView.OnNav
 
         } else if (id == R.id.cerrar_sesion) {
 ConfirmarSalirr();
+
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -196,6 +199,7 @@ ConfirmarSalirr();
 
             Intent i = new Intent(Principal.this,Buscar_Cancha.class);
             startActivity(i);
+
         }
         public boolean TraerId_sesion(){
 
@@ -220,6 +224,7 @@ ConfirmarSalirr();
         adapter = new AdaptadorReservas(getApplicationContext(),reservas,this);
         listadoreservas.setLayoutManager(llm);
         listadoreservas.setAdapter(adapter);
+
 
     }
 
@@ -277,5 +282,6 @@ ConfirmarSalirr();
 
 
     }
+
 }
 

@@ -39,12 +39,21 @@ public class Login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        authStateListener = new FirebaseAuth.AuthStateListener(){
+
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+            }
+        };
 if (TraerId_sesion()){
     Intent i = new Intent(Login.this,splash_screen.class);
     Bundle b = new Bundle();
     b.putString("id","");
     i.putExtra("datos",b);
-    startActivity(i);;
+    startActivity(i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP ));
     finish();
 }
         progressDialog= new ProgressDialog(this);
@@ -62,14 +71,7 @@ if (TraerId_sesion()){
         password = (EditText)findViewById(R.id.txtcontrasenalogin);
         email.setText("damian@gmail.com");
         password.setText("12345678");
-        firebaseAuth = FirebaseAuth.getInstance();
-        authStateListener = new FirebaseAuth.AuthStateListener(){
 
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
-            }
-        };
 
 
     }

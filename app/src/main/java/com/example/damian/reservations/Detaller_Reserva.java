@@ -97,8 +97,7 @@ public class Detaller_Reserva extends AppCompatActivity {
             public void onClick(DialogInterface dialogInterface, int i) {
                 Moldel_Reservas.Cancelarreserva(id);
                 Mensaje(R.string.ok_eliminar_reserva, icon_good);
-                Intent si = new Intent(Detaller_Reserva.this,Principal.class);
-                startActivity(si);
+              onBackPressed();
             }
         });
         builder.setNegativeButton(negativo, new DialogInterface.OnClickListener() {
@@ -138,8 +137,9 @@ public class Detaller_Reserva extends AppCompatActivity {
     }
     @Override
     public void onBackPressed() {
-        Intent si = new Intent(Detaller_Reserva.this,Principal.class);
-        startActivity(si);
+
+        startActivity(new Intent(getBaseContext(), Principal.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP ));
+        finish();
     }
 
 

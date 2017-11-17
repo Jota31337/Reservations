@@ -155,6 +155,7 @@ public class Modificar_Usuario extends AppCompatActivity {
     public void onBackPressed() {
         Intent r = new Intent(Modificar_Usuario.this,Principal.class);
         startActivity(r);
+        finish();
     }
 
 }
