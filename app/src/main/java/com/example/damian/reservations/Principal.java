@@ -72,7 +72,7 @@ public class Principal extends AppCompatActivity implements NavigationView.OnNav
         //email_sesion = (TextView) findViewById(R.id.txtcorreo_sesion);
        // nombre_sesion.setText("damian torres");
         i = getIntent();
-       // Traer();
+
 
         MostrarReservas();
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -131,13 +131,25 @@ public class Principal extends AppCompatActivity implements NavigationView.OnNav
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.editar_perfil) {
+          Intent user = new Intent(Principal.this,Modificar_Usuario.class);
+            detalle_usuarios p = Model_usuarios.getDetalle_persona();
+            Bundle b = new Bundle();
+            b.putString("nombres",p.getNombres());
+            b.putString("apellidos",p.getApellidos());
+            b.putString("celular",p.getCelular());
+            b.putString("correo",p.getCorreo());
+            b.putString("nacimiento",p.getFecha_nacimiento());
+            b.putInt("sexo",p.getSexo());
+            b.putInt("tipo",p.getTipo());
+            b.putString("id",p.getId());
+            user.putExtra("datos",b);
+            startActivity(user);
+        } else if (id == R.id.informacion) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.ayuda) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.configuracion) {
 
         } else if (id == R.id.cerrar_sesion) {
 ConfirmarSalirr();
@@ -175,17 +187,7 @@ ConfirmarSalirr();
             //email_sesion.setText(email);
         }
     }
-        public  void Traer(){
-            boolean en_session= TraerId_sesion();
-            System.out.println(en_session+ "");
-            if(en_session) {
 
-                Model_usuarios.TraerInfo(uid_usuario);
-
-            }else{
-                System.out.println("error en sesion");
-            }
-        }
 
         public void AgregarReserva(View v){
 

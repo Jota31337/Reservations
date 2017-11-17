@@ -18,7 +18,16 @@ public class Model_usuarios {
     static DatabaseReference  tabla = database.getReference("DetallePersona");
     //static ArrayList<detalle_usuarios> detalle = new ArrayList<detalle_usuarios>();
 static detalle_usuarios detalle_persona ;
+
     public Model_usuarios() {
+    }
+
+    public static detalle_usuarios getDetalle_persona() {
+        return detalle_persona;
+    }
+
+    public static void setDetalle_persona(detalle_usuarios detalle_persona) {
+        Model_usuarios.detalle_persona = detalle_persona;
     }
 
     public static detalle_usuarios ObtenerDetallerPersona(){
@@ -33,6 +42,15 @@ static detalle_usuarios detalle_persona ;
         detalle.setId(tabla.push().getKey());
         tabla.child(detalle.getId()).setValue(detalle);
 
+    }
+    public  static void ModificarDetalleUsuario(detalle_usuarios detalle) {
+        tabla.child(detalle.getId()).child("nombres").setValue(detalle.getNombres());
+        tabla.child(detalle.getId()).child("apellidos").setValue(detalle.getApellidos());
+        tabla.child(detalle.getId()).child("celular").setValue(detalle.getCelular());
+        tabla.child(detalle.getId()).child("correo").setValue(detalle.getCorreo());
+        tabla.child(detalle.getId()).child("fecha_nacimiento").setValue(detalle.getFecha_nacimiento());
+        tabla.child(detalle.getId()).child("sexo").setValue(detalle.getSexo());
+        tabla.child(detalle.getId()).child("tipo").setValue(detalle.getTipo());
 
     }
     public static String  GenereLlave(){

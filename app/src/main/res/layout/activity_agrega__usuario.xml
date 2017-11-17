@@ -11,26 +11,22 @@
     tools:layout_editor_absoluteX="8dp"
     tools:layout_editor_absoluteY="8dp">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="20dp"
-        android:fontFamily="serif"
-        android:text="@string/registra_usuario"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textColor="@color/colorPrimary"
-        android:textSize="24sp"
-        android:textStyle="bold" />
-
     <LinearLayout
         android:id="@+id/laydatosusuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:visibility="gone">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="serif"
+            android:text="@string/registra_usuario"
+            android:textColor="@color/cardview_dark_background"
+            android:textSize="18sp"
+            android:textStyle="italic" />
 
         <ImageView
             android:id="@+id/imageView5"
@@ -40,14 +36,17 @@
             app:srcCompat="@drawable/regresarnuevo" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/textView13"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
             android:fontFamily="serif"
             android:text="@string/datos_usuario"
-            android:textColor="@color/cardview_dark_background"
-            android:textSize="18sp"
-            android:textStyle="italic" />
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/colorPrimary"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/imageView4"
@@ -142,12 +141,30 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:layout_marginTop="15dp"
             android:fontFamily="serif"
-            android:text="@string/datos_persona"
+            android:text="@string/registra_usuario"
             android:textColor="@color/colorPrimaryText"
             android:textSize="18sp"
             android:textStyle="italic" />
+
+        <ImageView
+            android:id="@+id/imageView11"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:srcCompat="@drawable/login" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="serif"
+            android:text="@string/datos_personales"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/colorPrimary"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"

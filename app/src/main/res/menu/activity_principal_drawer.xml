@@ -3,20 +3,19 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
+            android:id="@+id/editar_perfil"
             android:icon="@drawable/ic_menu_manage"
-            android:title="@string/editar_perfil"
-            />
+            android:title="@string/editar_perfil" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/ayuda"
             android:icon="@drawable/_search"
             android:title="@string/ayuda" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/informacion"
             android:icon="@drawable/ic_error_outline_black_48dp"
             android:title="@string/informacion" />
         <item
-            android:id="@+id/nav_manage"
+            android:id="@+id/configuracion"
             android:icon="@drawable/_settings"
             android:title="@string/configuracion" />
     </group>

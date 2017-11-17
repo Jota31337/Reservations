@@ -84,7 +84,8 @@
     <string name="titulo_sesion">Salir .!!</string>
     <string name="cancelar">Cancelar</string>
     <string name="calificacion_ok">Calificacion Exitosa</string>
-    <string name="texto_cancelar_agregar_usuario"> ¿ Esta seguro que desea Cancelar El registro de Usuario ?</string>
+    <string name="texto_cancelar_agregar_usuario"> ¿ Esta seguro que desea Cancelar El Registro de Usuario ?</string>
+    <string name="texto_cancelar_modificar_usuario"> ¿ Esta seguro que desea Cancelar la Modificación del usuario ?</string>
     <string name="texto_cancelar_reserva"> ¿ Esta seguro que desea Cancelar la Reserva ?</string>
     <string name="texto_cancelar_favoritos"> ¿ Esta seguro que desea Cancelar la Calificacion ?</string>
     <string name="texto_cerra_sesion"> ¿ Esta seguro que desea Cerrar Sesion ?</string>
@@ -100,4 +101,10 @@
     <string name="cargando">Cargando...</string>
     <string name="misma_calificacion">No se Detectan Cambios</string>
     <string name="error_dba">Verifique Su conexión de Internet</string>
+    <string name="datos_personales">Datos Personales</string>
+    <string name="datos">Datos</string>
+    <string name="modificar_usuario">Modificar Usuario</string>
+    <string name="error_cargar_detaller_eprsona">Error al cargar el Detalle de la Persona</string>
+    <string name="modificar">Modificar</string>
+    <string name="detaller_modificado">Datos Modificados Con Exito</string>
 </resources>

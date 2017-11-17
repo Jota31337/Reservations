@@ -20,7 +20,7 @@ public class detalle_usuarios {
     }
 
     public detalle_usuarios(String nombres, String apellidos, String celular, String correo, String fecha_nacimiento, int sexo, String id, int tipo) {
-        this.id = Model_usuarios.GenereLlave();
+        this.id = id;
         this.id_usuarios = "";
         this.nombres = nombres;
         this.apellidos = apellidos;

@@ -28,7 +28,8 @@
         <activity
             android:name=".Detaller_Reserva"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Calificar_Establecimiento"></activity>
+        <activity android:name=".Calificar_Establecimiento" />
+        <activity android:name=".Modificar_Usuario"></activity>
     </application>
 
 </manifest>
