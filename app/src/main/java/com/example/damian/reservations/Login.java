@@ -39,7 +39,9 @@ public class Login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setContentView(R.layout.activity_login);
+        res=this.getResources();
+        icon_warning =R.drawable.milky_25;
         firebaseAuth = FirebaseAuth.getInstance();
         authStateListener = new FirebaseAuth.AuthStateListener(){
 
@@ -48,22 +50,19 @@ public class Login extends AppCompatActivity {
                 FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
             }
         };
-if (TraerId_sesion()){
-    Intent i = new Intent(Login.this,splash_screen.class);
-    Bundle b = new Bundle();
-    b.putString("id","");
-    i.putExtra("datos",b);
-    startActivity(i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP ));
-    finish();
-}
-        progressDialog= new ProgressDialog(this);
-        setContentView(R.layout.activity_login);
-        res=this.getResources();
-        icon_warning =R.drawable.milky_25;
+        if (TraerId_sesion() && splash_screen.error!=true){
+            Intent i = new Intent(Login.this,splash_screen.class);
+            Bundle b = new Bundle();
+            b.putString("id","");
+            i.putExtra("datos",b);
+            startActivity(i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP ));
+            finish();
+        }
         if (splash_screen.error==true){
             Mensaje(R.string.error_dba,icon_warning);
             splash_screen.error=false;
         }
+        progressDialog= new ProgressDialog(this);
         System.out.println("cargo solo");
         LinerLogin = (LinearLayout)findViewById(R.id.layalogin);
         Mostrar_Liner();

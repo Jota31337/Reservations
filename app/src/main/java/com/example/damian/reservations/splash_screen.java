@@ -78,7 +78,8 @@ public class splash_screen extends AppCompatActivity {
 
                 if (!Moldel_Reservas.isEstado_cargue()){
                     error=true;
-                    onBackPressed();
+                    startActivity(new Intent(getBaseContext(), Login.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+                    finish();
 
                 }else {
 
@@ -138,7 +139,10 @@ public class splash_screen extends AppCompatActivity {
         }
     }
 
-
+    @Override
+    public void onBackPressed(){
+        Toast.makeText(this,res.getString(R.string.espere_porfavor),Toast.LENGTH_SHORT).show();
+    }
 
     }
 

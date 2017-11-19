@@ -98,7 +98,7 @@ public class Principal extends AppCompatActivity implements NavigationView.OnNav
 
     @Override
     public void onBackPressed() {
-
+      System.exit(0);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
