@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">ReservApp</string>
 
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
     <string name="perfil">Mi Perfil</string>
@@ -13,7 +13,7 @@
     <string name="configuracion">Configuracion</string>
     <string name="cerrar_session">Cerrar Sesion</string>
     <string name="opciones">Mas Opciones</string>
-    <string name="email">Email</string>
+    <string name="email" translatable="false">Email</string>
     <string name="contrasena">Password</string>
     <string name="iniciar_sesion">Iniciar Sesión</string>
     <string name="bienvenido">Bienvenido a Reservations</string>
@@ -45,7 +45,7 @@
     <string name="ingrese_contrasena">Ingrese Contraseña</string>
     <string name="cuenta_creada">Cuenta Creada Con Exito .!!!</string>
     <string name="ingrese_re_contrasena">El campo Repetir Contraseña No puede estar vacio</string>
-    <string name="email_">Email</string>
+    <string name="email_" translatable="false">Email</string>
     <string name="reservar">Reservar</string>
     <string name="texto_reservar">¿ Esta Seguro que desea Reservar la cancha En las Horas Selecionadas ?</string>
     <string name="errado_nombre">Ingrese Nombre</string>
@@ -90,7 +90,7 @@
     <string name="texto_cancelar_favoritos"> ¿ Esta seguro que desea Cancelar la Calificacion ?</string>
     <string name="texto_cerra_sesion"> ¿ Esta seguro que desea Cerrar Sesion ?</string>
     <string name="si_cancelar">Si</string>
-    <string name="no_cancelar">No</string>
+    <string name="no_cancelar" translatable="false">No</string>
     <string name="cancha">Cancha</string>
     <string name="direccion">Direccion</string>
     <string name="fecha">Fecha</string>
