@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:visibility="visible">
+        android:visibility="gone">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -37,7 +37,7 @@
                     android:id="@+id/imageView8"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
-                    app:srcCompat="@drawable/res_incactive" />
+                    app:srcCompat="@drawable/res_active" />
 
                 <TextView
 

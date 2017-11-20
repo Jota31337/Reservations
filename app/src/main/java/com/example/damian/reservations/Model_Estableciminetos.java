@@ -181,7 +181,7 @@ public class Model_Estableciminetos {
 
             for (int j = 0; j <canchas_estab.size() ; j++) {
 
-                Cancha_Establecimiento a = new Cancha_Establecimiento(canchas_estab.get(j).getId(),establecimientos.get(i).getNombre(),establecimientos.get(i).getDireccion(),establecimientos.get(i).getCelular(),"Num: "+canchas_estab.get(j).getTamano()+"",canchas_estab.get(j).getProgramacion(),establecimientos.get(i).getId());
+                Cancha_Establecimiento a = new Cancha_Establecimiento(canchas_estab.get(j).getId(),establecimientos.get(i).getNombre(),establecimientos.get(i).getDireccion(),establecimientos.get(i).getCelular(),"Num: "+canchas_estab.get(j).getTamano()+"",canchas_estab.get(j).getProgramacion(),establecimientos.get(i).getId(),establecimientos.get(i).getFoto());
                 canchas_bus.add(a);
             }
 
@@ -192,7 +192,7 @@ public class Model_Estableciminetos {
                 ArrayList<Canchas> canchas_estab=establecimientos.get(i).getCanchas();
                 for (int j = 0; j <canchas_estab.size() ; j++) {
                     if (canchas_estab.get(j).getTamano()==d) {
-                        Cancha_Establecimiento a = new Cancha_Establecimiento(canchas_estab.get(j).getId(),establecimientos.get(i).getNombre(),establecimientos.get(i).getDireccion(),establecimientos.get(i).getCelular(),"Num: "+canchas_estab.get(j).getTamano()+"",canchas_estab.get(j).getProgramacion(),establecimientos.get(i).getId());
+                        Cancha_Establecimiento a = new Cancha_Establecimiento(canchas_estab.get(j).getId(),establecimientos.get(i).getNombre(),establecimientos.get(i).getDireccion(),establecimientos.get(i).getCelular(),"Num: "+canchas_estab.get(j).getTamano()+"",canchas_estab.get(j).getProgramacion(),establecimientos.get(i).getId(),establecimientos.get(i).getFoto());
                         canchas_bus.add(a);
                     }
 

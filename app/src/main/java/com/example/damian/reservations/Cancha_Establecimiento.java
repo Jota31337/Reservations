@@ -12,10 +12,11 @@ public class Cancha_Establecimiento {
     private String direccion;
     private String celular;
     private String id_establecimiento;
+    private String foto;
     private String tamano;
     private ArrayList<Integer> programacion;
 
-    public Cancha_Establecimiento(String id_cacha, String nombre_establecimiento, String direccion, String celular, String tamano,ArrayList<Integer> programacion,String id_establecimiento) {
+    public Cancha_Establecimiento(String id_cacha, String nombre_establecimiento, String direccion, String celular, String tamano,ArrayList<Integer> programacion,String id_establecimiento,String foto) {
         this.id_cacha = id_cacha;
         this.nombre_establecimiento = nombre_establecimiento;
         this.direccion = direccion;
@@ -23,6 +24,15 @@ public class Cancha_Establecimiento {
         this.tamano = tamano;
         this.programacion = programacion;
         this.id_establecimiento=id_establecimiento;
+        this.foto=foto;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 
     public String getId_establecimiento() {
