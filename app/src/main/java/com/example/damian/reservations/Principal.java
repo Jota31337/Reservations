@@ -151,13 +151,41 @@ public class Principal extends AppCompatActivity implements NavigationView.OnNav
             startActivity(user);
             finish();
         } else if (id == R.id.informacion) {
-
+            Intent info = new Intent(Principal.this,informacion.class);
+            startActivity(info);
+            finish();
         } else if (id == R.id.ayuda) {
+            Intent help = new Intent(Principal.this,Ayuda.class);
+            startActivity(help);
+            finish();
+        } else if (id == R.id.sistema) {
+            String positivo,negativo;
 
-        } else if (id == R.id.configuracion) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle(res.getString(R.string.sistema));
+            builder.setMessage(res.getString(R.string.info));
+            positivo = res.getString(R.string.ok);
+            negativo = "";
 
+
+
+            builder.setPositiveButton(positivo, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+
+                }
+            });
+            builder.setNegativeButton(negativo, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                }
+            });
+            AlertDialog dialog = builder.create();
+            dialog.show();
         } else if (id == R.id.cerrar_sesion) {
-ConfirmarSalirr();
+            ConfirmarSalirr();
 
         }
 

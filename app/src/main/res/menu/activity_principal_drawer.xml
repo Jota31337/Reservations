@@ -15,9 +15,9 @@
             android:icon="@drawable/ic_error_outline_black_48dp"
             android:title="@string/informacion" />
         <item
-            android:id="@+id/configuracion"
+            android:id="@+id/sistema"
             android:icon="@drawable/_settings"
-            android:title="@string/configuracion" />
+            android:title="@string/sistema" />
     </group>
 
     <item android:title="@string/opciones">

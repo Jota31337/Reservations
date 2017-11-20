@@ -109,4 +109,7 @@
     <string name="detaller_modificado">Datos Modificados Con Exito</string>
     <string name="espere_porfavor">Espere Por favor...</string>
     <string name="seleccione_horas">Debe seleccionar la Hora de la Reserva</string>
+    <string name="sistema">Sistema</string>
+    <string name="ok" translatable="false">OK</string>
+    <string name="info">Version 1 de ReservApp para Sistemas Operativos Android</string>
 </resources>

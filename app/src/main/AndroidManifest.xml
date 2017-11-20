@@ -29,7 +29,13 @@
             android:name=".Detaller_Reserva"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Calificar_Establecimiento" />
-        <activity android:name=".Modificar_Usuario"></activity>
+        <activity android:name=".Modificar_Usuario" />
+        <activity
+            android:name=".Ayuda"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".informacion"
+            android:theme="@style/AppTheme.NoActionBar"
+            ></activity>
     </application>
 
 </manifest>
