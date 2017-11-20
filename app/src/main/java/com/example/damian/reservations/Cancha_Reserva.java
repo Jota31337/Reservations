@@ -15,9 +15,10 @@ public class Cancha_Reserva {
     private ArrayList<Integer> hora;
     private String celular;
     private String Direccion;
+    private String foto;
     private boolean estado;
     private String hora_tras="";
-    public Cancha_Reserva(String id_reserva, String nombre_establecimiento, String numero_cancha, String fecha, ArrayList<Integer> hora,String celular,String direccion,boolean estado,String id_establecmiento) {
+    public Cancha_Reserva(String id_reserva, String nombre_establecimiento, String numero_cancha, String fecha, ArrayList<Integer> hora,String celular,String direccion,boolean estado,String id_establecmiento,String foto) {
         this.id_reserva = id_reserva;
         this.nombre_establecimiento = nombre_establecimiento;
         this.numero_cancha = numero_cancha;
@@ -28,6 +29,15 @@ public class Cancha_Reserva {
         this.celular=celular;
         this.estado=estado;
         this.id_establecimiento=id_establecmiento;
+        this.foto=foto;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 
     public boolean isEstado() {

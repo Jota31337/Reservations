@@ -175,7 +175,7 @@
                 android:fitsSystemWindows="true"
                 android:scaleType="centerCrop"
                 app:layout_collapseMode="pin"
-                app:srcCompat="@drawable/cancha2" />
+                app:srcCompat="@drawable/fondoq" />
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar2"

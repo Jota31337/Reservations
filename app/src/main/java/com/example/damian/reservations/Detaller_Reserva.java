@@ -6,6 +6,7 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.LayerDrawable;
+import android.net.Uri;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AlertDialog;
@@ -19,6 +20,11 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -36,18 +42,20 @@ public class Detaller_Reserva extends AppCompatActivity {
     private int icon_warning =0;
     private int icon_good =0;
     private RatingBar ratingBar;
+    private StorageReference storageReference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detaller__reserva);
         res = this.getResources();
+
         icon_warning =R.drawable.milky_25;
         icon_good =R.drawable.icono_ok;
         collapsingToolbarLayout=(CollapsingToolbarLayout) findViewById(R.id.collapsingtoolbard);
         ratingBar = (RatingBar) findViewById(R.id.ratingBarDetalle);
         LayerDrawable stars = (LayerDrawable) ratingBar.getProgressDrawable();
         stars.getDrawable(2).setColorFilter(res.getColor(R.color.amarillo,null), PorterDuff.Mode.SRC_ATOP);
-       // foto = (ImageView) findViewById(R.id.fotocarro);
+        foto = (ImageView) findViewById(R.id.fotoEstablecimiento);
         cancha = (TextView) findViewById(R.id.txtd_cancha);
         direccion = (TextView) findViewById(R.id.txtd_direccion);
         celular = (TextView) findViewById(R.id.txtd_celular);
@@ -55,6 +63,14 @@ public class Detaller_Reserva extends AppCompatActivity {
         hora = (TextView) findViewById(R.id.txtd_hora);
         i = getIntent();
         bundle = i.getBundleExtra("datos");
+        System.out.println("foto"+bundle.getString("foto"));
+        storageReference = FirebaseStorage.getInstance().getReference();
+        storageReference.child(bundle.getString("foto")).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Picasso.with(Detaller_Reserva.this).load(uri).into(foto);
+            }
+        });
         //fot = bundle.getInt("foto");
         id=bundle.getString("id");
         cali_actual=Model_Favoritos.ObtenerCalificacion(id);

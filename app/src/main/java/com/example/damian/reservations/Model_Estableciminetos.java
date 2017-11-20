@@ -38,7 +38,7 @@ public class Model_Estableciminetos {
         Model_Estableciminetos.establecimientos = new ArrayList<>();
     }
 
-    public static void GuardarManual(){
+  /* public static void GuardarManual(){
         ArrayList<Integer> programacion = new ArrayList<>();
         for (int i = 8; i <22 ; i++) {
             programacion.add(i);
@@ -82,7 +82,7 @@ public class Model_Estableciminetos {
         GuardarEstablecimientos(e3);
         GuardarEstablecimientos(e4);
     }
-
+*/
     public static void CargarEstablecimientos(final String uid_usuario){
 
         establecimientos = new ArrayList<Establecimientos>();
@@ -121,6 +121,7 @@ public class Model_Estableciminetos {
                 x.add(establecimientos.get(i).getNombre());
                 x.add(establecimientos.get(i).getDireccion());
                 x.add(establecimientos.get(i).getCelular());
+                x.add(establecimientos.get(i).getFoto());
                 return x;
             }
 

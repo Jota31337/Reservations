@@ -11,17 +11,27 @@ public class Establecimientos {
     private  String nombre;
     private  String direccion;
     private String celular;
+    private String foto;
     private ArrayList<Canchas> canchas;
 
-    public Establecimientos(String id, String nombre, String direccion,String cel,ArrayList<Canchas>  canchas) {
+    public Establecimientos(String id, String nombre, String direccion,String cel,ArrayList<Canchas>  canchas,String foto) {
         this.id = id;
         this.nombre = nombre;
         this.celular=cel;
         this.direccion = direccion;
         this.canchas=canchas;
+        this.foto=foto;
     }
 
     public Establecimientos() {
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 
     public ArrayList<Canchas> getCanchas() {

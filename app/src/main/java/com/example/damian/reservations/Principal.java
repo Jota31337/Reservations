@@ -238,6 +238,7 @@ ConfirmarSalirr();
         b.putString("id",p.getId_reserva());
         b.putString("direccion",p.getDireccion());
         b.putString("celular",p.getCelular());
+        b.putString("foto",p.getFoto());
         b.putString("fecha",p.getFecha());
         b.putIntegerArrayList("hora",p.getHora());
         i.putExtra("datos",b);
