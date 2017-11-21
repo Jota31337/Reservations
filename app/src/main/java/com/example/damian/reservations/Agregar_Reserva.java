@@ -23,9 +23,12 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.TimeZone;
 
@@ -57,12 +60,12 @@ public class Agregar_Reserva extends AppCompatActivity  {
         formatoFecha.setTimeZone(TimeZone.getTimeZone("GMT-6"));
         formatoFecha.applyPattern("dd/MM/yyyy");
         fechaSelecionada = formatoFecha.format(fecha.getDate());
-        fecha.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-            @Override
-            public void onSelectedDayChange(CalendarView calendarView, int i, int i1, int i2) {
-                fechaSelecionada=i2 + "/" + i1 + "/" + i;
-                 }
+        fecha.setOnDateChangeListener( new CalendarView.OnDateChangeListener() {
+            public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
+              fechaSelecionada=dayOfMonth+"/"+(month+1)+"/"+year;
+            }//met
         });
+
        // CargarEstablecimientos();
         Linerinicial = (LinearLayout)findViewById(R.id.layinicial);
         linerlista = (LinearLayout)findViewById(R.id.laylista);
@@ -79,15 +82,37 @@ public class Agregar_Reserva extends AppCompatActivity  {
     }
 
 public void Continuar(View v){
-     horas_Seleccionadas = new ArrayList<>();
+    int valife=0;
+    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+    Date date = new Date();
+    Date date2= new Date();
+    String fechaActual = dateFormat.format(date);
+
+    try {
+        System.out.println("compa actual sin formato " + fechaActual);
+        System.out.println("compa sele sin formato " + fechaSelecionada);
+         date = dateFormat.parse(fechaActual);
+         date2 = dateFormat.parse(fechaSelecionada);
+         System.out.println("compa sele con formato " + dateFormat.format(date2));
+         valife=date2.compareTo(date);
+        System.out.println("compa"+ date2.compareTo(date));
+    } catch (ParseException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+    }
+
+if (valife==-1){
+    Mensaje(R.string.error_fecha,icon_warning);
+}else {
+    fechaSelecionada=dateFormat.format(date2);
+    horas_Seleccionadas = new ArrayList<>();
     tabla.removeAllViews();
 
 
-
     //CrearFilaPrincipalTabla();
-    for(int i = 0 ; i< programacion.size();i++){
-        boolean no_disponible = Moldel_Reservas.ValidarHora(fechaSelecionada,programacion.get(i),id_establecimiento,id_cancha);
-        System.out.println("no dispo "+no_disponible + programacion.get(i) + " fecha "+ fechaSelecionada);
+    for (int i = 0; i < programacion.size(); i++) {
+        boolean no_disponible = Moldel_Reservas.ValidarHora(fechaSelecionada, programacion.get(i), id_establecimiento, id_cancha);
+        System.out.println("no dispo " + no_disponible + programacion.get(i) + " fecha " + fechaSelecionada);
         TableRow fila = new TableRow(this);
         final CheckBox c4 = new CheckBox(this);
         TextView c1 = new TextView(this);
@@ -98,17 +123,17 @@ public void Continuar(View v){
         c4.setId(programacion.get(i));
 
 
-        if (!no_disponible){
+        if (!no_disponible) {
             c2.setBackground(res.getDrawable(R.drawable.borde_disponible));
             c4.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (c4.isChecked()){
-                        if (!existe(c4.getId())){
+                    if (c4.isChecked()) {
+                        if (!existe(c4.getId())) {
                             horas_Seleccionadas.add(c4.getId());
                         }
-                    }else{
-                        if (existe(c4.getId())){
+                    } else {
+                        if (existe(c4.getId())) {
                             horas_Seleccionadas.remove(existeIndex(c4.getId()));
                         }
 
@@ -117,17 +142,10 @@ public void Continuar(View v){
 
                 }
             });
-        }else{
+        } else {
             c2.setBackground(res.getDrawable(R.drawable.borde_no_disponible));
             c4.setEnabled(false);
         }
-
-
-
-
-
-
-
 
 
         c1.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
@@ -135,19 +153,20 @@ public void Continuar(View v){
         c2.setTextSize(16);
         c4.setTextSize(16);
 
-        c1.setTextColor(res.getColor(R.color.colorPrimaryText,null));
-        c2.setTextColor(res.getColor(R.color.colorPrimaryText,null));
+        c1.setTextColor(res.getColor(R.color.colorPrimaryText, null));
+        c2.setTextColor(res.getColor(R.color.colorPrimaryText, null));
 
 
         fila.addView(c1);
         fila.addView(c2);
         fila.addView(c4);
 
-fila.setBackground(res.getDrawable(R.drawable.borde_fila));
+        fila.setBackground(res.getDrawable(R.drawable.borde_fila));
 
         tabla.addView(fila);
     }
     Mostrar_Liner();
+}
 }
     public void Mensaje(int mensaje,int img){
         //Toast.makeText(Login.this, mensaje, Toast.LENGTH_LONG).show();
@@ -317,9 +336,9 @@ fila.setBackground(res.getDrawable(R.drawable.borde_fila));
     }
 
     public void GuardarReserva(){
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
-        Date date = new Date();
-        String fechaActual = dateFormat.format(date);
+
+
+
         Reservas a = new Reservas("1",id_cancha, id_user, fechaSelecionada, horas_Seleccionadas, true, id_establecimiento);
         Moldel_Reservas.GuardarReserva(a);
         Mensaje(R.string.ok_reserva, icon_good);

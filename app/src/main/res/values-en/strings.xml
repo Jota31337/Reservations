@@ -106,4 +106,5 @@
     <string name="cancelar_sugerencia">Are you Sure you want to cancel the Suggestion ?</string>
     <string name="sugerencias">Suggestions</string>
     <string name="num_estrellas">Number Star</string>
+    <string name="error_fecha">The date of the rservation can not be lest than the current date</string>
 </resources>

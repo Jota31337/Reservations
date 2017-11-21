@@ -123,4 +123,6 @@
     <string name="cancelar_sugerencia">¿ Esta Seguro que desea Cancelar la Sugerencia ?</string>
     <string name="sugerencias">Sugerencias</string>
     <string name="num_estrellas">Numero Estrellas</string>
+    <string name="error_fecha">La fecha de la Reserva No puede Ser menor que la Fecha actual</string>
+
 </resources>

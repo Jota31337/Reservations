@@ -122,29 +122,29 @@ public class Cancha_Reserva {
 
     public String ConvertirFecha(String fecha){
         String [] date = fecha.split("/");
-        if (date[1].equalsIgnoreCase("01")){
+        if (date[1].equalsIgnoreCase("01") || date[1].equalsIgnoreCase("1")){
             return "Enero " + date [0] +" de "+date[2];
-        }else   if (date[1].equalsIgnoreCase("02")){
+        }else   if (date[1].equalsIgnoreCase("02") || date[1].equalsIgnoreCase("2")){
             return "Febrero " + date [0] +" de "+date[2];
-        }else   if (date[1].equalsIgnoreCase("03")){
+        }else   if (date[1].equalsIgnoreCase("03") || date[1].equalsIgnoreCase("3")){
             return "Marzo " + date [0] +" de "+date[2];
-        }else   if (date[1].equalsIgnoreCase("04")){
+        }else   if (date[1].equalsIgnoreCase("04") || date[1].equalsIgnoreCase("4")){
             return "Abril " + date [0] +" de "+date[2];
-        }else   if (date[1].equalsIgnoreCase("05")){
+        }else   if (date[1].equalsIgnoreCase("05") || date[1].equalsIgnoreCase("5")){
             return "Mayo " + date [0] +" de "+date[2];
-        }else   if (date[1].equalsIgnoreCase("06")){
+        }else   if (date[1].equalsIgnoreCase("06") || date[1].equalsIgnoreCase("6")){
             return "Junio " + date [0] +" de "+date[2];
-        }else   if (date[1].equalsIgnoreCase("07")){
+        }else   if (date[1].equalsIgnoreCase("07") || date[1].equalsIgnoreCase("7")){
             return "Julio " + date [0] +" de "+date[2];
-        }else   if (date[1].equalsIgnoreCase("08")){
+        }else   if (date[1].equalsIgnoreCase("08") || date[1].equalsIgnoreCase("8")){
             return "Agosto " + date [0] +" de "+date[2];
-        }else   if (date[1].equalsIgnoreCase("09")){
+        }else   if (date[1].equalsIgnoreCase("09") || date[1].equalsIgnoreCase("9")){
             return "Septiembre " + date [0] +" de "+date[2];
-        }else   if (date[1].equalsIgnoreCase("10")){
+        }else   if (date[1].equalsIgnoreCase("10") ){
             return "Octubre " + date [0] +" de "+date[2];
-        }else   if (date[1].equalsIgnoreCase("11")){
+        }else   if (date[1].equalsIgnoreCase("11") ){
             return "Noviembre " + date [0] +" de "+date[2];
-        }else   if (date[1].equalsIgnoreCase("12")){
+        }else   if (date[1].equalsIgnoreCase("12") ){
             return "Diciembre " + date [0] +" de "+date[2];
         }
 return fecha;
