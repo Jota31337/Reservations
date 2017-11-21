@@ -32,6 +32,9 @@ public class Cancha_Reserva {
         this.foto=foto;
     }
 
+    public Cancha_Reserva() {
+    }
+
     public String getFoto() {
         return foto;
     }
@@ -150,12 +153,12 @@ public class Cancha_Reserva {
 return fecha;
     }
     public String ConvertirHora(int x){
-if (x==12){
+     if (x==12){
     return  "12 PM";
-}
-if (x==24){
+   }
+      if (x==24){
     return  "12 AM";
-}
+ }
         if (x>12){
             return (x-12) + " PM";
         }
