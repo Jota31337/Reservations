@@ -9,39 +9,29 @@
     android:orientation="vertical"
     tools:context="com.example.damian.reservations.Agrega_Usuario"
     tools:layout_editor_absoluteX="8dp"
-    tools:layout_editor_absoluteY="8dp">
+    tools:layout_editor_absoluteY="8dp"
+    android:weightSum="1">
 
     <LinearLayout
-        android:id="@+id/laydatospersona_modi"
+        android:id="@+id/laysugerencia"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:visibility="gone"
         android:weightSum="1">
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:fontFamily="serif"
-            android:text="@string/modificar_usuario"
-            android:textColor="@color/colorPrimaryText"
-            android:textSize="18sp"
-            android:textStyle="italic" />
-
         <ImageView
             android:id="@+id/imageView4"
-            android:layout_width="match_parent"
-            android:layout_height="47dp"
-            app:srcCompat="@drawable/usermale3" />
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/login" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="serif"
-            android:text="@string/datos_personales"
+            android:text="@string/agregar_sugerencia"
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="@color/colorPrimary"
@@ -53,11 +43,11 @@
             android:layout_height="match_parent">
 
             <EditText
-                android:id="@+id/txtnombre_modi"
+                android:id="@+id/txttema"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="serif"
-                android:hint="@string/nombres" />
+                android:hint="@string/tema" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -65,57 +55,12 @@
             android:layout_height="match_parent">
 
             <EditText
-                android:id="@+id/txtapellidos_modi"
+                android:id="@+id/txtdescripcion"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="170dp"
                 android:fontFamily="serif"
-                android:hint="@string/apellidos" />
+                android:hint="@string/descripcion" />
         </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <EditText
-                android:id="@+id/txtcelular_modi"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="serif"
-                android:hint="@string/celular"
-                android:inputType="number" />
-
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <EditText
-                android:id="@+id/txtcorreo_modi"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="serif"
-                android:hint="@string/correo" />
-
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <EditText
-                android:id="@+id/txtnacimiento_modi"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="serif"
-                android:hint="@string/fecha_nacimiento"
-                android:inputType="date" />
-        </android.support.design.widget.TextInputLayout>
-
-        <Spinner
-            android:id="@+id/cbxsexo_modi"
-            android:layout_width="match_parent"
-            android:layout_height="40dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -124,14 +69,13 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btnmodificar"
                 android:layout_width="166dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.21"
+                android:layout_weight="0.23"
                 android:background="@color/colorPrimaryDark"
                 android:fontFamily="serif"
-                android:onClick="ModificarPersona"
-                android:text="@string/modificar"
+                android:onClick="Guardar"
+                android:text="@string/guardar"
                 android:textColor="@color/icons"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -144,7 +88,7 @@
                 android:layout_weight="1"
                 android:background="@color/colorCancel"
                 android:fontFamily="serif"
-                android:onClick="Cancelar_modificar"
+                android:onClick="Cancelar"
                 android:text="@string/cancelar"
                 android:textColor="@color/cardview_light_background"
                 android:textSize="15sp"
@@ -154,5 +98,3 @@
     </LinearLayout>
 
 </LinearLayout>
-
-

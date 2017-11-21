@@ -122,8 +122,10 @@ public class Principal extends AppCompatActivity implements NavigationView.OnNav
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.menu_sugerencia) {
+            Intent help = new Intent(Principal.this,Agregar_Sugerencia.class);
+            startActivity(help);
+            finish();
         }
 
         return super.onOptionsItemSelected(item);

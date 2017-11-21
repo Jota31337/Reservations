@@ -25,6 +25,8 @@ import com.google.firebase.auth.FirebaseUser;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 import java.util.TimeZone;
 
 public class Agregar_Reserva extends AppCompatActivity  {
@@ -315,11 +317,13 @@ fila.setBackground(res.getDrawable(R.drawable.borde_fila));
     }
 
     public void GuardarReserva(){
-
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+        Date date = new Date();
+        String fechaActual = dateFormat.format(date);
         Reservas a = new Reservas("1",id_cancha, id_user, fechaSelecionada, horas_Seleccionadas, true, id_establecimiento);
         Moldel_Reservas.GuardarReserva(a);
         Mensaje(R.string.ok_reserva, icon_good);
-  onBackPressed2();
+        onBackPressed2();
     }
 
     public void onBackPressed2(){

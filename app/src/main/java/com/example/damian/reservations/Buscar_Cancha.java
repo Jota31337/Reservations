@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,6 +39,7 @@ private EditText dato ;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buscar__cancha);
         res=this.getResources();
+        System.out.println("respuesta" +  Model_Favoritos.RaitingEstablecimiento_cancha("-KyaLhY6jv6i9ae_ZV9x","0"));
         icon_warning =R.drawable.milky_25;
         icon_good =R.drawable.milky_25;
         busqueda = (Spinner)findViewById(R.id.cbxbusqueda);
@@ -46,6 +48,20 @@ private EditText dato ;
         opc_busqueda = res.getStringArray(R.array.op_busqueda);
         adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,opc_busqueda);
         busqueda.setAdapter(adapter);
+        busqueda.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                dato.setText("");
+                if (i==1){
+                    dato.setInputType(InputType.TYPE_CLASS_TEXT);
+                }else if (i==2 || i==3){
+                    dato.setInputType(InputType.TYPE_CLASS_NUMBER);
+                }
+            }
+
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                return;
+            }
+        });
         Mostrar_Liner();
     }
 

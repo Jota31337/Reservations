@@ -96,4 +96,14 @@
     <string name="valorar">Rating</string>
     <string name="sistema">System</string>
     <string name="info">Version 1 of ReservApp for Android Operating System</string>
+    <string name="tema">Theme</string>
+    <string name="agregar_sugerencia">Add Suggestion</string>
+    <string name="descripcion">Description</string>
+    <string name="guardar">Add</string>
+    <string name="ingrese_descripcion">Enter Description</string>
+    <string name="ingrese_tema">Enter Theme</string>
+    <string name="sugerencia_guardada">Thanks for you Suggestion</string>
+    <string name="cancelar_sugerencia">Are you Sure you want to cancel the Suggestion ?</string>
+    <string name="sugerencias">Suggestions</string>
+    <string name="num_estrellas">Number Star</string>
 </resources>

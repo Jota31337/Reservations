@@ -72,6 +72,7 @@
         <item>@string/metodo_busqueda</item>
         <item>@string/establecimiento</item>
         <item>@string/tamano</item>
+        <item>@string/num_estrellas</item>
     </string-array>
     <string name="title_activity_buscar__cancha">Buscar_Cancha</string>
     <string name="buscar_cancha">Buscar Cancha</string>
@@ -112,4 +113,14 @@
     <string name="sistema">Sistema</string>
     <string name="ok" translatable="false">OK</string>
     <string name="info">Version 1 de ReservApp para Sistemas Operativos Android</string>
+    <string name="agregar_sugerencia">Agregar Sugerencia</string>
+    <string name="tema" >Tema</string>
+    <string name="descripcion">Descripcion</string>
+    <string name="guardar">Guardar</string>
+    <string name="ingrese_descripcion">Ingrese Descripcion</string>
+    <string name="ingrese_tema">Ingrese Tema</string>
+    <string name="sugerencia_guardada">Gracias por su Sugerencia</string>
+    <string name="cancelar_sugerencia">¿ Esta Seguro que desea Cancelar la Sugerencia ?</string>
+    <string name="sugerencias">Sugerencias</string>
+    <string name="num_estrellas">Numero Estrellas</string>
 </resources>

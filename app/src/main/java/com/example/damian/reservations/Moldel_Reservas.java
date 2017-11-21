@@ -99,4 +99,13 @@ public class Moldel_Reservas {
         return false;
 
     }
+
+    public static Reservas TraerReservaBuscada(String id){
+        for (int i = 0; i < reservasgeneral.size(); i++) {
+            if (reservasgeneral.get(i).getId().equals(id)){
+                return reservasgeneral.get(i);
+            }
+        }
+    return null;
+    }
 }

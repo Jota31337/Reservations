@@ -6,6 +6,7 @@
     android:id="@+id/Layayuda"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fondoq"
     android:orientation="vertical"
     tools:context="com.example.damian.reservations.Ayuda"
     tools:layout_editor_absoluteX="8dp"

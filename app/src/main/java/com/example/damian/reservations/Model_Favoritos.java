@@ -74,4 +74,21 @@ public class Model_Favoritos {
         }
         return "";
     }
+    public static double RaitingEstablecimiento_cancha(String id_establecimiento,String id_cancha){
+        int num_total=0;
+        double suma=0;
+        for (int i = 0; i < favoritosGenral.size() ; i++) {
+        Reservas x = Moldel_Reservas.TraerReservaBuscada(favoritosGenral.get(i).getId_reserva());
+            if (x!=null){
+                if (x.getId_establecimiento().equals(id_establecimiento) && x.getId_cancha().equals(id_cancha)){
+                num_total++;
+                suma=suma+favoritosGenral.get(i).getCalificacion();
+                }
+            }
+        }
+        if (num_total!=0){
+            return suma/num_total;
+        }
+        return 0;
+    }
 }

@@ -33,9 +33,10 @@
         <activity
             android:name=".Ayuda"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".informacion"
-            android:theme="@style/AppTheme.NoActionBar"
-            ></activity>
+        <activity
+            android:name=".informacion"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Agregar_Sugerencia"></activity>
     </application>
 
 </manifest>
