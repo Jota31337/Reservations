@@ -1,6 +1,7 @@
 package com.example.damian.reservations;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,10 +9,12 @@ import android.widget.LinearLayout;
 
 public class Ayuda extends AppCompatActivity {
     private LinearLayout Liner_inicio,liner_buscar,liner_resultado,liner_fecha,liner_hora,liner_reserva,liner_mireserva,liner_detaller,liner_cancelar,liner_calificar;
+   Resources res;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ayuda);
+        res=this.getResources();
         Liner_inicio = (LinearLayout)findViewById(R.id.lay_inicio);
         liner_buscar = (LinearLayout)findViewById(R.id.lay_buscar);
         liner_resultado = (LinearLayout)findViewById(R.id.lay_Resultados);
@@ -36,9 +39,11 @@ public class Ayuda extends AppCompatActivity {
     }
 
     public void inicio(View v){
-        if (liner_reserva.getVisibility() == View.VISIBLE)
+        liner_calificar.setBackground(null);
+        Liner_inicio.setBackground(res.getDrawable(R.drawable.principalayuda,null));
+        if (liner_calificar.getVisibility() == View.VISIBLE)
         {
-            Metodos.animar(false,liner_reserva);
+            Metodos.animar(false,liner_calificar);
         }
 
             if (Liner_inicio.getVisibility() == View.GONE)
@@ -47,6 +52,8 @@ public class Ayuda extends AppCompatActivity {
         }
     }
     public void buscar(View v){
+        Liner_inicio.setBackground(null);
+        liner_buscar.setBackground(res.getDrawable(R.drawable.principalbusqueda,null));
         if (Liner_inicio.getVisibility() == View.VISIBLE)
         {
             Metodos.animar(false,Liner_inicio);
@@ -56,6 +63,8 @@ public class Ayuda extends AppCompatActivity {
         }
     }
     public void resultado(View v){
+        liner_buscar.setBackground(null);
+        liner_resultado.setBackground(res.getDrawable(R.drawable.principalresultados,null));
         if (liner_buscar.getVisibility() == View.VISIBLE)
         {
             Metodos.animar(false,liner_buscar);
@@ -67,6 +76,8 @@ public class Ayuda extends AppCompatActivity {
         }
     }
     public void fecha(View v){
+        liner_resultado.setBackground(null);
+        liner_fecha.setBackground(res.getDrawable(R.drawable.principalfecha,null));
         if (liner_resultado.getVisibility() == View.VISIBLE)
         {
             Metodos.animar(false,liner_resultado);
@@ -78,6 +89,8 @@ public class Ayuda extends AppCompatActivity {
         }
     }
     public void hora(View v){
+        liner_fecha.setBackground(null);
+        liner_hora.setBackground(res.getDrawable(R.drawable.principalhoras,null));
         if (liner_fecha.getVisibility() == View.VISIBLE)
         {
             Metodos.animar(false,liner_fecha);
@@ -89,6 +102,8 @@ public class Ayuda extends AppCompatActivity {
         }
     }
     public void reserva(View v){
+        liner_hora.setBackground(null);
+        liner_reserva.setBackground(res.getDrawable(R.drawable.principalcompletar,null));
         if (liner_hora.getVisibility() == View.VISIBLE)
         {
             Metodos.animar(false,liner_hora);
@@ -100,6 +115,8 @@ public class Ayuda extends AppCompatActivity {
         }
     }
     public void mireserva(View v){
+        liner_reserva.setBackground(null);
+        liner_mireserva.setBackground(res.getDrawable(R.drawable.principalmireserva,null));
         if (liner_reserva.getVisibility() == View.VISIBLE)
         {
             Metodos.animar(false,liner_reserva);
@@ -111,6 +128,8 @@ public class Ayuda extends AppCompatActivity {
         }
     }
     public void detalle(View v){
+        liner_mireserva.setBackground(null);
+        liner_detaller.setBackground(res.getDrawable(R.drawable.principaldetallereserva,null));
         if (liner_mireserva.getVisibility() == View.VISIBLE)
         {
             Metodos.animar(false,liner_mireserva);
@@ -122,6 +141,8 @@ public class Ayuda extends AppCompatActivity {
         }
     }
     public void cancelar(View v){
+        liner_detaller.setBackground(null);
+        liner_cancelar.setBackground(res.getDrawable(R.drawable.principalcancelar,null));
         if (liner_detaller.getVisibility() == View.VISIBLE)
         {
             Metodos.animar(false,liner_detaller);
@@ -133,6 +154,8 @@ public class Ayuda extends AppCompatActivity {
         }
     }
     public void calificar(View v){
+        liner_cancelar.setBackground(null);
+        liner_calificar.setBackground(res.getDrawable(R.drawable.principalcalificar,null));
         if (liner_cancelar.getVisibility() == View.VISIBLE)
         {
             Metodos.animar(false,liner_cancelar);

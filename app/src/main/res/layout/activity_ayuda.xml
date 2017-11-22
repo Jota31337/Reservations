@@ -27,7 +27,6 @@
         android:id="@+id/lay_buscar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/principalbusqueda"
         android:onClick="resultado"
         android:orientation="vertical"
         android:visibility="gone">
@@ -38,7 +37,6 @@
         android:id="@+id/lay_Resultados"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/principalresultados"
         android:onClick="fecha"
         android:orientation="vertical"
         android:visibility="gone">
@@ -49,7 +47,6 @@
         android:id="@+id/lay_fecha"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/principalfecha"
         android:onClick="hora"
         android:orientation="vertical"
         android:visibility="gone">
@@ -60,7 +57,6 @@
         android:id="@+id/lay_hora"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/principalhoras"
         android:onClick="reserva"
         android:orientation="vertical"
         android:visibility="gone">
@@ -71,7 +67,6 @@
         android:id="@+id/lay_compl_reserva"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/principalcompletar"
         android:onClick="mireserva"
         android:orientation="vertical"
         android:visibility="gone">
@@ -82,7 +77,6 @@
         android:id="@+id/lay_prin_detaller"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/principalmireserva"
         android:onClick="detalle"
         android:orientation="vertical"
         android:visibility="gone">
@@ -93,7 +87,6 @@
         android:id="@+id/lay_Detaller"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/principaldetallereserva"
         android:onClick="cancelar"
         android:orientation="vertical"
         android:visibility="gone">
@@ -104,7 +97,6 @@
         android:id="@+id/lay_eliminar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/principalcancelar"
         android:onClick="calificar"
         android:orientation="vertical"
         android:visibility="gone">
@@ -115,7 +107,6 @@
         android:id="@+id/lay_favoritos"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/principalcalificar"
         android:onClick="inicio"
         android:orientation="vertical"
         android:visibility="gone">
