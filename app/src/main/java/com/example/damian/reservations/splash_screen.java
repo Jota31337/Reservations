@@ -26,7 +26,7 @@ import java.util.TimerTask;
 
 public class splash_screen extends AppCompatActivity {
     private static final long SPLASH_SCREEN_DELAY = 2000;
-    private static final long SPLASH_SCREEN_DELAY2 = 4000;
+    private static final long SPLASH_SCREEN_DELAY2 = 8000;
     private Bundle bundle;
     private String uid_usuario="",email="";
     private String uid;
